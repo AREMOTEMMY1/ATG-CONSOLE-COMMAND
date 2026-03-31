@@ -4,4 +4,4 @@ ATG-CONSOLE-COMMAND
 ├── package.json
 ├── src/
 │   ├── main.jsx
-│   └── App.jsx   ✅
+│   └── App.jsx   ✅ (THIS IS KEY)
