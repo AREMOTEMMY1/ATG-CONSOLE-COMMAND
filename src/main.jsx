@@ -1,7 +1,9 @@
-ATG-CONSOLE-COMMAND
-│
-├── index.html
-├── package.json
-├── src/
-│   ├── main.jsx
-│   └── App.jsx   ✅ (THIS IS KEY)
+import React from "react";
+import ReactDOM from "react-dom/client";
+import App from "./App";
+
+ReactDOM.createRoot(document.getElementById("root")).render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+);
