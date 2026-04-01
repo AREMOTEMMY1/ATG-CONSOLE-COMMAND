@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import "./index.css";
 
 // Icons as simple SVG components
@@ -46,13 +46,6 @@ const ChartIcon = () => (
   </svg>
 );
 
-const TerminalIcon = () => (
-  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-    <polyline points="4 17 10 11 4 5"/>
-    <line x1="12" x2="20" y1="19" y2="19"/>
-  </svg>
-);
-
 const MapPinIcon = () => (
   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
     <path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/>
@@ -91,6 +84,68 @@ const DollarIcon = () => (
   </svg>
 );
 
+const SatelliteIcon = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M13 7 9 3 5 7l4 4"/>
+    <path d="m17 11 4 4-4 4-4-4"/>
+    <path d="m8 12 4 4 6-6-4-4Z"/>
+    <path d="m16 8 3-3"/>
+    <path d="M9 21a6 6 0 0 0-6-6"/>
+  </svg>
+);
+
+const BotIcon = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M12 8V4H8"/>
+    <rect width="16" height="12" x="4" y="8" rx="2"/>
+    <path d="M2 14h2"/>
+    <path d="M20 14h2"/>
+    <path d="M15 13v2"/>
+    <path d="M9 13v2"/>
+  </svg>
+);
+
+const BankIcon = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <line x1="3" x2="21" y1="22" y2="22"/>
+    <line x1="6" x2="6" y1="18" y2="11"/>
+    <line x1="10" x2="10" y1="18" y2="11"/>
+    <line x1="14" x2="14" y1="18" y2="11"/>
+    <line x1="18" x2="18" y1="18" y2="11"/>
+    <polygon points="12 2 20 7 4 7"/>
+  </svg>
+);
+
+const BitcoinIcon = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M11.767 19.089c4.924.868 6.14-6.025 1.216-6.894m-1.216 6.894L5.86 18.047m5.908 1.042-.347 1.97m1.563-8.864c4.924.869 6.14-6.025 1.215-6.893m-1.215 6.893-3.94-.694m5.155-6.2L8.29 4.26m5.908 1.042.348-1.97M7.48 20.364l3.126-17.727"/>
+  </svg>
+);
+
+const SendIcon = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <path d="m22 2-7 20-4-9-9-4Z"/>
+    <path d="M22 2 11 13"/>
+  </svg>
+);
+
+const GlobeIcon = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <circle cx="12" cy="12" r="10"/>
+    <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/>
+    <path d="M2 12h20"/>
+  </svg>
+);
+
+const RefreshIcon = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/>
+    <path d="M21 3v5h-5"/>
+    <path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/>
+    <path d="M8 16H3v5"/>
+  </svg>
+);
+
 // Carrier data for the 12-carrier grid
 const CARRIERS = [
   { name: "Maersk", code: "MAEU", rate: 245, available: true },
@@ -121,8 +176,48 @@ const ACTIVE_JOBS = [
     margin: 1150,
     eta: "Apr 15, 2026",
     client: "Malaysia Proforma",
+    gpsCoords: { lat: 6.4541, lng: 3.3947 },
   },
 ];
+
+// Satellite Network Data
+const SATELLITE_NODES = [
+  { id: "SAT-NGR-01", location: "Lagos, Nigeria", status: "online", latency: 12, coverage: "West Africa" },
+  { id: "SAT-UAE-02", location: "Dubai, UAE", status: "online", latency: 18, coverage: "Middle East" },
+  { id: "SAT-CHN-03", location: "Shanghai, China", status: "online", latency: 24, coverage: "East Asia" },
+  { id: "SAT-EUR-04", location: "Rotterdam, NL", status: "online", latency: 15, coverage: "Europe" },
+  { id: "SAT-USA-05", location: "Houston, USA", status: "online", latency: 22, coverage: "Americas" },
+  { id: "SAT-LBN-06", location: "Beirut, Lebanon", status: "online", latency: 19, coverage: "Mediterranean" },
+];
+
+// ATG Finance Bank Data
+const ATG_FINANCE_ACCOUNTS = {
+  ubaMain: {
+    name: "AAT BRIAN AND BROTHER WORLDWIDE LIMITED",
+    bank: "United Bank for Africa (UBA)",
+    accountNumber: "****7892",
+    type: "CORPORATE",
+    balance: 14000000, // NGN
+    currency: "NGN",
+  },
+  cryptoWallet: {
+    name: "ATG CATC Wallet",
+    type: "CRYPTOCURRENCY",
+    balance: 2.5, // BTC equivalent
+    catcBalance: 125000, // CATC tokens
+    usdValue: 145000,
+  },
+};
+
+// AI CEO Responses
+const AI_CEO_RESPONSES = {
+  greeting: "Good day, CEO. All systems operational. I'm monitoring 6 satellite nodes, 12 carriers, and ATG Finance accounts in real-time.",
+  status: "Current operational status: THE BRAIN is processing $250 anchor rate jobs. THE EYES tracking 10/12 carriers online. ATG FINANCE holds N14M + 125,000 CATC.",
+  recommendation: "Based on current market analysis, I recommend loading jobs through Wan Hai (lowest rate at $238) for maximum margin optimization.",
+  alert: "ALERT: Hapag-Lloyd and HMM currently offline. Recommend routing through available carriers for time-sensitive shipments.",
+  finance: "ATG Finance Summary: UBA Corporate Account shows N14,000,000 balance. CATC Wallet holds 125,000 tokens valued at $145,000 USD.",
+  satellite: "Satellite network fully operational. All 6 nodes responding with average latency of 18ms. Global coverage maintained across 6 regions.",
+};
 
 // Status Card Component
 function StatusCard({ title, icon: Icon, status, statusClass, children }) {
@@ -188,6 +283,16 @@ function CommandButton({ children, variant = "default", onClick, disabled }) {
       color: "#000",
       border: "none",
     },
+    bank: {
+      background: "linear-gradient(135deg, #7c3aed, #a855f7)",
+      color: "#fff",
+      border: "none",
+    },
+    crypto: {
+      background: "linear-gradient(135deg, #f59e0b, #eab308)",
+      color: "#000",
+      border: "none",
+    },
   };
 
   return (
@@ -215,7 +320,7 @@ function CommandButton({ children, variant = "default", onClick, disabled }) {
 }
 
 // Modal Component
-function Modal({ isOpen, onClose, title, children }) {
+function Modal({ isOpen, onClose, title, children, wide }) {
   if (!isOpen) return null;
 
   return (
@@ -239,7 +344,7 @@ function Modal({ isOpen, onClose, title, children }) {
           border: "1px solid var(--border)",
           borderRadius: "12px",
           width: "100%",
-          maxWidth: "500px",
+          maxWidth: wide ? "700px" : "500px",
           maxHeight: "90vh",
           overflow: "auto",
         }}
@@ -274,10 +379,435 @@ function Modal({ isOpen, onClose, title, children }) {
   );
 }
 
+// AI CEO Component
+function AICEOPanel({ messages, onSendMessage, isTyping }) {
+  const [input, setInput] = useState("");
+  const messagesEndRef = useRef(null);
+
+  useEffect(() => {
+    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+  }, [messages]);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (input.trim()) {
+      onSendMessage(input);
+      setInput("");
+    }
+  };
+
+  const quickCommands = ["Status Report", "Finance Summary", "Satellite Check", "Recommendation"];
+
+  return (
+    <div
+      style={{
+        background: "var(--card)",
+        border: "1px solid var(--border)",
+        borderRadius: "var(--radius)",
+        height: "400px",
+        display: "flex",
+        flexDirection: "column",
+      }}
+    >
+      <div
+        style={{
+          padding: "16px",
+          borderBottom: "1px solid var(--border)",
+          display: "flex",
+          alignItems: "center",
+          gap: "12px",
+        }}
+      >
+        <div
+          style={{
+            width: "36px",
+            height: "36px",
+            background: "linear-gradient(135deg, var(--primary), var(--accent))",
+            borderRadius: "50%",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
+          <BotIcon />
+        </div>
+        <div>
+          <h3 style={{ fontSize: "14px", fontWeight: 600 }}>AI CEO ASSISTANT</h3>
+          <p className="status-live" style={{ fontSize: "11px", color: "var(--primary)" }}>
+            Active 24/7
+          </p>
+        </div>
+      </div>
+
+      <div
+        style={{
+          flex: 1,
+          overflow: "auto",
+          padding: "16px",
+          display: "flex",
+          flexDirection: "column",
+          gap: "12px",
+        }}
+      >
+        {messages.map((msg, i) => (
+          <div
+            key={i}
+            style={{
+              alignSelf: msg.role === "user" ? "flex-end" : "flex-start",
+              maxWidth: "85%",
+            }}
+          >
+            <div
+              style={{
+                background: msg.role === "user" ? "var(--primary)" : "var(--muted)",
+                color: msg.role === "user" ? "var(--primary-foreground)" : "var(--foreground)",
+                padding: "10px 14px",
+                borderRadius: "12px",
+                fontSize: "13px",
+                lineHeight: "1.5",
+              }}
+            >
+              {msg.content}
+            </div>
+            <p
+              style={{
+                fontSize: "10px",
+                color: "var(--muted-foreground)",
+                marginTop: "4px",
+                textAlign: msg.role === "user" ? "right" : "left",
+              }}
+            >
+              {msg.time}
+            </p>
+          </div>
+        ))}
+        {isTyping && (
+          <div
+            style={{
+              background: "var(--muted)",
+              padding: "10px 14px",
+              borderRadius: "12px",
+              alignSelf: "flex-start",
+            }}
+          >
+            <span className="animate-pulse" style={{ color: "var(--primary)" }}>
+              AI CEO is analyzing...
+            </span>
+          </div>
+        )}
+        <div ref={messagesEndRef} />
+      </div>
+
+      <div style={{ padding: "12px", borderTop: "1px solid var(--border)" }}>
+        <div style={{ display: "flex", gap: "8px", marginBottom: "12px", flexWrap: "wrap" }}>
+          {quickCommands.map((cmd) => (
+            <button
+              key={cmd}
+              onClick={() => onSendMessage(cmd)}
+              style={{
+                padding: "6px 12px",
+                background: "var(--muted)",
+                border: "1px solid var(--border)",
+                borderRadius: "16px",
+                fontSize: "11px",
+                color: "var(--foreground)",
+                cursor: "pointer",
+              }}
+            >
+              {cmd}
+            </button>
+          ))}
+        </div>
+        <form onSubmit={handleSubmit} style={{ display: "flex", gap: "8px" }}>
+          <input
+            type="text"
+            value={input}
+            onChange={(e) => setInput(e.target.value)}
+            placeholder="Ask AI CEO anything..."
+            style={{
+              flex: 1,
+              padding: "10px 14px",
+              background: "var(--muted)",
+              border: "1px solid var(--border)",
+              borderRadius: "8px",
+              color: "var(--foreground)",
+              fontSize: "13px",
+            }}
+          />
+          <button
+            type="submit"
+            style={{
+              padding: "10px 16px",
+              background: "var(--primary)",
+              border: "none",
+              borderRadius: "8px",
+              color: "var(--primary-foreground)",
+              cursor: "pointer",
+              display: "flex",
+              alignItems: "center",
+            }}
+          >
+            <SendIcon />
+          </button>
+        </form>
+      </div>
+    </div>
+  );
+}
+
+// Satellite Network Component
+function SatelliteNetwork({ nodes }) {
+  return (
+    <div
+      style={{
+        background: "var(--card)",
+        border: "1px solid var(--border)",
+        borderRadius: "var(--radius)",
+        padding: "20px",
+      }}
+    >
+      <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: "16px" }}>
+        <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
+          <div
+            style={{
+              width: "36px",
+              height: "36px",
+              background: "var(--muted)",
+              borderRadius: "8px",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              color: "var(--accent)",
+            }}
+          >
+            <SatelliteIcon />
+          </div>
+          <div>
+            <h3 style={{ fontSize: "14px", fontWeight: 600 }}>SATELLITE NETWORK</h3>
+            <p style={{ fontSize: "11px", color: "var(--muted-foreground)" }}>Global Tracking Coverage</p>
+          </div>
+        </div>
+        <span className="status-live" style={{ fontSize: "12px", color: "var(--primary)" }}>
+          {nodes.filter((n) => n.status === "online").length}/{nodes.length} NODES
+        </span>
+      </div>
+
+      <div style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: "12px" }}>
+        {nodes.map((node) => (
+          <div
+            key={node.id}
+            style={{
+              background: "var(--muted)",
+              borderRadius: "8px",
+              padding: "12px",
+            }}
+          >
+            <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: "8px" }}>
+              <span className="font-mono" style={{ fontSize: "11px", color: "var(--accent)" }}>
+                {node.id}
+              </span>
+              <span
+                style={{
+                  width: "8px",
+                  height: "8px",
+                  borderRadius: "50%",
+                  background: node.status === "online" ? "var(--primary)" : "var(--destructive)",
+                }}
+              />
+            </div>
+            <p style={{ fontSize: "12px", fontWeight: 500 }}>{node.location}</p>
+            <div style={{ display: "flex", justifyContent: "space-between", marginTop: "6px", fontSize: "11px", color: "var(--muted-foreground)" }}>
+              <span>{node.coverage}</span>
+              <span className="font-mono">{node.latency}ms</span>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+// ATG Finance Bank Modal Content
+function ATGFinanceContent({ accounts, onTransfer }) {
+  const [transferType, setTransferType] = useState(null);
+  const [amount, setAmount] = useState("");
+
+  const ngnRate = 1550;
+
+  return (
+    <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
+      {/* UBA Account */}
+      <div
+        style={{
+          background: "linear-gradient(135deg, #1e1b4b, #312e81)",
+          borderRadius: "12px",
+          padding: "20px",
+          border: "1px solid #4338ca",
+        }}
+      >
+        <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "16px" }}>
+          <BankIcon />
+          <div>
+            <p style={{ fontSize: "11px", color: "rgba(255,255,255,0.7)" }}>CORPORATE ACCOUNT</p>
+            <p style={{ fontSize: "14px", fontWeight: 600 }}>{accounts.ubaMain.name}</p>
+          </div>
+        </div>
+        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end" }}>
+          <div>
+            <p style={{ fontSize: "11px", color: "rgba(255,255,255,0.5)" }}>{accounts.ubaMain.bank}</p>
+            <p className="font-mono" style={{ fontSize: "12px", color: "rgba(255,255,255,0.7)" }}>
+              Acct: {accounts.ubaMain.accountNumber}
+            </p>
+          </div>
+          <div style={{ textAlign: "right" }}>
+            <p className="font-mono" style={{ fontSize: "24px", fontWeight: 700, color: "#a5b4fc" }}>
+              ₦{accounts.ubaMain.balance.toLocaleString()}
+            </p>
+            <p className="font-mono" style={{ fontSize: "12px", color: "rgba(255,255,255,0.5)" }}>
+              ${(accounts.ubaMain.balance / ngnRate).toLocaleString(undefined, { maximumFractionDigits: 0 })} USD
+            </p>
+          </div>
+        </div>
+      </div>
+
+      {/* CATC Crypto Wallet */}
+      <div
+        style={{
+          background: "linear-gradient(135deg, #451a03, #78350f)",
+          borderRadius: "12px",
+          padding: "20px",
+          border: "1px solid #b45309",
+        }}
+      >
+        <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "16px" }}>
+          <BitcoinIcon />
+          <div>
+            <p style={{ fontSize: "11px", color: "rgba(255,255,255,0.7)" }}>CRYPTOCURRENCY</p>
+            <p style={{ fontSize: "14px", fontWeight: 600 }}>{accounts.cryptoWallet.name}</p>
+          </div>
+        </div>
+        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px" }}>
+          <div>
+            <p style={{ fontSize: "11px", color: "rgba(255,255,255,0.5)" }}>CATC TOKENS</p>
+            <p className="font-mono" style={{ fontSize: "20px", fontWeight: 700, color: "#fbbf24" }}>
+              {accounts.cryptoWallet.catcBalance.toLocaleString()}
+            </p>
+          </div>
+          <div style={{ textAlign: "right" }}>
+            <p style={{ fontSize: "11px", color: "rgba(255,255,255,0.5)" }}>USD VALUE</p>
+            <p className="font-mono" style={{ fontSize: "20px", fontWeight: 700, color: "#fbbf24" }}>
+              ${accounts.cryptoWallet.usdValue.toLocaleString()}
+            </p>
+          </div>
+        </div>
+      </div>
+
+      {/* Transfer Options */}
+      <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
+        <p style={{ fontSize: "12px", color: "var(--muted-foreground)", fontWeight: 600 }}>TRANSFER OPTIONS</p>
+        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "12px" }}>
+          <button
+            onClick={() => setTransferType("uba-to-catc")}
+            style={{
+              padding: "14px",
+              background: transferType === "uba-to-catc" ? "var(--primary)" : "var(--muted)",
+              color: transferType === "uba-to-catc" ? "var(--primary-foreground)" : "var(--foreground)",
+              border: "1px solid var(--border)",
+              borderRadius: "8px",
+              fontSize: "12px",
+              fontWeight: 600,
+              cursor: "pointer",
+            }}
+          >
+            UBA → CATC
+          </button>
+          <button
+            onClick={() => setTransferType("catc-to-uba")}
+            style={{
+              padding: "14px",
+              background: transferType === "catc-to-uba" ? "var(--primary)" : "var(--muted)",
+              color: transferType === "catc-to-uba" ? "var(--primary-foreground)" : "var(--foreground)",
+              border: "1px solid var(--border)",
+              borderRadius: "8px",
+              fontSize: "12px",
+              fontWeight: 600,
+              cursor: "pointer",
+            }}
+          >
+            CATC → UBA
+          </button>
+        </div>
+
+        {transferType && (
+          <div style={{ marginTop: "12px" }}>
+            <label style={{ display: "block", fontSize: "12px", color: "var(--muted-foreground)", marginBottom: "6px" }}>
+              Amount ({transferType === "uba-to-catc" ? "NGN" : "CATC"})
+            </label>
+            <input
+              type="number"
+              value={amount}
+              onChange={(e) => setAmount(e.target.value)}
+              placeholder={transferType === "uba-to-catc" ? "Enter NGN amount" : "Enter CATC amount"}
+              style={{
+                width: "100%",
+                padding: "12px",
+                background: "var(--muted)",
+                border: "1px solid var(--border)",
+                borderRadius: "6px",
+                color: "var(--foreground)",
+                fontSize: "14px",
+                fontFamily: "'JetBrains Mono', monospace",
+              }}
+            />
+            <button
+              onClick={() => onTransfer(transferType, amount)}
+              disabled={!amount}
+              style={{
+                width: "100%",
+                padding: "14px",
+                background: "var(--primary)",
+                color: "var(--primary-foreground)",
+                border: "none",
+                borderRadius: "6px",
+                fontWeight: 600,
+                fontSize: "14px",
+                cursor: "pointer",
+                marginTop: "12px",
+                opacity: !amount ? 0.5 : 1,
+              }}
+            >
+              EXECUTE TRANSFER
+            </button>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}
+
 // Track All Modal Content
-function TrackAllContent({ jobs }) {
+function TrackAllContent({ jobs, satelliteNodes }) {
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
+      <div
+        style={{
+          background: "var(--muted)",
+          borderRadius: "8px",
+          padding: "12px",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-between",
+        }}
+      >
+        <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+          <SatelliteIcon />
+          <span style={{ fontSize: "12px" }}>Satellite Tracking Active</span>
+        </div>
+        <span className="font-mono" style={{ fontSize: "11px", color: "var(--primary)" }}>
+          {satelliteNodes.filter((n) => n.status === "online").length} nodes online
+        </span>
+      </div>
+
       {jobs.map((job) => (
         <div
           key={job.id}
@@ -317,6 +847,14 @@ function TrackAllContent({ jobs }) {
               <span style={{ color: "var(--border)" }}>|</span>
               <span>ETA: {job.eta}</span>
             </div>
+            {job.gpsCoords && (
+              <div style={{ display: "flex", alignItems: "center", gap: "8px", color: "var(--accent)" }}>
+                <GlobeIcon />
+                <span className="font-mono" style={{ fontSize: "11px" }}>
+                  GPS: {job.gpsCoords.lat.toFixed(4)}, {job.gpsCoords.lng.toFixed(4)}
+                </span>
+              </div>
+            )}
           </div>
         </div>
       ))}
@@ -506,9 +1044,9 @@ function LoadNewJobContent({ onSubmit, carriers }) {
 }
 
 // Withdraw Margin Modal Content
-function WithdrawMarginContent({ jobs }) {
+function WithdrawMarginContent({ jobs, accounts }) {
   const totalMargin = jobs.reduce((acc, job) => acc + job.margin, 0);
-  const ngnRate = 1550; // Example NGN/USD rate
+  const ngnRate = 1550;
   const totalMarginNGN = totalMargin * ngnRate;
 
   return (
@@ -555,28 +1093,54 @@ function WithdrawMarginContent({ jobs }) {
         ))}
       </div>
 
-      <button
-        style={{
-          padding: "14px",
-          background: "var(--warning)",
-          color: "#000",
-          border: "none",
-          borderRadius: "6px",
-          fontWeight: 600,
-          fontSize: "14px",
-          cursor: "pointer",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          gap: "8px",
-        }}
-      >
-        <DollarIcon />
-        WITHDRAW TO NIBSS
-      </button>
+      <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
+        <p style={{ fontSize: "12px", color: "var(--muted-foreground)", fontWeight: 600 }}>WITHDRAW TO</p>
+        <button
+          style={{
+            padding: "14px",
+            background: "linear-gradient(135deg, #1e1b4b, #312e81)",
+            color: "#fff",
+            border: "1px solid #4338ca",
+            borderRadius: "6px",
+            fontWeight: 600,
+            fontSize: "13px",
+            cursor: "pointer",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between",
+          }}
+        >
+          <span style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+            <BankIcon />
+            UBA - {accounts.ubaMain.name}
+          </span>
+          <span className="font-mono">₦{totalMarginNGN.toLocaleString()}</span>
+        </button>
+        <button
+          style={{
+            padding: "14px",
+            background: "linear-gradient(135deg, #451a03, #78350f)",
+            color: "#fff",
+            border: "1px solid #b45309",
+            borderRadius: "6px",
+            fontWeight: 600,
+            fontSize: "13px",
+            cursor: "pointer",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between",
+          }}
+        >
+          <span style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+            <BitcoinIcon />
+            CATC Wallet
+          </span>
+          <span className="font-mono">${totalMargin.toLocaleString()}</span>
+        </button>
+      </div>
 
       <p style={{ fontSize: "11px", color: "var(--muted-foreground)", textAlign: "center" }}>
-        Funds will be transferred to your verified NIBSS account within 24 hours
+        Funds will be processed through ATG FINANCE within 24 hours
       </p>
     </div>
   );
@@ -587,17 +1151,58 @@ export default function App() {
   const [currentTime, setCurrentTime] = useState(new Date());
   const [activeModal, setActiveModal] = useState(null);
   const [jobs, setJobs] = useState(ACTIVE_JOBS);
+  const [aiMessages, setAiMessages] = useState([
+    {
+      role: "assistant",
+      content: AI_CEO_RESPONSES.greeting,
+      time: new Date().toLocaleTimeString("en-US", { hour12: false }),
+    },
+  ]);
+  const [isAiTyping, setIsAiTyping] = useState(false);
   const [commandHistory, setCommandHistory] = useState([
     { time: "09:42:15", command: "SYSTEM BOOT", status: "success" },
     { time: "09:42:16", command: "12-CARRIER AGGREGATOR ONLINE", status: "success" },
-    { time: "09:42:17", command: "NIBSS VERIFICATION COMPLETE", status: "success" },
-    { time: "09:42:18", command: "READY FOR OPERATIONS", status: "success" },
+    { time: "09:42:17", command: "ATG FINANCE CONNECTED", status: "success" },
+    { time: "09:42:18", command: "SATELLITE NETWORK ONLINE [6 NODES]", status: "success" },
+    { time: "09:42:19", command: "AI CEO INITIALIZED - 24/7 MODE", status: "success" },
+    { time: "09:42:20", command: "READY FOR OPERATIONS", status: "success" },
   ]);
 
   useEffect(() => {
     const timer = setInterval(() => setCurrentTime(new Date()), 1000);
     return () => clearInterval(timer);
   }, []);
+
+  const handleAiMessage = (message) => {
+    const userMsg = {
+      role: "user",
+      content: message,
+      time: new Date().toLocaleTimeString("en-US", { hour12: false }),
+    };
+    setAiMessages((prev) => [...prev, userMsg]);
+    setIsAiTyping(true);
+
+    // Simulate AI response
+    setTimeout(() => {
+      let response = AI_CEO_RESPONSES.status;
+      const lowerMsg = message.toLowerCase();
+      if (lowerMsg.includes("status")) response = AI_CEO_RESPONSES.status;
+      else if (lowerMsg.includes("finance") || lowerMsg.includes("money") || lowerMsg.includes("bank")) response = AI_CEO_RESPONSES.finance;
+      else if (lowerMsg.includes("satellite") || lowerMsg.includes("network") || lowerMsg.includes("gps")) response = AI_CEO_RESPONSES.satellite;
+      else if (lowerMsg.includes("recommend") || lowerMsg.includes("advice") || lowerMsg.includes("suggest")) response = AI_CEO_RESPONSES.recommendation;
+      else if (lowerMsg.includes("alert") || lowerMsg.includes("warning") || lowerMsg.includes("offline")) response = AI_CEO_RESPONSES.alert;
+
+      setAiMessages((prev) => [
+        ...prev,
+        {
+          role: "assistant",
+          content: response,
+          time: new Date().toLocaleTimeString("en-US", { hour12: false }),
+        },
+      ]);
+      setIsAiTyping(false);
+    }, 1500);
+  };
 
   const handleLoadJob = (jobData) => {
     const newJob = {
@@ -612,6 +1217,7 @@ export default function App() {
       margin: jobData.margin,
       eta: "TBD",
       client: jobData.client,
+      gpsCoords: { lat: 6.4541 + Math.random() * 0.1, lng: 3.3947 + Math.random() * 0.1 },
     };
     setJobs([...jobs, newJob]);
     setCommandHistory([
@@ -619,6 +1225,18 @@ export default function App() {
       {
         time: currentTime.toLocaleTimeString("en-US", { hour12: false }),
         command: `LOADED: ${newJob.container} → ${newJob.destination}`,
+        status: "success",
+      },
+    ]);
+    setActiveModal(null);
+  };
+
+  const handleFinanceTransfer = (type, amount) => {
+    setCommandHistory([
+      ...commandHistory,
+      {
+        time: currentTime.toLocaleTimeString("en-US", { hour12: false }),
+        command: `ATG FINANCE: ${type.toUpperCase()} TRANSFER - ${amount}`,
         status: "success",
       },
     ]);
@@ -664,6 +1282,10 @@ export default function App() {
           </div>
         </div>
         <div style={{ display: "flex", alignItems: "center", gap: "20px" }}>
+          <div style={{ display: "flex", alignItems: "center", gap: "8px", padding: "8px 12px", background: "var(--muted)", borderRadius: "6px" }}>
+            <SatelliteIcon />
+            <span style={{ fontSize: "12px", color: "var(--accent)" }}>6 Satellites</span>
+          </div>
           <div style={{ textAlign: "right" }}>
             <p className="font-mono" style={{ fontSize: "14px", color: "var(--primary)" }}>
               {currentTime.toLocaleTimeString("en-US", { hour12: false })}
@@ -689,7 +1311,7 @@ export default function App() {
       </header>
 
       {/* Main Content */}
-      <main style={{ padding: "24px", maxWidth: "1400px", margin: "0 auto" }}>
+      <main style={{ padding: "24px", maxWidth: "1600px", margin: "0 auto" }}>
         {/* System Status Grid */}
         <section style={{ marginBottom: "32px" }}>
           <h2 style={{ fontSize: "12px", color: "var(--muted-foreground)", fontWeight: 600, marginBottom: "16px", letterSpacing: "0.05em" }}>
@@ -698,7 +1320,7 @@ export default function App() {
           <div
             style={{
               display: "grid",
-              gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))",
+              gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))",
               gap: "16px",
             }}
           >
@@ -720,14 +1342,14 @@ export default function App() {
               </div>
             </StatusCard>
 
-            <StatusCard title="THE FINANCE" icon={WalletIcon} status="LOCKED" statusClass="status-locked">
+            <StatusCard title="ATG FINANCE" icon={BankIcon} status="CONNECTED" statusClass="status-locked">
               <div style={{ fontSize: "13px", color: "var(--muted-foreground)" }}>
-                <p>NIBSS Verified</p>
+                <p>UBA + CATC Wallet</p>
                 <p className="font-mono" style={{ color: "var(--accent)", marginTop: "4px" }}>
                   ₦14,000,000.00
                 </p>
-                <p className="font-mono" style={{ fontSize: "11px", color: "var(--muted-foreground)" }}>
-                  $540,085.92 liquidity
+                <p className="font-mono" style={{ fontSize: "11px", color: "var(--warning)" }}>
+                  + 125,000 CATC
                 </p>
               </div>
             </StatusCard>
@@ -752,71 +1374,116 @@ export default function App() {
                 </p>
               </div>
             </StatusCard>
+
+            <StatusCard title="SATELLITE NET" icon={SatelliteIcon} status="ONLINE" statusClass="">
+              <div style={{ fontSize: "13px", color: "var(--muted-foreground)" }}>
+                <p>Global Tracking Network</p>
+                <p className="font-mono" style={{ color: "var(--accent)", marginTop: "4px" }}>
+                  {SATELLITE_NODES.filter((n) => n.status === "online").length}/6 <span style={{ color: "var(--muted-foreground)" }}>nodes active</span>
+                </p>
+              </div>
+            </StatusCard>
           </div>
         </section>
 
-        {/* Command Center */}
+        {/* Command Center + AI CEO */}
         <section style={{ marginBottom: "32px" }}>
-          <h2 style={{ fontSize: "12px", color: "var(--muted-foreground)", fontWeight: 600, marginBottom: "16px", letterSpacing: "0.05em" }}>
-            CEO COMMAND CENTER
-          </h2>
           <div
             style={{
-              background: "var(--card)",
-              border: "1px solid var(--border)",
-              borderRadius: "var(--radius)",
-              padding: "20px",
+              display: "grid",
+              gridTemplateColumns: "repeat(auto-fit, minmax(400px, 1fr))",
+              gap: "24px",
             }}
           >
-            <div style={{ display: "flex", gap: "12px", flexWrap: "wrap", marginBottom: "20px" }}>
-              <CommandButton variant="primary" onClick={() => setActiveModal("track")}>
-                <MapPinIcon /> TRACK ALL
-              </CommandButton>
-              <CommandButton variant="accent" onClick={() => setActiveModal("load")}>
-                <PlusIcon /> LOAD NEW JOB
-              </CommandButton>
-              <CommandButton variant="warning" onClick={() => setActiveModal("withdraw")}>
-                <DollarIcon /> WITHDRAW MARGIN
-              </CommandButton>
+            {/* CEO Command Center */}
+            <div>
+              <h2 style={{ fontSize: "12px", color: "var(--muted-foreground)", fontWeight: 600, marginBottom: "16px", letterSpacing: "0.05em" }}>
+                CEO COMMAND CENTER
+              </h2>
+              <div
+                style={{
+                  background: "var(--card)",
+                  border: "1px solid var(--border)",
+                  borderRadius: "var(--radius)",
+                  padding: "20px",
+                }}
+              >
+                <div style={{ display: "flex", gap: "12px", flexWrap: "wrap", marginBottom: "16px" }}>
+                  <CommandButton variant="primary" onClick={() => setActiveModal("track")}>
+                    <MapPinIcon /> TRACK ALL
+                  </CommandButton>
+                  <CommandButton variant="accent" onClick={() => setActiveModal("load")}>
+                    <PlusIcon /> LOAD NEW JOB
+                  </CommandButton>
+                  <CommandButton variant="warning" onClick={() => setActiveModal("withdraw")}>
+                    <DollarIcon /> WITHDRAW MARGIN
+                  </CommandButton>
+                </div>
+                <div style={{ display: "flex", gap: "12px", flexWrap: "wrap" }}>
+                  <CommandButton variant="bank" onClick={() => setActiveModal("finance")}>
+                    <BankIcon /> ATG FINANCE
+                  </CommandButton>
+                  <CommandButton variant="crypto" onClick={() => setActiveModal("finance")}>
+                    <BitcoinIcon /> CATC WALLET
+                  </CommandButton>
+                </div>
+
+                {/* Command Log */}
+                <div
+                  style={{
+                    background: "var(--background)",
+                    borderRadius: "6px",
+                    padding: "16px",
+                    fontFamily: "'JetBrains Mono', monospace",
+                    fontSize: "11px",
+                    maxHeight: "150px",
+                    overflow: "auto",
+                    marginTop: "16px",
+                  }}
+                >
+                  {commandHistory.slice(-6).map((entry, i) => (
+                    <div key={i} style={{ display: "flex", gap: "12px", marginBottom: "4px" }}>
+                      <span style={{ color: "var(--muted-foreground)" }}>[{entry.time}]</span>
+                      <span style={{ color: entry.status === "success" ? "var(--primary)" : "var(--destructive)" }}>
+                        {entry.command}
+                      </span>
+                    </div>
+                  ))}
+                  <div style={{ display: "flex", gap: "12px" }}>
+                    <span style={{ color: "var(--muted-foreground)" }}>
+                      [{currentTime.toLocaleTimeString("en-US", { hour12: false })}]
+                    </span>
+                    <span className="animate-pulse" style={{ color: "var(--primary)" }}>
+                      AWAITING COMMAND_
+                    </span>
+                  </div>
+                </div>
+              </div>
             </div>
 
-            {/* Command Log */}
-            <div
-              style={{
-                background: "var(--background)",
-                borderRadius: "6px",
-                padding: "16px",
-                fontFamily: "'JetBrains Mono', monospace",
-                fontSize: "12px",
-                maxHeight: "150px",
-                overflow: "auto",
-              }}
-            >
-              {commandHistory.map((entry, i) => (
-                <div key={i} style={{ display: "flex", gap: "12px", marginBottom: "4px" }}>
-                  <span style={{ color: "var(--muted-foreground)" }}>[{entry.time}]</span>
-                  <span style={{ color: entry.status === "success" ? "var(--primary)" : "var(--destructive)" }}>
-                    {entry.command}
-                  </span>
-                </div>
-              ))}
-              <div style={{ display: "flex", gap: "12px" }}>
-                <span style={{ color: "var(--muted-foreground)" }}>
-                  [{currentTime.toLocaleTimeString("en-US", { hour12: false })}]
-                </span>
-                <span className="animate-pulse" style={{ color: "var(--primary)" }}>
-                  AWAITING COMMAND_
-                </span>
-              </div>
+            {/* AI CEO Assistant */}
+            <div>
+              <h2 style={{ fontSize: "12px", color: "var(--muted-foreground)", fontWeight: 600, marginBottom: "16px", letterSpacing: "0.05em" }}>
+                AI CEO ASSISTANT (24/7)
+              </h2>
+              <AICEOPanel messages={aiMessages} onSendMessage={handleAiMessage} isTyping={isAiTyping} />
             </div>
           </div>
         </section>
 
-        {/* Two Column Layout: Carrier Grid & Active Jobs */}
+        {/* Satellite Network */}
+        <section style={{ marginBottom: "32px" }}>
+          <h2 style={{ fontSize: "12px", color: "var(--muted-foreground)", fontWeight: 600, marginBottom: "16px", letterSpacing: "0.05em" }}>
+            SATELLITE NETWORK - GLOBAL COVERAGE
+          </h2>
+          <SatelliteNetwork nodes={SATELLITE_NODES} />
+        </section>
+
+        {/* Three Column Layout: Carrier Grid, Active Jobs, Quick Stats */}
         <div
           style={{
             display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(400px, 1fr))",
+            gridTemplateColumns: "repeat(auto-fit, minmax(350px, 1fr))",
             gap: "24px",
           }}
         >
@@ -924,6 +1591,7 @@ export default function App() {
                         borderRadius: "4px",
                         fontSize: "11px",
                         fontWeight: 600,
+                        border: job.status !== "Vessel Ready" ? "1px solid var(--border)" : "none",
                       }}
                     >
                       {job.status}
@@ -958,6 +1626,96 @@ export default function App() {
               )}
             </div>
           </section>
+
+          {/* Quick Financial Stats */}
+          <section>
+            <h2 style={{ fontSize: "12px", color: "var(--muted-foreground)", fontWeight: 600, marginBottom: "16px", letterSpacing: "0.05em" }}>
+              ATG FINANCE OVERVIEW
+            </h2>
+            <div
+              style={{
+                background: "var(--card)",
+                border: "1px solid var(--border)",
+                borderRadius: "var(--radius)",
+                padding: "20px",
+                display: "flex",
+                flexDirection: "column",
+                gap: "16px",
+              }}
+            >
+              <div
+                style={{
+                  background: "linear-gradient(135deg, #1e1b4b, #312e81)",
+                  borderRadius: "8px",
+                  padding: "16px",
+                }}
+              >
+                <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "8px" }}>
+                  <BankIcon />
+                  <span style={{ fontSize: "11px", color: "rgba(255,255,255,0.7)" }}>UBA CORPORATE</span>
+                </div>
+                <p className="font-mono" style={{ fontSize: "20px", fontWeight: 700, color: "#a5b4fc" }}>
+                  ₦{ATG_FINANCE_ACCOUNTS.ubaMain.balance.toLocaleString()}
+                </p>
+                <p style={{ fontSize: "11px", color: "rgba(255,255,255,0.5)", marginTop: "4px" }}>
+                  AAT BRIAN AND BROTHER WORLDWIDE LIMITED
+                </p>
+              </div>
+
+              <div
+                style={{
+                  background: "linear-gradient(135deg, #451a03, #78350f)",
+                  borderRadius: "8px",
+                  padding: "16px",
+                }}
+              >
+                <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "8px" }}>
+                  <BitcoinIcon />
+                  <span style={{ fontSize: "11px", color: "rgba(255,255,255,0.7)" }}>CATC WALLET</span>
+                </div>
+                <p className="font-mono" style={{ fontSize: "20px", fontWeight: 700, color: "#fbbf24" }}>
+                  {ATG_FINANCE_ACCOUNTS.cryptoWallet.catcBalance.toLocaleString()} CATC
+                </p>
+                <p style={{ fontSize: "11px", color: "rgba(255,255,255,0.5)", marginTop: "4px" }}>
+                  ${ATG_FINANCE_ACCOUNTS.cryptoWallet.usdValue.toLocaleString()} USD Value
+                </p>
+              </div>
+
+              <div
+                style={{
+                  background: "var(--muted)",
+                  borderRadius: "8px",
+                  padding: "16px",
+                  textAlign: "center",
+                }}
+              >
+                <p style={{ fontSize: "11px", color: "var(--muted-foreground)", marginBottom: "4px" }}>TOTAL LIQUIDITY</p>
+                <p className="font-mono" style={{ fontSize: "18px", fontWeight: 700, color: "var(--primary)" }}>
+                  $685,085.92
+                </p>
+              </div>
+
+              <button
+                onClick={() => setActiveModal("finance")}
+                style={{
+                  padding: "12px",
+                  background: "var(--primary)",
+                  color: "var(--primary-foreground)",
+                  border: "none",
+                  borderRadius: "6px",
+                  fontWeight: 600,
+                  fontSize: "13px",
+                  cursor: "pointer",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  gap: "8px",
+                }}
+              >
+                <RefreshIcon /> MANAGE ACCOUNTS
+              </button>
+            </div>
+          </section>
         </div>
       </main>
 
@@ -977,9 +1735,11 @@ export default function App() {
         }}
       >
         <div style={{ display: "flex", alignItems: "center", gap: "16px" }}>
-          <span>ATG GLOBAL OS v2.0</span>
+          <span>ATG GLOBAL OS v3.0</span>
           <span style={{ color: "var(--border)" }}>|</span>
-          <span>Ghost Monitoring: ACTIVE</span>
+          <span>AI CEO: ACTIVE 24/7</span>
+          <span style={{ color: "var(--border)" }}>|</span>
+          <span>Satellite Network: 6 NODES</span>
         </div>
         <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
           <span>Identifiers:</span>
@@ -990,8 +1750,8 @@ export default function App() {
       </footer>
 
       {/* Modals */}
-      <Modal isOpen={activeModal === "track"} onClose={() => setActiveModal(null)} title="TRACK ALL SHIPMENTS">
-        <TrackAllContent jobs={jobs} />
+      <Modal isOpen={activeModal === "track"} onClose={() => setActiveModal(null)} title="TRACK ALL SHIPMENTS - SATELLITE VIEW">
+        <TrackAllContent jobs={jobs} satelliteNodes={SATELLITE_NODES} />
       </Modal>
 
       <Modal isOpen={activeModal === "load"} onClose={() => setActiveModal(null)} title="LOAD NEW JOB">
@@ -999,7 +1759,11 @@ export default function App() {
       </Modal>
 
       <Modal isOpen={activeModal === "withdraw"} onClose={() => setActiveModal(null)} title="WITHDRAW MARGIN">
-        <WithdrawMarginContent jobs={jobs} />
+        <WithdrawMarginContent jobs={jobs} accounts={ATG_FINANCE_ACCOUNTS} />
+      </Modal>
+
+      <Modal isOpen={activeModal === "finance"} onClose={() => setActiveModal(null)} title="ATG FINANCE - BANK & CRYPTO" wide>
+        <ATGFinanceContent accounts={ATG_FINANCE_ACCOUNTS} onTransfer={handleFinanceTransfer} />
       </Modal>
     </div>
   );
