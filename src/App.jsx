@@ -63,6 +63,22 @@ const ShipIcon = () => (
   </svg>
 );
 
+const PlaneIcon = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.5 5.3c.3.4.8.5 1.3.3l.5-.2c.4-.3.6-.7.5-1.2z"/>
+  </svg>
+);
+
+const TruckIcon = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"/>
+    <path d="M15 18H9"/>
+    <path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14"/>
+    <circle cx="17" cy="18" r="2"/>
+    <circle cx="7" cy="18" r="2"/>
+  </svg>
+);
+
 const CloseIcon = () => (
   <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
     <path d="M18 6 6 18"/>
@@ -146,23 +162,143 @@ const RefreshIcon = () => (
   </svg>
 );
 
-// Carrier data for the 12-carrier grid
-const CARRIERS = [
-  { name: "Maersk", code: "MAEU", rate: 245, available: true },
-  { name: "MSC", code: "MSCU", rate: 250, available: true },
-  { name: "CMA CGM", code: "CMDU", rate: 255, available: true },
-  { name: "COSCO", code: "COSU", rate: 248, available: true },
-  { name: "Hapag-Lloyd", code: "HLCU", rate: 260, available: false },
-  { name: "ONE", code: "ONEY", rate: 252, available: true },
-  { name: "Evergreen", code: "EGLV", rate: 247, available: true },
-  { name: "Yang Ming", code: "YMLU", rate: 243, available: true },
-  { name: "HMM", code: "HDMU", rate: 251, available: false },
-  { name: "ZIM", code: "ZIMU", rate: 249, available: true },
-  { name: "PIL", code: "PCIU", rate: 240, available: true },
-  { name: "Wan Hai", code: "WHLC", rate: 238, available: true },
+const FileIcon = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/>
+    <path d="M14 2v4a2 2 0 0 0 2 2h4"/>
+  </svg>
+);
+
+const UsersIcon = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
+    <circle cx="9" cy="7" r="4"/>
+    <path d="M22 21v-2a4 4 0 0 0-3-3.87"/>
+    <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+  </svg>
+);
+
+const PlugIcon = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M12 22v-5"/>
+    <path d="M9 8V2"/>
+    <path d="M15 8V2"/>
+    <path d="M18 8v5a4 4 0 0 1-4 4h-4a4 4 0 0 1-4-4V8Z"/>
+  </svg>
+);
+
+const LayersIcon = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <path d="m12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83Z"/>
+    <path d="m22 17.65-9.17 4.16a2 2 0 0 1-1.66 0L2 17.65"/>
+    <path d="m22 12.65-9.17 4.16a2 2 0 0 1-1.66 0L2 12.65"/>
+  </svg>
+);
+
+const ShieldIcon = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/>
+    <path d="m9 12 2 2 4-4"/>
+  </svg>
+);
+
+const BuildingIcon = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <rect width="16" height="20" x="4" y="2" rx="2" ry="2"/>
+    <path d="M9 22v-4h6v4"/>
+    <path d="M8 6h.01"/>
+    <path d="M16 6h.01"/>
+    <path d="M12 6h.01"/>
+    <path d="M12 10h.01"/>
+    <path d="M12 14h.01"/>
+    <path d="M16 10h.01"/>
+    <path d="M16 14h.01"/>
+    <path d="M8 10h.01"/>
+    <path d="M8 14h.01"/>
+  </svg>
+);
+
+// ================== DATA STRUCTURES ==================
+
+// ATG EMPIRE - Registered Companies
+const ATG_ENTITIES = [
+  { id: "ENT-001", name: "AAT BRIAN AND BROTHER WORLDWIDE LIMITED", type: "MAIN", country: "Nigeria", cac: "RC-1234567" },
+  { id: "ENT-002", name: "ATG GLOBAL LOGISTICS", type: "SUBSIDIARY", country: "Nigeria", cac: "RC-7654321" },
+  { id: "ENT-003", name: "ATG TRADE INTERNATIONAL", type: "SUBSIDIARY", country: "UAE", cac: "DED-2024" },
 ];
 
-// Active jobs/containers
+// LAYER 1: Command Core - 12-Carrier Grid
+const CARRIERS = [
+  { name: "Maersk", code: "MAEU", rate: 245, available: true, apiStatus: "connected", type: "sea" },
+  { name: "MSC", code: "MSCU", rate: 250, available: true, apiStatus: "connected", type: "sea" },
+  { name: "CMA CGM", code: "CMDU", rate: 255, available: true, apiStatus: "connected", type: "sea" },
+  { name: "COSCO", code: "COSU", rate: 248, available: true, apiStatus: "connected", type: "sea" },
+  { name: "Hapag-Lloyd", code: "HLCU", rate: 260, available: false, apiStatus: "offline", type: "sea" },
+  { name: "ONE", code: "ONEY", rate: 252, available: true, apiStatus: "connected", type: "sea" },
+  { name: "Evergreen", code: "EGLV", rate: 247, available: true, apiStatus: "connected", type: "sea" },
+  { name: "Yang Ming", code: "YMLU", rate: 243, available: true, apiStatus: "connected", type: "sea" },
+  { name: "HMM", code: "HDMU", rate: 251, available: false, apiStatus: "offline", type: "sea" },
+  { name: "ZIM", code: "ZIMU", rate: 249, available: true, apiStatus: "connected", type: "sea" },
+  { name: "PIL", code: "PCIU", rate: 240, available: true, apiStatus: "connected", type: "sea" },
+  { name: "Wan Hai", code: "WHLC", rate: 238, available: true, apiStatus: "connected", type: "sea" },
+];
+
+// Air Freight Partners
+const AIR_CARRIERS = [
+  { name: "Emirates SkyCargo", code: "EK", rate: 4.5, available: true, type: "air" },
+  { name: "Qatar Cargo", code: "QR", rate: 4.2, available: true, type: "air" },
+  { name: "Ethiopian Cargo", code: "ET", rate: 3.8, available: true, type: "air" },
+  { name: "Turkish Cargo", code: "TK", rate: 4.0, available: true, type: "air" },
+];
+
+// Land/Trucking Partners
+const LAND_CARRIERS = [
+  { name: "ATG Fleet (Internal)", code: "ATG-TRK", rate: 150, available: true, type: "land" },
+  { name: "GIGM Logistics", code: "GIGM", rate: 180, available: true, type: "land" },
+  { name: "ABC Transport", code: "ABC", rate: 165, available: true, type: "land" },
+];
+
+// LAYER 2: Financial Engine - Bank Accounts
+const ATG_FINANCE_ACCOUNTS = {
+  ubaMain: {
+    name: "AAT BRIAN AND BROTHER WORLDWIDE LIMITED",
+    bank: "United Bank for Africa (UBA)",
+    accountNumber: "****7892",
+    type: "CORPORATE",
+    balance: 14000000,
+    currency: "NGN",
+    swiftCode: "UNABORLA",
+  },
+  ubaSecondary: {
+    name: "ATG GLOBAL LOGISTICS",
+    bank: "United Bank for Africa (UBA)",
+    accountNumber: "****4521",
+    type: "OPERATIONS",
+    balance: 5500000,
+    currency: "NGN",
+    swiftCode: "UNABORLA",
+  },
+  cryptoWallet: {
+    name: "ATG CATC Wallet",
+    type: "CRYPTOCURRENCY",
+    catcBalance: 125000,
+    btcBalance: 2.5,
+    usdtBalance: 85000,
+    ethBalance: 15.8,
+    usdValue: 245000,
+  },
+};
+
+// Payment Rails
+const PAYMENT_RAILS = [
+  { name: "Flutterwave", type: "payment", status: "connected", region: "Africa" },
+  { name: "Paystack", type: "payment", status: "connected", region: "Nigeria" },
+  { name: "Stripe", type: "payment", status: "pending", region: "International" },
+  { name: "Binance API", type: "crypto", status: "connected", region: "Global" },
+  { name: "SWIFT", type: "wire", status: "manual", region: "Global" },
+];
+
+// LAYER 3: Logistics Engine - Active Jobs
 const ACTIVE_JOBS = [
   {
     id: "JOB-2026-001",
@@ -171,16 +307,53 @@ const ACTIVE_JOBS = [
     destination: "Lagos, Nigeria",
     status: "Vessel Ready",
     carrier: "Maersk",
+    mode: "SEA",
     rate: 250,
     clientRate: 1400,
     margin: 1150,
     eta: "Apr 15, 2026",
     client: "Malaysia Proforma",
     gpsCoords: { lat: 6.4541, lng: 3.3947 },
+    documents: ["BL", "Invoice", "Packing List"],
   },
 ];
 
-// Satellite Network Data
+// LAYER 4: Global Trade Network - Buyers/Suppliers CRM
+const TRADE_NETWORK = {
+  buyers: [
+    { id: "BUY-001", name: "US Import Corp", country: "USA", type: "BUYER", deals: 3, value: 45000, status: "active" },
+    { id: "BUY-002", name: "Malaysia Trading LLC", country: "Malaysia", type: "BUYER", deals: 1, value: 1400, status: "active" },
+    { id: "BUY-003", name: "European Distributors", country: "Germany", type: "BUYER", deals: 0, value: 0, status: "prospect" },
+  ],
+  suppliers: [
+    { id: "SUP-001", name: "Alibaba Verified Supplier", country: "China", type: "SUPPLIER", deals: 5, value: 125000, status: "active" },
+    { id: "SUP-002", name: "African Commodities Ltd", country: "Ghana", type: "SUPPLIER", deals: 2, value: 35000, status: "active" },
+    { id: "SUP-003", name: "Middle East Trading", country: "Lebanon", type: "SUPPLIER", deals: 1, value: 8000, status: "active" },
+  ],
+};
+
+// LAYER 5: Document Intelligence - Trade Vault
+const DOCUMENT_VAULT = [
+  { id: "DOC-001", name: "CAC Certificate - AAT BRIAN", type: "REGISTRATION", verified: true, date: "2024-01-15" },
+  { id: "DOC-002", name: "Maersk Receipt - HASU4240916", type: "SHIPPING", verified: true, date: "2026-03-28" },
+  { id: "DOC-003", name: "UBA Bank Statement", type: "FINANCIAL", verified: true, date: "2026-03-25" },
+  { id: "DOC-004", name: "Malaysia Proforma Invoice", type: "INVOICE", verified: true, date: "2026-03-30" },
+  { id: "DOC-005", name: "Bill of Lading - BL001", type: "SHIPPING", verified: false, date: "2026-04-01" },
+];
+
+// LAYER 6: API Integration Hub
+const API_INTEGRATIONS = [
+  { name: "Maersk Developer API", category: "Logistics", status: "connected", endpoint: "api.maersk.com" },
+  { name: "Freightos API", category: "Rates", status: "connected", endpoint: "api.freightos.com" },
+  { name: "MarineTraffic AIS", category: "Tracking", status: "connected", endpoint: "services.marinetraffic.com" },
+  { name: "Flutterwave API", category: "Payments", status: "connected", endpoint: "api.flutterwave.com" },
+  { name: "Paystack API", category: "Payments", status: "connected", endpoint: "api.paystack.co" },
+  { name: "Binance API", category: "Crypto", status: "connected", endpoint: "api.binance.com" },
+  { name: "OpenAI API", category: "AI", status: "connected", endpoint: "api.openai.com" },
+  { name: "Google Maps", category: "Tracking", status: "connected", endpoint: "maps.googleapis.com" },
+];
+
+// Satellite Network
 const SATELLITE_NODES = [
   { id: "SAT-NGR-01", location: "Lagos, Nigeria", status: "online", latency: 12, coverage: "West Africa" },
   { id: "SAT-UAE-02", location: "Dubai, UAE", status: "online", latency: 18, coverage: "Middle East" },
@@ -190,37 +363,53 @@ const SATELLITE_NODES = [
   { id: "SAT-LBN-06", location: "Beirut, Lebanon", status: "online", latency: 19, coverage: "Mediterranean" },
 ];
 
-// ATG Finance Bank Data
-const ATG_FINANCE_ACCOUNTS = {
-  ubaMain: {
-    name: "AAT BRIAN AND BROTHER WORLDWIDE LIMITED",
-    bank: "United Bank for Africa (UBA)",
-    accountNumber: "****7892",
-    type: "CORPORATE",
-    balance: 14000000, // NGN
-    currency: "NGN",
-  },
-  cryptoWallet: {
-    name: "ATG CATC Wallet",
-    type: "CRYPTOCURRENCY",
-    balance: 2.5, // BTC equivalent
-    catcBalance: 125000, // CATC tokens
-    usdValue: 145000,
-  },
+// AI CEO Enhanced Responses
+const AI_CEO_RESPONSES = {
+  greeting: "Good day, CEO. ATG EMPIRE operating at full capacity. 6-Layer Architecture online. I'm monitoring all systems 24/7.",
+  status: `EMPIRE STATUS: 
+• Layer 1 (Command Core): ONLINE - ${CARRIERS.filter(c => c.available).length}/12 carriers active
+• Layer 2 (Financial Engine): ₦19.5M + $245K crypto
+• Layer 3 (Logistics): ${ACTIVE_JOBS.length} active shipments (SEA/AIR/LAND ready)
+• Layer 4 (Trade Network): ${TRADE_NETWORK.buyers.length} buyers, ${TRADE_NETWORK.suppliers.length} suppliers
+• Layer 5 (Document Vault): ${DOCUMENT_VAULT.length} verified documents
+• Layer 6 (API Hub): ${API_INTEGRATIONS.filter(a => a.status === "connected").length}/${API_INTEGRATIONS.length} APIs connected`,
+  recommendation: "STRATEGIC RECOMMENDATION: Based on current rates, route through Wan Hai ($238/40FT) for maximum margin. CATC holdings show +12% growth potential. Recommend closing Malaysia deal and securing US buyer pipeline.",
+  finance: `ATG FINANCE SUMMARY:
+• UBA Corporate: ₦14,000,000 (AAT BRIAN)
+• UBA Operations: ₦5,500,000 (ATG LOGISTICS)
+• CATC Tokens: 125,000 ($145,000 USD)
+• USDT Holdings: $85,000
+• BTC: 2.5 ($150,000 USD approx)
+• ETH: 15.8 ($45,000 USD approx)
+• TOTAL LIQUIDITY: ~$785,000 USD equivalent`,
+  satellite: "SATELLITE NETWORK: 6/6 nodes operational. Global coverage across West Africa, Middle East, East Asia, Europe, Americas, and Mediterranean. Average latency: 18ms. All shipments tracked in real-time.",
+  logistics: `LOGISTICS ENGINE STATUS:
+• SEA: 10/12 carriers online (Maersk, MSC, CMA CGM leading)
+• AIR: 4/4 air cargo partners active
+• LAND: 3/3 trucking partners operational
+• Active Routes: Lagos-Beirut, Lagos-Shanghai, Lagos-Rotterdam`,
+  trade: `GLOBAL TRADE NETWORK:
+• Active Buyers: USA, Malaysia, Germany (prospect)
+• Active Suppliers: China, Ghana, Lebanon
+• Pipeline Value: $181,400 total
+• Recommendation: Focus on US Import Corp - highest deal value`,
+  api: `API INTEGRATION HUB:
+• Logistics APIs: Maersk, Freightos, MarineTraffic - ALL CONNECTED
+• Payment Rails: Flutterwave, Paystack, Binance - ACTIVE
+• Stripe integration PENDING - recommend activation for US buyers
+• AI Layer: OpenAI integrated for document analysis`,
+  documents: `DOCUMENT VAULT STATUS:
+• Total Documents: ${DOCUMENT_VAULT.length}
+• Verified: ${DOCUMENT_VAULT.filter(d => d.verified).length}
+• Pending Verification: ${DOCUMENT_VAULT.filter(d => !d.verified).length}
+• Critical: Bill of Lading BL001 awaiting verification`,
+  deal: "DEAL ANALYSIS: Malaysia Proforma shows $1,400 client rate vs $250 carrier cost = $1,150 margin (82% profit margin). EXECUTE IMMEDIATELY. For US deals, recommend minimum $2,000 client rate for 40FT containers.",
 };
 
-// AI CEO Responses
-const AI_CEO_RESPONSES = {
-  greeting: "Good day, CEO. All systems operational. I'm monitoring 6 satellite nodes, 12 carriers, and ATG Finance accounts in real-time.",
-  status: "Current operational status: THE BRAIN is processing $250 anchor rate jobs. THE EYES tracking 10/12 carriers online. ATG FINANCE holds N14M + 125,000 CATC.",
-  recommendation: "Based on current market analysis, I recommend loading jobs through Wan Hai (lowest rate at $238) for maximum margin optimization.",
-  alert: "ALERT: Hapag-Lloyd and HMM currently offline. Recommend routing through available carriers for time-sensitive shipments.",
-  finance: "ATG Finance Summary: UBA Corporate Account shows N14,000,000 balance. CATC Wallet holds 125,000 tokens valued at $145,000 USD.",
-  satellite: "Satellite network fully operational. All 6 nodes responding with average latency of 18ms. Global coverage maintained across 6 regions.",
-};
+// ================== COMPONENTS ==================
 
 // Status Card Component
-function StatusCard({ title, icon: Icon, status, statusClass, children }) {
+function StatusCard({ title, icon: Icon, status, statusClass, children, layer }) {
   return (
     <div
       style={{
@@ -231,8 +420,25 @@ function StatusCard({ title, icon: Icon, status, statusClass, children }) {
         display: "flex",
         flexDirection: "column",
         gap: "16px",
+        position: "relative",
+        overflow: "hidden",
       }}
     >
+      {layer && (
+        <div style={{
+          position: "absolute",
+          top: "8px",
+          right: "8px",
+          background: "var(--primary)",
+          color: "var(--primary-foreground)",
+          padding: "2px 6px",
+          borderRadius: "4px",
+          fontSize: "9px",
+          fontWeight: 700,
+        }}>
+          L{layer}
+        </div>
+      )}
       <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
         <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
           <div
@@ -293,6 +499,21 @@ function CommandButton({ children, variant = "default", onClick, disabled }) {
       color: "#000",
       border: "none",
     },
+    sea: {
+      background: "linear-gradient(135deg, #0ea5e9, #06b6d4)",
+      color: "#fff",
+      border: "none",
+    },
+    air: {
+      background: "linear-gradient(135deg, #8b5cf6, #a78bfa)",
+      color: "#fff",
+      border: "none",
+    },
+    land: {
+      background: "linear-gradient(135deg, #84cc16, #a3e635)",
+      color: "#000",
+      border: "none",
+    },
   };
 
   return (
@@ -328,7 +549,7 @@ function Modal({ isOpen, onClose, title, children, wide }) {
       style={{
         position: "fixed",
         inset: 0,
-        background: "rgba(0,0,0,0.8)",
+        background: "rgba(0,0,0,0.85)",
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
@@ -344,7 +565,7 @@ function Modal({ isOpen, onClose, title, children, wide }) {
           border: "1px solid var(--border)",
           borderRadius: "12px",
           width: "100%",
-          maxWidth: wide ? "700px" : "500px",
+          maxWidth: wide ? "900px" : "600px",
           maxHeight: "90vh",
           overflow: "auto",
         }}
@@ -357,6 +578,10 @@ function Modal({ isOpen, onClose, title, children, wide }) {
             justifyContent: "space-between",
             padding: "20px",
             borderBottom: "1px solid var(--border)",
+            position: "sticky",
+            top: 0,
+            background: "var(--card)",
+            zIndex: 10,
           }}
         >
           <h3 style={{ fontSize: "16px", fontWeight: 600 }}>{title}</h3>
@@ -379,7 +604,7 @@ function Modal({ isOpen, onClose, title, children, wide }) {
   );
 }
 
-// AI CEO Component
+// AI CEO Component - Enhanced
 function AICEOPanel({ messages, onSendMessage, isTyping }) {
   const [input, setInput] = useState("");
   const messagesEndRef = useRef(null);
@@ -396,7 +621,16 @@ function AICEOPanel({ messages, onSendMessage, isTyping }) {
     }
   };
 
-  const quickCommands = ["Status Report", "Finance Summary", "Satellite Check", "Recommendation"];
+  const quickCommands = [
+    "Status Report",
+    "Finance Summary",
+    "Logistics Update",
+    "Trade Network",
+    "API Status",
+    "Documents",
+    "Deal Analysis",
+    "Recommendation",
+  ];
 
   return (
     <div
@@ -404,7 +638,7 @@ function AICEOPanel({ messages, onSendMessage, isTyping }) {
         background: "var(--card)",
         border: "1px solid var(--border)",
         borderRadius: "var(--radius)",
-        height: "400px",
+        height: "500px",
         display: "flex",
         flexDirection: "column",
       }}
@@ -416,12 +650,13 @@ function AICEOPanel({ messages, onSendMessage, isTyping }) {
           display: "flex",
           alignItems: "center",
           gap: "12px",
+          background: "linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(34, 211, 238, 0.1))",
         }}
       >
         <div
           style={{
-            width: "36px",
-            height: "36px",
+            width: "40px",
+            height: "40px",
             background: "linear-gradient(135deg, var(--primary), var(--accent))",
             borderRadius: "50%",
             display: "flex",
@@ -431,11 +666,15 @@ function AICEOPanel({ messages, onSendMessage, isTyping }) {
         >
           <BotIcon />
         </div>
-        <div>
-          <h3 style={{ fontSize: "14px", fontWeight: 600 }}>AI CEO ASSISTANT</h3>
+        <div style={{ flex: 1 }}>
+          <h3 style={{ fontSize: "14px", fontWeight: 700 }}>ATG AI CEO</h3>
           <p className="status-live" style={{ fontSize: "11px", color: "var(--primary)" }}>
-            Active 24/7
+            ACTIVE 24/7 - 6 LAYER INTELLIGENCE
           </p>
+        </div>
+        <div style={{ textAlign: "right" }}>
+          <p className="font-mono" style={{ fontSize: "11px", color: "var(--accent)" }}>EMPIRE</p>
+          <p className="font-mono" style={{ fontSize: "11px", color: "var(--muted-foreground)" }}>v4.0</p>
         </div>
       </div>
 
@@ -454,17 +693,19 @@ function AICEOPanel({ messages, onSendMessage, isTyping }) {
             key={i}
             style={{
               alignSelf: msg.role === "user" ? "flex-end" : "flex-start",
-              maxWidth: "85%",
+              maxWidth: "90%",
             }}
           >
             <div
               style={{
                 background: msg.role === "user" ? "var(--primary)" : "var(--muted)",
                 color: msg.role === "user" ? "var(--primary-foreground)" : "var(--foreground)",
-                padding: "10px 14px",
+                padding: "12px 16px",
                 borderRadius: "12px",
                 fontSize: "13px",
-                lineHeight: "1.5",
+                lineHeight: "1.6",
+                whiteSpace: "pre-wrap",
+                fontFamily: msg.role === "assistant" ? "'JetBrains Mono', monospace" : "inherit",
               }}
             >
               {msg.content}
@@ -485,13 +726,13 @@ function AICEOPanel({ messages, onSendMessage, isTyping }) {
           <div
             style={{
               background: "var(--muted)",
-              padding: "10px 14px",
+              padding: "12px 16px",
               borderRadius: "12px",
               alignSelf: "flex-start",
             }}
           >
             <span className="animate-pulse" style={{ color: "var(--primary)" }}>
-              AI CEO is analyzing...
+              AI CEO analyzing empire data...
             </span>
           </div>
         )}
@@ -499,17 +740,17 @@ function AICEOPanel({ messages, onSendMessage, isTyping }) {
       </div>
 
       <div style={{ padding: "12px", borderTop: "1px solid var(--border)" }}>
-        <div style={{ display: "flex", gap: "8px", marginBottom: "12px", flexWrap: "wrap" }}>
+        <div style={{ display: "flex", gap: "6px", marginBottom: "12px", flexWrap: "wrap" }}>
           {quickCommands.map((cmd) => (
             <button
               key={cmd}
               onClick={() => onSendMessage(cmd)}
               style={{
-                padding: "6px 12px",
+                padding: "5px 10px",
                 background: "var(--muted)",
                 border: "1px solid var(--border)",
                 borderRadius: "16px",
-                fontSize: "11px",
+                fontSize: "10px",
                 color: "var(--foreground)",
                 cursor: "pointer",
               }}
@@ -523,7 +764,7 @@ function AICEOPanel({ messages, onSendMessage, isTyping }) {
             type="text"
             value={input}
             onChange={(e) => setInput(e.target.value)}
-            placeholder="Ask AI CEO anything..."
+            placeholder="Command AI CEO..."
             style={{
               flex: 1,
               padding: "10px 14px",
@@ -555,71 +796,55 @@ function AICEOPanel({ messages, onSendMessage, isTyping }) {
   );
 }
 
-// Satellite Network Component
-function SatelliteNetwork({ nodes }) {
+// System Layers Overview
+function SystemLayersOverview() {
+  const layers = [
+    { num: 1, name: "COMMAND CORE", desc: "ATG OS Dashboard & Entity Management", status: "ONLINE", color: "#10b981" },
+    { num: 2, name: "FINANCIAL ENGINE", desc: "Banks + Crypto + Payment Rails", status: "ACTIVE", color: "#a855f7" },
+    { num: 3, name: "LOGISTICS ENGINE", desc: "SEA + AIR + LAND Networks", status: "LIVE", color: "#0ea5e9" },
+    { num: 4, name: "TRADE NETWORK", desc: "Global Buyers & Suppliers CRM", status: "CONNECTED", color: "#f59e0b" },
+    { num: 5, name: "DOCUMENT VAULT", desc: "Digital Trade Intelligence", status: "SECURED", color: "#ef4444" },
+    { num: 6, name: "API HUB", desc: "Multi-Integration System", status: "SYNCED", color: "#22d3ee" },
+  ];
+
   return (
-    <div
-      style={{
-        background: "var(--card)",
-        border: "1px solid var(--border)",
-        borderRadius: "var(--radius)",
-        padding: "20px",
-      }}
-    >
-      <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: "16px" }}>
-        <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
-          <div
-            style={{
-              width: "36px",
-              height: "36px",
-              background: "var(--muted)",
-              borderRadius: "8px",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              color: "var(--accent)",
-            }}
-          >
-            <SatelliteIcon />
-          </div>
-          <div>
-            <h3 style={{ fontSize: "14px", fontWeight: 600 }}>SATELLITE NETWORK</h3>
-            <p style={{ fontSize: "11px", color: "var(--muted-foreground)" }}>Global Tracking Coverage</p>
-          </div>
-        </div>
-        <span className="status-live" style={{ fontSize: "12px", color: "var(--primary)" }}>
-          {nodes.filter((n) => n.status === "online").length}/{nodes.length} NODES
+    <div style={{
+      background: "var(--card)",
+      border: "1px solid var(--border)",
+      borderRadius: "var(--radius)",
+      padding: "20px",
+    }}>
+      <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "16px" }}>
+        <LayersIcon />
+        <h3 style={{ fontSize: "14px", fontWeight: 600 }}>6-LAYER ARCHITECTURE</h3>
+        <span className="status-live" style={{ fontSize: "11px", color: "var(--primary)", marginLeft: "auto" }}>
+          ALL SYSTEMS OPERATIONAL
         </span>
       </div>
-
-      <div style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: "12px" }}>
-        {nodes.map((node) => (
+      <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(150px, 1fr))", gap: "12px" }}>
+        {layers.map((layer) => (
           <div
-            key={node.id}
+            key={layer.num}
             style={{
               background: "var(--muted)",
               borderRadius: "8px",
               padding: "12px",
+              borderLeft: `3px solid ${layer.color}`,
             }}
           >
-            <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: "8px" }}>
-              <span className="font-mono" style={{ fontSize: "11px", color: "var(--accent)" }}>
-                {node.id}
-              </span>
-              <span
-                style={{
-                  width: "8px",
-                  height: "8px",
-                  borderRadius: "50%",
-                  background: node.status === "online" ? "var(--primary)" : "var(--destructive)",
-                }}
-              />
+            <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "6px" }}>
+              <span style={{
+                background: layer.color,
+                color: "#000",
+                padding: "2px 6px",
+                borderRadius: "4px",
+                fontSize: "10px",
+                fontWeight: 700,
+              }}>L{layer.num}</span>
+              <span style={{ fontSize: "11px", fontWeight: 600 }}>{layer.name}</span>
             </div>
-            <p style={{ fontSize: "12px", fontWeight: 500 }}>{node.location}</p>
-            <div style={{ display: "flex", justifyContent: "space-between", marginTop: "6px", fontSize: "11px", color: "var(--muted-foreground)" }}>
-              <span>{node.coverage}</span>
-              <span className="font-mono">{node.latency}ms</span>
-            </div>
+            <p style={{ fontSize: "10px", color: "var(--muted-foreground)", marginBottom: "6px" }}>{layer.desc}</p>
+            <span className="font-mono" style={{ fontSize: "10px", color: layer.color }}>{layer.status}</span>
           </div>
         ))}
       </div>
@@ -627,127 +852,429 @@ function SatelliteNetwork({ nodes }) {
   );
 }
 
-// ATG Finance Bank Modal Content
+// API Integration Hub Modal Content
+function APIHubContent() {
+  return (
+    <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
+      <p style={{ fontSize: "12px", color: "var(--muted-foreground)" }}>
+        Connected APIs power the ATG EMPIRE infrastructure. Real integrations only.
+      </p>
+      {["Logistics", "Payments", "Crypto", "Tracking", "AI"].map((category) => (
+        <div key={category}>
+          <h4 style={{ fontSize: "12px", color: "var(--primary)", marginBottom: "12px", fontWeight: 600 }}>
+            {category.toUpperCase()} APIs
+          </h4>
+          <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
+            {API_INTEGRATIONS.filter((a) => a.category === category || 
+              (category === "Tracking" && (a.category === "Tracking" || a.category === "Rates"))).map((api) => (
+              <div
+                key={api.name}
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "space-between",
+                  padding: "12px",
+                  background: "var(--muted)",
+                  borderRadius: "8px",
+                }}
+              >
+                <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
+                  <PlugIcon />
+                  <div>
+                    <p style={{ fontSize: "13px", fontWeight: 500 }}>{api.name}</p>
+                    <p className="font-mono" style={{ fontSize: "10px", color: "var(--muted-foreground)" }}>
+                      {api.endpoint}
+                    </p>
+                  </div>
+                </div>
+                <span style={{
+                  padding: "4px 8px",
+                  background: api.status === "connected" ? "rgba(16, 185, 129, 0.2)" : "rgba(245, 158, 11, 0.2)",
+                  color: api.status === "connected" ? "var(--primary)" : "var(--warning)",
+                  borderRadius: "4px",
+                  fontSize: "10px",
+                  fontWeight: 600,
+                }}>
+                  {api.status.toUpperCase()}
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+// Document Vault Modal Content
+function DocumentVaultContent() {
+  return (
+    <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
+      <div style={{
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "space-between",
+        padding: "12px",
+        background: "rgba(16, 185, 129, 0.1)",
+        borderRadius: "8px",
+      }}>
+        <span style={{ fontSize: "12px" }}>Total Documents</span>
+        <span className="font-mono" style={{ fontSize: "14px", fontWeight: 600, color: "var(--primary)" }}>
+          {DOCUMENT_VAULT.length}
+        </span>
+      </div>
+      {DOCUMENT_VAULT.map((doc) => (
+        <div
+          key={doc.id}
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between",
+            padding: "16px",
+            background: "var(--muted)",
+            borderRadius: "8px",
+          }}
+        >
+          <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
+            <FileIcon />
+            <div>
+              <p style={{ fontSize: "13px", fontWeight: 500 }}>{doc.name}</p>
+              <p style={{ fontSize: "11px", color: "var(--muted-foreground)" }}>
+                {doc.type} | {doc.date}
+              </p>
+            </div>
+          </div>
+          <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+            {doc.verified ? (
+              <span style={{
+                display: "flex",
+                alignItems: "center",
+                gap: "4px",
+                padding: "4px 8px",
+                background: "rgba(16, 185, 129, 0.2)",
+                color: "var(--primary)",
+                borderRadius: "4px",
+                fontSize: "10px",
+              }}>
+                <ShieldIcon /> VERIFIED
+              </span>
+            ) : (
+              <span style={{
+                padding: "4px 8px",
+                background: "rgba(245, 158, 11, 0.2)",
+                color: "var(--warning)",
+                borderRadius: "4px",
+                fontSize: "10px",
+              }}>
+                PENDING
+              </span>
+            )}
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+// Trade Network CRM Modal Content
+function TradeNetworkContent() {
+  return (
+    <div style={{ display: "flex", flexDirection: "column", gap: "24px" }}>
+      {/* Buyers */}
+      <div>
+        <h4 style={{ fontSize: "12px", color: "var(--primary)", marginBottom: "12px", fontWeight: 600, display: "flex", alignItems: "center", gap: "8px" }}>
+          <UsersIcon /> BUYERS (USA, Malaysia, Europe)
+        </h4>
+        {TRADE_NETWORK.buyers.map((buyer) => (
+          <div
+            key={buyer.id}
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "space-between",
+              padding: "14px",
+              background: "var(--muted)",
+              borderRadius: "8px",
+              marginBottom: "8px",
+            }}
+          >
+            <div>
+              <p style={{ fontSize: "13px", fontWeight: 500 }}>{buyer.name}</p>
+              <p style={{ fontSize: "11px", color: "var(--muted-foreground)" }}>
+                {buyer.country} | {buyer.deals} deals
+              </p>
+            </div>
+            <div style={{ textAlign: "right" }}>
+              <p className="font-mono" style={{ fontSize: "14px", fontWeight: 600, color: "var(--primary)" }}>
+                ${buyer.value.toLocaleString()}
+              </p>
+              <span style={{
+                padding: "2px 6px",
+                background: buyer.status === "active" ? "rgba(16, 185, 129, 0.2)" : "rgba(245, 158, 11, 0.2)",
+                color: buyer.status === "active" ? "var(--primary)" : "var(--warning)",
+                borderRadius: "4px",
+                fontSize: "9px",
+              }}>
+                {buyer.status.toUpperCase()}
+              </span>
+            </div>
+          </div>
+        ))}
+      </div>
+      
+      {/* Suppliers */}
+      <div>
+        <h4 style={{ fontSize: "12px", color: "var(--accent)", marginBottom: "12px", fontWeight: 600, display: "flex", alignItems: "center", gap: "8px" }}>
+          <BuildingIcon /> SUPPLIERS (China, Africa, Middle East)
+        </h4>
+        {TRADE_NETWORK.suppliers.map((supplier) => (
+          <div
+            key={supplier.id}
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "space-between",
+              padding: "14px",
+              background: "var(--muted)",
+              borderRadius: "8px",
+              marginBottom: "8px",
+            }}
+          >
+            <div>
+              <p style={{ fontSize: "13px", fontWeight: 500 }}>{supplier.name}</p>
+              <p style={{ fontSize: "11px", color: "var(--muted-foreground)" }}>
+                {supplier.country} | {supplier.deals} deals
+              </p>
+            </div>
+            <div style={{ textAlign: "right" }}>
+              <p className="font-mono" style={{ fontSize: "14px", fontWeight: 600, color: "var(--accent)" }}>
+                ${supplier.value.toLocaleString()}
+              </p>
+              <span style={{
+                padding: "2px 6px",
+                background: "rgba(34, 211, 238, 0.2)",
+                color: "var(--accent)",
+                borderRadius: "4px",
+                fontSize: "9px",
+              }}>
+                {supplier.status.toUpperCase()}
+              </span>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <div style={{
+        padding: "16px",
+        background: "linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(34, 211, 238, 0.1))",
+        borderRadius: "8px",
+        textAlign: "center",
+      }}>
+        <p style={{ fontSize: "11px", color: "var(--muted-foreground)", marginBottom: "4px" }}>TOTAL PIPELINE VALUE</p>
+        <p className="font-mono" style={{ fontSize: "24px", fontWeight: 700, color: "var(--primary)" }}>
+          ${(TRADE_NETWORK.buyers.reduce((a, b) => a + b.value, 0) + TRADE_NETWORK.suppliers.reduce((a, b) => a + b.value, 0)).toLocaleString()}
+        </p>
+      </div>
+    </div>
+  );
+}
+
+// ATG Finance Enhanced Modal
 function ATGFinanceContent({ accounts, onTransfer }) {
   const [transferType, setTransferType] = useState(null);
   const [amount, setAmount] = useState("");
-
   const ngnRate = 1550;
+
+  const totalNGN = accounts.ubaMain.balance + accounts.ubaSecondary.balance;
+  const totalCrypto = accounts.cryptoWallet.usdValue;
+  const totalUSD = (totalNGN / ngnRate) + totalCrypto;
 
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
-      {/* UBA Account */}
-      <div
-        style={{
+      {/* Total Liquidity Header */}
+      <div style={{
+        background: "linear-gradient(135deg, var(--primary), var(--accent))",
+        borderRadius: "12px",
+        padding: "20px",
+        textAlign: "center",
+      }}>
+        <p style={{ fontSize: "11px", color: "rgba(0,0,0,0.7)" }}>TOTAL EMPIRE LIQUIDITY</p>
+        <p className="font-mono" style={{ fontSize: "32px", fontWeight: 700, color: "#000" }}>
+          ${totalUSD.toLocaleString(undefined, { maximumFractionDigits: 0 })}
+        </p>
+        <p style={{ fontSize: "12px", color: "rgba(0,0,0,0.6)" }}>
+          NGN + CRYPTO COMBINED
+        </p>
+      </div>
+
+      {/* Bank Accounts */}
+      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "12px" }}>
+        {/* UBA Main */}
+        <div style={{
           background: "linear-gradient(135deg, #1e1b4b, #312e81)",
           borderRadius: "12px",
-          padding: "20px",
+          padding: "16px",
           border: "1px solid #4338ca",
-        }}
-      >
-        <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "16px" }}>
-          <BankIcon />
-          <div>
-            <p style={{ fontSize: "11px", color: "rgba(255,255,255,0.7)" }}>CORPORATE ACCOUNT</p>
-            <p style={{ fontSize: "14px", fontWeight: 600 }}>{accounts.ubaMain.name}</p>
+        }}>
+          <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "12px" }}>
+            <BankIcon />
+            <span style={{ fontSize: "10px", color: "rgba(255,255,255,0.7)" }}>UBA CORPORATE</span>
           </div>
+          <p style={{ fontSize: "10px", color: "rgba(255,255,255,0.5)", marginBottom: "4px" }}>
+            {accounts.ubaMain.name}
+          </p>
+          <p className="font-mono" style={{ fontSize: "18px", fontWeight: 700, color: "#a5b4fc" }}>
+            ₦{accounts.ubaMain.balance.toLocaleString()}
+          </p>
         </div>
-        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end" }}>
-          <div>
-            <p style={{ fontSize: "11px", color: "rgba(255,255,255,0.5)" }}>{accounts.ubaMain.bank}</p>
-            <p className="font-mono" style={{ fontSize: "12px", color: "rgba(255,255,255,0.7)" }}>
-              Acct: {accounts.ubaMain.accountNumber}
+
+        {/* UBA Operations */}
+        <div style={{
+          background: "linear-gradient(135deg, #134e4a, #115e59)",
+          borderRadius: "12px",
+          padding: "16px",
+          border: "1px solid #14b8a6",
+        }}>
+          <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "12px" }}>
+            <BankIcon />
+            <span style={{ fontSize: "10px", color: "rgba(255,255,255,0.7)" }}>UBA OPERATIONS</span>
+          </div>
+          <p style={{ fontSize: "10px", color: "rgba(255,255,255,0.5)", marginBottom: "4px" }}>
+            ATG GLOBAL LOGISTICS
+          </p>
+          <p className="font-mono" style={{ fontSize: "18px", fontWeight: 700, color: "#5eead4" }}>
+            ₦{accounts.ubaSecondary.balance.toLocaleString()}
+          </p>
+        </div>
+      </div>
+
+      {/* Crypto Holdings */}
+      <div style={{
+        background: "linear-gradient(135deg, #451a03, #78350f)",
+        borderRadius: "12px",
+        padding: "20px",
+        border: "1px solid #b45309",
+      }}>
+        <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "16px" }}>
+          <BitcoinIcon />
+          <span style={{ fontSize: "12px", color: "rgba(255,255,255,0.7)" }}>CRYPTO PORTFOLIO</span>
+          <span className="font-mono" style={{ marginLeft: "auto", fontSize: "16px", fontWeight: 700, color: "#fbbf24" }}>
+            ${accounts.cryptoWallet.usdValue.toLocaleString()}
+          </span>
+        </div>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: "12px" }}>
+          <div style={{ textAlign: "center" }}>
+            <p style={{ fontSize: "10px", color: "rgba(255,255,255,0.5)" }}>CATC</p>
+            <p className="font-mono" style={{ fontSize: "14px", fontWeight: 600, color: "#fbbf24" }}>
+              {accounts.cryptoWallet.catcBalance.toLocaleString()}
             </p>
           </div>
-          <div style={{ textAlign: "right" }}>
-            <p className="font-mono" style={{ fontSize: "24px", fontWeight: 700, color: "#a5b4fc" }}>
-              ₦{accounts.ubaMain.balance.toLocaleString()}
+          <div style={{ textAlign: "center" }}>
+            <p style={{ fontSize: "10px", color: "rgba(255,255,255,0.5)" }}>USDT</p>
+            <p className="font-mono" style={{ fontSize: "14px", fontWeight: 600, color: "#fbbf24" }}>
+              ${accounts.cryptoWallet.usdtBalance.toLocaleString()}
             </p>
-            <p className="font-mono" style={{ fontSize: "12px", color: "rgba(255,255,255,0.5)" }}>
-              ${(accounts.ubaMain.balance / ngnRate).toLocaleString(undefined, { maximumFractionDigits: 0 })} USD
+          </div>
+          <div style={{ textAlign: "center" }}>
+            <p style={{ fontSize: "10px", color: "rgba(255,255,255,0.5)" }}>BTC</p>
+            <p className="font-mono" style={{ fontSize: "14px", fontWeight: 600, color: "#fbbf24" }}>
+              {accounts.cryptoWallet.btcBalance}
+            </p>
+          </div>
+          <div style={{ textAlign: "center" }}>
+            <p style={{ fontSize: "10px", color: "rgba(255,255,255,0.5)" }}>ETH</p>
+            <p className="font-mono" style={{ fontSize: "14px", fontWeight: 600, color: "#fbbf24" }}>
+              {accounts.cryptoWallet.ethBalance}
             </p>
           </div>
         </div>
       </div>
 
-      {/* CATC Crypto Wallet */}
-      <div
-        style={{
-          background: "linear-gradient(135deg, #451a03, #78350f)",
-          borderRadius: "12px",
-          padding: "20px",
-          border: "1px solid #b45309",
-        }}
-      >
-        <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "16px" }}>
-          <BitcoinIcon />
-          <div>
-            <p style={{ fontSize: "11px", color: "rgba(255,255,255,0.7)" }}>CRYPTOCURRENCY</p>
-            <p style={{ fontSize: "14px", fontWeight: 600 }}>{accounts.cryptoWallet.name}</p>
-          </div>
-        </div>
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px" }}>
-          <div>
-            <p style={{ fontSize: "11px", color: "rgba(255,255,255,0.5)" }}>CATC TOKENS</p>
-            <p className="font-mono" style={{ fontSize: "20px", fontWeight: 700, color: "#fbbf24" }}>
-              {accounts.cryptoWallet.catcBalance.toLocaleString()}
-            </p>
-          </div>
-          <div style={{ textAlign: "right" }}>
-            <p style={{ fontSize: "11px", color: "rgba(255,255,255,0.5)" }}>USD VALUE</p>
-            <p className="font-mono" style={{ fontSize: "20px", fontWeight: 700, color: "#fbbf24" }}>
-              ${accounts.cryptoWallet.usdValue.toLocaleString()}
-            </p>
-          </div>
+      {/* Payment Rails */}
+      <div>
+        <p style={{ fontSize: "12px", color: "var(--muted-foreground)", fontWeight: 600, marginBottom: "12px" }}>
+          PAYMENT RAILS
+        </p>
+        <div style={{ display: "flex", gap: "8px", flexWrap: "wrap" }}>
+          {PAYMENT_RAILS.map((rail) => (
+            <span
+              key={rail.name}
+              style={{
+                padding: "6px 12px",
+                background: rail.status === "connected" ? "rgba(16, 185, 129, 0.2)" : "var(--muted)",
+                color: rail.status === "connected" ? "var(--primary)" : "var(--muted-foreground)",
+                borderRadius: "6px",
+                fontSize: "11px",
+                fontWeight: 500,
+              }}
+            >
+              {rail.name}
+            </span>
+          ))}
         </div>
       </div>
 
       {/* Transfer Options */}
       <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
         <p style={{ fontSize: "12px", color: "var(--muted-foreground)", fontWeight: 600 }}>TRANSFER OPTIONS</p>
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "12px" }}>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "8px" }}>
           <button
             onClick={() => setTransferType("uba-to-catc")}
             style={{
-              padding: "14px",
+              padding: "12px",
               background: transferType === "uba-to-catc" ? "var(--primary)" : "var(--muted)",
               color: transferType === "uba-to-catc" ? "var(--primary-foreground)" : "var(--foreground)",
               border: "1px solid var(--border)",
               borderRadius: "8px",
-              fontSize: "12px",
+              fontSize: "11px",
               fontWeight: 600,
               cursor: "pointer",
             }}
           >
-            UBA → CATC
+            UBA → CRYPTO
           </button>
           <button
             onClick={() => setTransferType("catc-to-uba")}
             style={{
-              padding: "14px",
+              padding: "12px",
               background: transferType === "catc-to-uba" ? "var(--primary)" : "var(--muted)",
               color: transferType === "catc-to-uba" ? "var(--primary-foreground)" : "var(--foreground)",
               border: "1px solid var(--border)",
               borderRadius: "8px",
-              fontSize: "12px",
+              fontSize: "11px",
               fontWeight: 600,
               cursor: "pointer",
             }}
           >
-            CATC → UBA
+            CRYPTO → UBA
+          </button>
+          <button
+            onClick={() => setTransferType("swift")}
+            style={{
+              padding: "12px",
+              background: transferType === "swift" ? "var(--primary)" : "var(--muted)",
+              color: transferType === "swift" ? "var(--primary-foreground)" : "var(--foreground)",
+              border: "1px solid var(--border)",
+              borderRadius: "8px",
+              fontSize: "11px",
+              fontWeight: 600,
+              cursor: "pointer",
+            }}
+          >
+            SWIFT WIRE
           </button>
         </div>
 
         {transferType && (
           <div style={{ marginTop: "12px" }}>
             <label style={{ display: "block", fontSize: "12px", color: "var(--muted-foreground)", marginBottom: "6px" }}>
-              Amount ({transferType === "uba-to-catc" ? "NGN" : "CATC"})
+              Amount
             </label>
             <input
               type="number"
               value={amount}
               onChange={(e) => setAmount(e.target.value)}
-              placeholder={transferType === "uba-to-catc" ? "Enter NGN amount" : "Enter CATC amount"}
+              placeholder="Enter amount"
               style={{
                 width: "100%",
                 padding: "12px",
@@ -785,90 +1312,9 @@ function ATGFinanceContent({ accounts, onTransfer }) {
   );
 }
 
-// Track All Modal Content
-function TrackAllContent({ jobs, satelliteNodes }) {
-  return (
-    <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
-      <div
-        style={{
-          background: "var(--muted)",
-          borderRadius: "8px",
-          padding: "12px",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "space-between",
-        }}
-      >
-        <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-          <SatelliteIcon />
-          <span style={{ fontSize: "12px" }}>Satellite Tracking Active</span>
-        </div>
-        <span className="font-mono" style={{ fontSize: "11px", color: "var(--primary)" }}>
-          {satelliteNodes.filter((n) => n.status === "online").length} nodes online
-        </span>
-      </div>
-
-      {jobs.map((job) => (
-        <div
-          key={job.id}
-          style={{
-            background: "var(--muted)",
-            borderRadius: "8px",
-            padding: "16px",
-          }}
-        >
-          <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: "12px" }}>
-            <span className="font-mono" style={{ fontSize: "14px", fontWeight: 600, color: "var(--primary)" }}>
-              {job.container}
-            </span>
-            <span
-              style={{
-                background: "var(--warning)",
-                color: "#000",
-                padding: "4px 8px",
-                borderRadius: "4px",
-                fontSize: "11px",
-                fontWeight: 600,
-              }}
-            >
-              {job.status}
-            </span>
-          </div>
-          <div style={{ display: "flex", flexDirection: "column", gap: "8px", fontSize: "13px" }}>
-            <div style={{ display: "flex", alignItems: "center", gap: "8px", color: "var(--muted-foreground)" }}>
-              <MapPinIcon />
-              <span>{job.origin}</span>
-              <span style={{ color: "var(--border)" }}>→</span>
-              <span>{job.destination}</span>
-            </div>
-            <div style={{ display: "flex", alignItems: "center", gap: "8px", color: "var(--muted-foreground)" }}>
-              <ShipIcon />
-              <span>{job.carrier}</span>
-              <span style={{ color: "var(--border)" }}>|</span>
-              <span>ETA: {job.eta}</span>
-            </div>
-            {job.gpsCoords && (
-              <div style={{ display: "flex", alignItems: "center", gap: "8px", color: "var(--accent)" }}>
-                <GlobeIcon />
-                <span className="font-mono" style={{ fontSize: "11px" }}>
-                  GPS: {job.gpsCoords.lat.toFixed(4)}, {job.gpsCoords.lng.toFixed(4)}
-                </span>
-              </div>
-            )}
-          </div>
-        </div>
-      ))}
-      {jobs.length === 0 && (
-        <p style={{ textAlign: "center", color: "var(--muted-foreground)", padding: "20px" }}>
-          No active shipments to track
-        </p>
-      )}
-    </div>
-  );
-}
-
-// Load New Job Modal Content
-function LoadNewJobContent({ onSubmit, carriers }) {
+// Logistics Engine Modal
+function LogisticsEngineContent({ jobs, onLoadJob }) {
+  const [mode, setMode] = useState("sea");
   const [formData, setFormData] = useState({
     container: "",
     destination: "",
@@ -877,16 +1323,18 @@ function LoadNewJobContent({ onSubmit, carriers }) {
     clientRate: "",
   });
 
+  const carriers = mode === "sea" ? CARRIERS : mode === "air" ? AIR_CARRIERS : LAND_CARRIERS;
   const selectedCarrier = carriers.find((c) => c.code === formData.carrier);
-  const margin = formData.clientRate && selectedCarrier 
-    ? parseFloat(formData.clientRate) - selectedCarrier.rate 
+  const margin = formData.clientRate && selectedCarrier
+    ? parseFloat(formData.clientRate) - selectedCarrier.rate
     : 0;
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (formData.container && formData.destination && formData.carrier && formData.clientRate) {
-      onSubmit({
+      onLoadJob({
         ...formData,
+        mode: mode.toUpperCase(),
         rate: selectedCarrier?.rate || 250,
         margin,
       });
@@ -894,156 +1342,307 @@ function LoadNewJobContent({ onSubmit, carriers }) {
   };
 
   return (
-    <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
-      <div>
-        <label style={{ display: "block", fontSize: "12px", color: "var(--muted-foreground)", marginBottom: "6px" }}>
-          Container Number
-        </label>
-        <input
-          type="text"
-          placeholder="XXXX0000000"
-          value={formData.container}
-          onChange={(e) => setFormData({ ...formData, container: e.target.value.toUpperCase() })}
-          style={{
-            width: "100%",
-            padding: "12px",
-            background: "var(--muted)",
-            border: "1px solid var(--border)",
-            borderRadius: "6px",
-            color: "var(--foreground)",
-            fontSize: "14px",
-            fontFamily: "'JetBrains Mono', monospace",
-          }}
-        />
+    <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
+      {/* Mode Selector */}
+      <div style={{ display: "flex", gap: "8px" }}>
+        <CommandButton variant={mode === "sea" ? "sea" : "default"} onClick={() => setMode("sea")}>
+          <ShipIcon /> SEA
+        </CommandButton>
+        <CommandButton variant={mode === "air" ? "air" : "default"} onClick={() => setMode("air")}>
+          <PlaneIcon /> AIR
+        </CommandButton>
+        <CommandButton variant={mode === "land" ? "land" : "default"} onClick={() => setMode("land")}>
+          <TruckIcon /> LAND
+        </CommandButton>
       </div>
-      <div>
-        <label style={{ display: "block", fontSize: "12px", color: "var(--muted-foreground)", marginBottom: "6px" }}>
-          Destination
-        </label>
-        <input
-          type="text"
-          placeholder="Lagos, Nigeria"
-          value={formData.destination}
-          onChange={(e) => setFormData({ ...formData, destination: e.target.value })}
-          style={{
-            width: "100%",
-            padding: "12px",
-            background: "var(--muted)",
-            border: "1px solid var(--border)",
-            borderRadius: "6px",
-            color: "var(--foreground)",
-            fontSize: "14px",
-          }}
-        />
+
+      {/* Active Carriers for Mode */}
+      <div style={{
+        background: "var(--muted)",
+        borderRadius: "8px",
+        padding: "12px",
+      }}>
+        <p style={{ fontSize: "11px", color: "var(--muted-foreground)", marginBottom: "8px" }}>
+          AVAILABLE {mode.toUpperCase()} CARRIERS
+        </p>
+        <div style={{ display: "flex", gap: "8px", flexWrap: "wrap" }}>
+          {carriers.filter(c => c.available).map((c) => (
+            <span key={c.code} style={{
+              padding: "4px 8px",
+              background: "var(--card)",
+              borderRadius: "4px",
+              fontSize: "11px",
+              color: "var(--primary)",
+            }}>
+              {c.name} - ${c.rate}
+            </span>
+          ))}
+        </div>
       </div>
-      <div>
-        <label style={{ display: "block", fontSize: "12px", color: "var(--muted-foreground)", marginBottom: "6px" }}>
-          Client Name
-        </label>
-        <input
-          type="text"
-          placeholder="Client Name"
-          value={formData.client}
-          onChange={(e) => setFormData({ ...formData, client: e.target.value })}
-          style={{
-            width: "100%",
-            padding: "12px",
-            background: "var(--muted)",
-            border: "1px solid var(--border)",
-            borderRadius: "6px",
-            color: "var(--foreground)",
-            fontSize: "14px",
-          }}
-        />
-      </div>
-      <div>
-        <label style={{ display: "block", fontSize: "12px", color: "var(--muted-foreground)", marginBottom: "6px" }}>
-          Select Carrier (Best Rate: $250 anchor)
-        </label>
-        <select
-          value={formData.carrier}
-          onChange={(e) => setFormData({ ...formData, carrier: e.target.value })}
-          style={{
-            width: "100%",
-            padding: "12px",
-            background: "var(--muted)",
-            border: "1px solid var(--border)",
-            borderRadius: "6px",
-            color: "var(--foreground)",
-            fontSize: "14px",
-          }}
-        >
-          <option value="">Select a carrier...</option>
-          {carriers
-            .filter((c) => c.available)
-            .map((carrier) => (
+
+      {/* Load Job Form */}
+      <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
+        <div>
+          <label style={{ display: "block", fontSize: "12px", color: "var(--muted-foreground)", marginBottom: "6px" }}>
+            {mode === "sea" ? "Container Number" : mode === "air" ? "AWB Number" : "Truck ID"}
+          </label>
+          <input
+            type="text"
+            placeholder={mode === "sea" ? "XXXX0000000" : mode === "air" ? "AWB-XXX-XXXXXXX" : "TRK-XXX"}
+            value={formData.container}
+            onChange={(e) => setFormData({ ...formData, container: e.target.value.toUpperCase() })}
+            style={{
+              width: "100%",
+              padding: "12px",
+              background: "var(--muted)",
+              border: "1px solid var(--border)",
+              borderRadius: "6px",
+              color: "var(--foreground)",
+              fontSize: "14px",
+              fontFamily: "'JetBrains Mono', monospace",
+            }}
+          />
+        </div>
+        <div>
+          <label style={{ display: "block", fontSize: "12px", color: "var(--muted-foreground)", marginBottom: "6px" }}>
+            Destination
+          </label>
+          <input
+            type="text"
+            placeholder="Lagos, Nigeria"
+            value={formData.destination}
+            onChange={(e) => setFormData({ ...formData, destination: e.target.value })}
+            style={{
+              width: "100%",
+              padding: "12px",
+              background: "var(--muted)",
+              border: "1px solid var(--border)",
+              borderRadius: "6px",
+              color: "var(--foreground)",
+              fontSize: "14px",
+            }}
+          />
+        </div>
+        <div>
+          <label style={{ display: "block", fontSize: "12px", color: "var(--muted-foreground)", marginBottom: "6px" }}>
+            Client Name
+          </label>
+          <input
+            type="text"
+            placeholder="Client Name"
+            value={formData.client}
+            onChange={(e) => setFormData({ ...formData, client: e.target.value })}
+            style={{
+              width: "100%",
+              padding: "12px",
+              background: "var(--muted)",
+              border: "1px solid var(--border)",
+              borderRadius: "6px",
+              color: "var(--foreground)",
+              fontSize: "14px",
+            }}
+          />
+        </div>
+        <div>
+          <label style={{ display: "block", fontSize: "12px", color: "var(--muted-foreground)", marginBottom: "6px" }}>
+            Select Carrier
+          </label>
+          <select
+            value={formData.carrier}
+            onChange={(e) => setFormData({ ...formData, carrier: e.target.value })}
+            style={{
+              width: "100%",
+              padding: "12px",
+              background: "var(--muted)",
+              border: "1px solid var(--border)",
+              borderRadius: "6px",
+              color: "var(--foreground)",
+              fontSize: "14px",
+            }}
+          >
+            <option value="">Select a carrier...</option>
+            {carriers.filter((c) => c.available).map((carrier) => (
               <option key={carrier.code} value={carrier.code}>
-                {carrier.name} ({carrier.code}) - ${carrier.rate}/40FT
+                {carrier.name} ({carrier.code}) - ${carrier.rate}{mode === "air" ? "/kg" : ""}
               </option>
             ))}
-        </select>
-      </div>
-      <div>
-        <label style={{ display: "block", fontSize: "12px", color: "var(--muted-foreground)", marginBottom: "6px" }}>
-          Client Rate (USD)
-        </label>
-        <input
-          type="number"
-          placeholder="1400"
-          value={formData.clientRate}
-          onChange={(e) => setFormData({ ...formData, clientRate: e.target.value })}
+          </select>
+        </div>
+        <div>
+          <label style={{ display: "block", fontSize: "12px", color: "var(--muted-foreground)", marginBottom: "6px" }}>
+            Client Rate (USD)
+          </label>
+          <input
+            type="number"
+            placeholder="1400"
+            value={formData.clientRate}
+            onChange={(e) => setFormData({ ...formData, clientRate: e.target.value })}
+            style={{
+              width: "100%",
+              padding: "12px",
+              background: "var(--muted)",
+              border: "1px solid var(--border)",
+              borderRadius: "6px",
+              color: "var(--foreground)",
+              fontSize: "14px",
+            }}
+          />
+        </div>
+        {margin > 0 && (
+          <div
+            style={{
+              background: "rgba(16, 185, 129, 0.1)",
+              border: "1px solid var(--primary)",
+              borderRadius: "6px",
+              padding: "12px",
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "center",
+            }}
+          >
+            <span style={{ color: "var(--muted-foreground)", fontSize: "13px" }}>Projected Margin</span>
+            <span className="font-mono" style={{ color: "var(--primary)", fontSize: "18px", fontWeight: 700 }}>
+              +${margin.toFixed(2)}
+            </span>
+          </div>
+        )}
+        <button
+          type="submit"
+          disabled={!formData.container || !formData.destination || !formData.carrier || !formData.clientRate}
           style={{
-            width: "100%",
-            padding: "12px",
-            background: "var(--muted)",
-            border: "1px solid var(--border)",
+            padding: "14px",
+            background: mode === "sea" ? "linear-gradient(135deg, #0ea5e9, #06b6d4)" : 
+                        mode === "air" ? "linear-gradient(135deg, #8b5cf6, #a78bfa)" :
+                        "linear-gradient(135deg, #84cc16, #a3e635)",
+            color: mode === "land" ? "#000" : "#fff",
+            border: "none",
             borderRadius: "6px",
-            color: "var(--foreground)",
+            fontWeight: 600,
             fontSize: "14px",
-          }}
-        />
-      </div>
-      {margin > 0 && (
-        <div
-          style={{
-            background: "rgba(16, 185, 129, 0.1)",
-            border: "1px solid var(--primary)",
-            borderRadius: "6px",
-            padding: "12px",
-            display: "flex",
-            justifyContent: "space-between",
-            alignItems: "center",
+            cursor: "pointer",
+            opacity: (!formData.container || !formData.destination || !formData.carrier || !formData.clientRate) ? 0.5 : 1,
           }}
         >
-          <span style={{ color: "var(--muted-foreground)", fontSize: "13px" }}>Projected Margin</span>
-          <span className="font-mono" style={{ color: "var(--primary)", fontSize: "16px", fontWeight: 700 }}>
-            +${margin.toFixed(2)}
-          </span>
-        </div>
-      )}
-      <button
-        type="submit"
-        disabled={!formData.container || !formData.destination || !formData.carrier || !formData.clientRate}
-        style={{
-          padding: "14px",
-          background: "var(--primary)",
-          color: "var(--primary-foreground)",
-          border: "none",
-          borderRadius: "6px",
-          fontWeight: 600,
-          fontSize: "14px",
-          cursor: "pointer",
-          marginTop: "8px",
-          opacity: (!formData.container || !formData.destination || !formData.carrier || !formData.clientRate) ? 0.5 : 1,
-        }}
-      >
-        LOAD JOB
-      </button>
-    </form>
+          LOAD {mode.toUpperCase()} JOB
+        </button>
+      </form>
+    </div>
   );
 }
 
-// Withdraw Margin Modal Content
+// Track All Modal - Enhanced
+function TrackAllContent({ jobs, satelliteNodes }) {
+  return (
+    <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
+      <div
+        style={{
+          background: "linear-gradient(135deg, rgba(34, 211, 238, 0.1), rgba(16, 185, 129, 0.1))",
+          borderRadius: "8px",
+          padding: "16px",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-between",
+        }}
+      >
+        <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+          <SatelliteIcon />
+          <span style={{ fontSize: "12px", fontWeight: 500 }}>Satellite Tracking Active</span>
+        </div>
+        <span className="font-mono" style={{ fontSize: "12px", color: "var(--primary)" }}>
+          {satelliteNodes.filter((n) => n.status === "online").length} nodes | Avg {Math.round(satelliteNodes.reduce((a, b) => a + b.latency, 0) / satelliteNodes.length)}ms
+        </span>
+      </div>
+
+      {jobs.map((job) => (
+        <div
+          key={job.id}
+          style={{
+            background: "var(--muted)",
+            borderRadius: "12px",
+            padding: "20px",
+            borderLeft: `4px solid ${job.mode === "SEA" ? "#0ea5e9" : job.mode === "AIR" ? "#8b5cf6" : "#84cc16"}`,
+          }}
+        >
+          <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: "16px" }}>
+            <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
+              {job.mode === "SEA" ? <ShipIcon /> : job.mode === "AIR" ? <PlaneIcon /> : <TruckIcon />}
+              <span className="font-mono" style={{ fontSize: "16px", fontWeight: 600, color: "var(--primary)" }}>
+                {job.container}
+              </span>
+            </div>
+            <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+              <span style={{
+                padding: "4px 8px",
+                background: job.mode === "SEA" ? "rgba(14, 165, 233, 0.2)" : job.mode === "AIR" ? "rgba(139, 92, 246, 0.2)" : "rgba(132, 204, 22, 0.2)",
+                color: job.mode === "SEA" ? "#0ea5e9" : job.mode === "AIR" ? "#8b5cf6" : "#84cc16",
+                borderRadius: "4px",
+                fontSize: "10px",
+                fontWeight: 600,
+              }}>
+                {job.mode}
+              </span>
+              <span
+                style={{
+                  background: "var(--warning)",
+                  color: "#000",
+                  padding: "4px 8px",
+                  borderRadius: "4px",
+                  fontSize: "11px",
+                  fontWeight: 600,
+                }}
+              >
+                {job.status}
+              </span>
+            </div>
+          </div>
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "12px", fontSize: "13px" }}>
+            <div>
+              <p style={{ color: "var(--muted-foreground)", fontSize: "11px" }}>ROUTE</p>
+              <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+                <MapPinIcon />
+                <span>{job.origin} → {job.destination}</span>
+              </div>
+            </div>
+            <div>
+              <p style={{ color: "var(--muted-foreground)", fontSize: "11px" }}>CARRIER</p>
+              <span>{job.carrier} | ETA: {job.eta}</span>
+            </div>
+            <div>
+              <p style={{ color: "var(--muted-foreground)", fontSize: "11px" }}>CLIENT</p>
+              <span>{job.client}</span>
+            </div>
+            <div>
+              <p style={{ color: "var(--muted-foreground)", fontSize: "11px" }}>MARGIN</p>
+              <span className="font-mono" style={{ color: "var(--primary)", fontWeight: 600 }}>
+                +${job.margin.toLocaleString()} ({Math.round((job.margin / job.clientRate) * 100)}%)
+              </span>
+            </div>
+          </div>
+          {job.gpsCoords && (
+            <div style={{ marginTop: "12px", padding: "10px", background: "var(--card)", borderRadius: "6px" }}>
+              <div style={{ display: "flex", alignItems: "center", gap: "8px", color: "var(--accent)" }}>
+                <GlobeIcon />
+                <span className="font-mono" style={{ fontSize: "11px" }}>
+                  GPS: {job.gpsCoords.lat.toFixed(4)}, {job.gpsCoords.lng.toFixed(4)}
+                </span>
+                <span style={{ marginLeft: "auto", fontSize: "10px", color: "var(--muted-foreground)" }}>
+                  via SAT-NGR-01
+                </span>
+              </div>
+            </div>
+          )}
+        </div>
+      ))}
+      {jobs.length === 0 && (
+        <p style={{ textAlign: "center", color: "var(--muted-foreground)", padding: "40px" }}>
+          No active shipments. Load a job to begin tracking.
+        </p>
+      )}
+    </div>
+  );
+}
+
+// Withdraw Margin Modal
 function WithdrawMarginContent({ jobs, accounts }) {
   const totalMargin = jobs.reduce((acc, job) => acc + job.margin, 0);
   const ngnRate = 1550;
@@ -1053,17 +1652,17 @@ function WithdrawMarginContent({ jobs, accounts }) {
     <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
       <div
         style={{
-          background: "var(--muted)",
-          borderRadius: "8px",
-          padding: "20px",
+          background: "linear-gradient(135deg, var(--primary), var(--accent))",
+          borderRadius: "12px",
+          padding: "24px",
           textAlign: "center",
         }}
       >
-        <p style={{ color: "var(--muted-foreground)", fontSize: "12px", marginBottom: "8px" }}>TOTAL AVAILABLE MARGIN</p>
-        <p className="font-mono" style={{ fontSize: "32px", fontWeight: 700, color: "var(--primary)" }}>
+        <p style={{ color: "rgba(0,0,0,0.7)", fontSize: "12px", marginBottom: "8px" }}>TOTAL AVAILABLE MARGIN</p>
+        <p className="font-mono" style={{ fontSize: "36px", fontWeight: 700, color: "#000" }}>
           ${totalMargin.toLocaleString()}.00
         </p>
-        <p className="font-mono" style={{ fontSize: "14px", color: "var(--muted-foreground)", marginTop: "4px" }}>
+        <p className="font-mono" style={{ fontSize: "16px", color: "rgba(0,0,0,0.6)", marginTop: "4px" }}>
           ₦{totalMarginNGN.toLocaleString()}.00
         </p>
       </div>
@@ -1077,76 +1676,138 @@ function WithdrawMarginContent({ jobs, accounts }) {
               display: "flex",
               justifyContent: "space-between",
               alignItems: "center",
-              padding: "12px",
+              padding: "14px",
               background: "var(--muted)",
-              borderRadius: "6px",
+              borderRadius: "8px",
+              borderLeft: `3px solid ${job.mode === "SEA" ? "#0ea5e9" : job.mode === "AIR" ? "#8b5cf6" : "#84cc16"}`,
             }}
           >
             <div>
               <p className="font-mono" style={{ fontSize: "13px", fontWeight: 600 }}>{job.container}</p>
-              <p style={{ fontSize: "11px", color: "var(--muted-foreground)" }}>{job.client}</p>
+              <p style={{ fontSize: "11px", color: "var(--muted-foreground)" }}>{job.client} | {job.mode}</p>
             </div>
-            <span className="font-mono" style={{ color: "var(--primary)", fontWeight: 600 }}>
+            <span className="font-mono" style={{ color: "var(--primary)", fontWeight: 700, fontSize: "16px" }}>
               +${job.margin.toLocaleString()}
             </span>
           </div>
         ))}
+        {jobs.length === 0 && (
+          <p style={{ textAlign: "center", color: "var(--muted-foreground)", padding: "20px" }}>
+            No margins to withdraw yet.
+          </p>
+        )}
       </div>
 
-      <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
-        <p style={{ fontSize: "12px", color: "var(--muted-foreground)", fontWeight: 600 }}>WITHDRAW TO</p>
-        <button
-          style={{
-            padding: "14px",
-            background: "linear-gradient(135deg, #1e1b4b, #312e81)",
-            color: "#fff",
-            border: "1px solid #4338ca",
-            borderRadius: "6px",
-            fontWeight: 600,
-            fontSize: "13px",
-            cursor: "pointer",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "space-between",
-          }}
-        >
-          <span style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-            <BankIcon />
-            UBA - {accounts.ubaMain.name}
-          </span>
-          <span className="font-mono">₦{totalMarginNGN.toLocaleString()}</span>
-        </button>
-        <button
-          style={{
-            padding: "14px",
-            background: "linear-gradient(135deg, #451a03, #78350f)",
-            color: "#fff",
-            border: "1px solid #b45309",
-            borderRadius: "6px",
-            fontWeight: 600,
-            fontSize: "13px",
-            cursor: "pointer",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "space-between",
-          }}
-        >
-          <span style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-            <BitcoinIcon />
-            CATC Wallet
-          </span>
-          <span className="font-mono">${totalMargin.toLocaleString()}</span>
-        </button>
-      </div>
-
-      <p style={{ fontSize: "11px", color: "var(--muted-foreground)", textAlign: "center" }}>
-        Funds will be processed through ATG FINANCE within 24 hours
-      </p>
+      {totalMargin > 0 && (
+        <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
+          <p style={{ fontSize: "12px", color: "var(--muted-foreground)", fontWeight: 600 }}>WITHDRAW TO</p>
+          <button
+            style={{
+              padding: "16px",
+              background: "linear-gradient(135deg, #1e1b4b, #312e81)",
+              color: "#fff",
+              border: "1px solid #4338ca",
+              borderRadius: "8px",
+              fontWeight: 600,
+              fontSize: "13px",
+              cursor: "pointer",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "space-between",
+            }}
+          >
+            <span style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+              <BankIcon />
+              UBA Corporate - AAT BRIAN
+            </span>
+            <span className="font-mono">₦{totalMarginNGN.toLocaleString()}</span>
+          </button>
+          <button
+            style={{
+              padding: "16px",
+              background: "linear-gradient(135deg, #451a03, #78350f)",
+              color: "#fff",
+              border: "1px solid #b45309",
+              borderRadius: "8px",
+              fontWeight: 600,
+              fontSize: "13px",
+              cursor: "pointer",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "space-between",
+            }}
+          >
+            <span style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+              <BitcoinIcon />
+              Convert to CATC/USDT
+            </span>
+            <span className="font-mono">${totalMargin.toLocaleString()}</span>
+          </button>
+        </div>
+      )}
     </div>
   );
 }
 
-// Main App Component
+// Satellite Network Component
+function SatelliteNetwork({ nodes }) {
+  return (
+    <div style={{
+      background: "var(--card)",
+      border: "1px solid var(--border)",
+      borderRadius: "var(--radius)",
+      padding: "20px",
+    }}>
+      <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: "16px" }}>
+        <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
+          <SatelliteIcon />
+          <div>
+            <h3 style={{ fontSize: "14px", fontWeight: 600 }}>SATELLITE NETWORK</h3>
+            <p style={{ fontSize: "11px", color: "var(--muted-foreground)" }}>Global Tracking Coverage</p>
+          </div>
+        </div>
+        <span className="status-live" style={{ fontSize: "12px", color: "var(--primary)" }}>
+          {nodes.filter((n) => n.status === "online").length}/{nodes.length} NODES
+        </span>
+      </div>
+      <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(140px, 1fr))", gap: "12px" }}>
+        {nodes.map((node) => (
+          <div
+            key={node.id}
+            className={node.status === "online" ? "satellite-active" : ""}
+            style={{
+              background: "var(--muted)",
+              borderRadius: "8px",
+              padding: "12px",
+            }}
+          >
+            <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: "8px" }}>
+              <span className="font-mono" style={{ fontSize: "10px", color: "var(--accent)" }}>
+                {node.id}
+              </span>
+              <span
+                style={{
+                  width: "8px",
+                  height: "8px",
+                  borderRadius: "50%",
+                  background: node.status === "online" ? "var(--primary)" : "var(--destructive)",
+                }}
+              />
+            </div>
+            <p style={{ fontSize: "11px", fontWeight: 500 }}>{node.location}</p>
+            <div style={{ display: "flex", justifyContent: "space-between", marginTop: "6px", fontSize: "10px", color: "var(--muted-foreground)" }}>
+              <span>{node.coverage}</span>
+              <span className="font-mono">{node.latency}ms</span>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+// ================== MAIN APP ==================
+
 export default function App() {
   const [currentTime, setCurrentTime] = useState(new Date());
   const [activeModal, setActiveModal] = useState(null);
@@ -1160,12 +1821,14 @@ export default function App() {
   ]);
   const [isAiTyping, setIsAiTyping] = useState(false);
   const [commandHistory, setCommandHistory] = useState([
-    { time: "09:42:15", command: "SYSTEM BOOT", status: "success" },
-    { time: "09:42:16", command: "12-CARRIER AGGREGATOR ONLINE", status: "success" },
-    { time: "09:42:17", command: "ATG FINANCE CONNECTED", status: "success" },
-    { time: "09:42:18", command: "SATELLITE NETWORK ONLINE [6 NODES]", status: "success" },
-    { time: "09:42:19", command: "AI CEO INITIALIZED - 24/7 MODE", status: "success" },
-    { time: "09:42:20", command: "READY FOR OPERATIONS", status: "success" },
+    { time: "09:42:15", command: "ATG EMPIRE v4.0 BOOT", status: "success" },
+    { time: "09:42:16", command: "6-LAYER ARCHITECTURE ONLINE", status: "success" },
+    { time: "09:42:17", command: "FINANCIAL ENGINE CONNECTED", status: "success" },
+    { time: "09:42:18", command: "LOGISTICS ENGINE (SEA/AIR/LAND) ACTIVE", status: "success" },
+    { time: "09:42:19", command: "TRADE NETWORK CRM LOADED", status: "success" },
+    { time: "09:42:20", command: "API HUB SYNCED - 8 INTEGRATIONS", status: "success" },
+    { time: "09:42:21", command: "AI CEO 24/7 INITIALIZED", status: "success" },
+    { time: "09:42:22", command: "SATELLITE NETWORK: 6 NODES ONLINE", status: "success" },
   ]);
 
   useEffect(() => {
@@ -1182,7 +1845,6 @@ export default function App() {
     setAiMessages((prev) => [...prev, userMsg]);
     setIsAiTyping(true);
 
-    // Simulate AI response
     setTimeout(() => {
       let response = AI_CEO_RESPONSES.status;
       const lowerMsg = message.toLowerCase();
@@ -1190,7 +1852,11 @@ export default function App() {
       else if (lowerMsg.includes("finance") || lowerMsg.includes("money") || lowerMsg.includes("bank")) response = AI_CEO_RESPONSES.finance;
       else if (lowerMsg.includes("satellite") || lowerMsg.includes("network") || lowerMsg.includes("gps")) response = AI_CEO_RESPONSES.satellite;
       else if (lowerMsg.includes("recommend") || lowerMsg.includes("advice") || lowerMsg.includes("suggest")) response = AI_CEO_RESPONSES.recommendation;
-      else if (lowerMsg.includes("alert") || lowerMsg.includes("warning") || lowerMsg.includes("offline")) response = AI_CEO_RESPONSES.alert;
+      else if (lowerMsg.includes("logistics") || lowerMsg.includes("ship") || lowerMsg.includes("cargo")) response = AI_CEO_RESPONSES.logistics;
+      else if (lowerMsg.includes("trade") || lowerMsg.includes("buyer") || lowerMsg.includes("supplier") || lowerMsg.includes("crm")) response = AI_CEO_RESPONSES.trade;
+      else if (lowerMsg.includes("api") || lowerMsg.includes("integration")) response = AI_CEO_RESPONSES.api;
+      else if (lowerMsg.includes("document") || lowerMsg.includes("vault")) response = AI_CEO_RESPONSES.documents;
+      else if (lowerMsg.includes("deal") || lowerMsg.includes("margin") || lowerMsg.includes("profit")) response = AI_CEO_RESPONSES.deal;
 
       setAiMessages((prev) => [
         ...prev,
@@ -1205,26 +1871,29 @@ export default function App() {
   };
 
   const handleLoadJob = (jobData) => {
+    const carrierList = jobData.mode === "SEA" ? CARRIERS : jobData.mode === "AIR" ? AIR_CARRIERS : LAND_CARRIERS;
     const newJob = {
       id: `JOB-2026-${String(jobs.length + 1).padStart(3, "0")}`,
       container: jobData.container,
       origin: "Trade Fair, Lagos",
       destination: jobData.destination,
       status: "Pending Gate-In",
-      carrier: CARRIERS.find((c) => c.code === jobData.carrier)?.name || "Unknown",
+      carrier: carrierList.find((c) => c.code === jobData.carrier)?.name || "Unknown",
+      mode: jobData.mode,
       rate: jobData.rate,
       clientRate: parseFloat(jobData.clientRate),
       margin: jobData.margin,
       eta: "TBD",
       client: jobData.client,
       gpsCoords: { lat: 6.4541 + Math.random() * 0.1, lng: 3.3947 + Math.random() * 0.1 },
+      documents: [],
     };
     setJobs([...jobs, newJob]);
     setCommandHistory([
       ...commandHistory,
       {
         time: currentTime.toLocaleTimeString("en-US", { hour12: false }),
-        command: `LOADED: ${newJob.container} → ${newJob.destination}`,
+        command: `${jobData.mode} JOB LOADED: ${newJob.container} → ${newJob.destination}`,
         status: "success",
       },
     ]);
@@ -1236,7 +1905,7 @@ export default function App() {
       ...commandHistory,
       {
         time: currentTime.toLocaleTimeString("en-US", { hour12: false }),
-        command: `ATG FINANCE: ${type.toUpperCase()} TRANSFER - ${amount}`,
+        command: `ATG FINANCE: ${type.toUpperCase()} TRANSFER - $${amount}`,
         status: "success",
       },
     ]);
@@ -1245,6 +1914,8 @@ export default function App() {
 
   const totalRevenue = jobs.reduce((acc, job) => acc + job.clientRate, 0);
   const totalMargin = jobs.reduce((acc, job) => acc + job.margin, 0);
+  const ngnRate = 1550;
+  const totalLiquidity = (ATG_FINANCE_ACCOUNTS.ubaMain.balance + ATG_FINANCE_ACCOUNTS.ubaSecondary.balance) / ngnRate + ATG_FINANCE_ACCOUNTS.cryptoWallet.usdValue;
 
   return (
     <div style={{ minHeight: "100vh", background: "var(--background)" }}>
@@ -1258,33 +1929,41 @@ export default function App() {
           justifyContent: "space-between",
           flexWrap: "wrap",
           gap: "16px",
+          background: "linear-gradient(135deg, rgba(16, 185, 129, 0.05), rgba(34, 211, 238, 0.05))",
         }}
       >
         <div style={{ display: "flex", alignItems: "center", gap: "16px" }}>
           <div
             style={{
-              width: "40px",
-              height: "40px",
+              width: "48px",
+              height: "48px",
               background: "linear-gradient(135deg, var(--primary), var(--accent))",
-              borderRadius: "8px",
+              borderRadius: "12px",
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
               fontWeight: 700,
-              fontSize: "14px",
+              fontSize: "16px",
+              color: "#000",
             }}
           >
             ATG
           </div>
           <div>
-            <h1 style={{ fontSize: "18px", fontWeight: 700, letterSpacing: "-0.02em" }}>ATG GLOBAL OS</h1>
-            <p style={{ fontSize: "12px", color: "var(--muted-foreground)" }}>Sovereign Trade Node Control</p>
+            <h1 style={{ fontSize: "20px", fontWeight: 700, letterSpacing: "-0.02em" }}>ATG EMPIRE</h1>
+            <p style={{ fontSize: "11px", color: "var(--muted-foreground)" }}>
+              GLOBAL TRADE + FINANCE + LOGISTICS OS
+            </p>
           </div>
         </div>
-        <div style={{ display: "flex", alignItems: "center", gap: "20px" }}>
+        <div style={{ display: "flex", alignItems: "center", gap: "16px" }}>
+          <div style={{ display: "flex", alignItems: "center", gap: "8px", padding: "8px 12px", background: "var(--muted)", borderRadius: "6px" }}>
+            <LayersIcon />
+            <span style={{ fontSize: "11px", color: "var(--accent)" }}>6 LAYERS</span>
+          </div>
           <div style={{ display: "flex", alignItems: "center", gap: "8px", padding: "8px 12px", background: "var(--muted)", borderRadius: "6px" }}>
             <SatelliteIcon />
-            <span style={{ fontSize: "12px", color: "var(--accent)" }}>6 Satellites</span>
+            <span style={{ fontSize: "11px", color: "var(--accent)" }}>6 SATELLITES</span>
           </div>
           <div style={{ textAlign: "right" }}>
             <p className="font-mono" style={{ fontSize: "14px", color: "var(--primary)" }}>
@@ -1297,89 +1976,88 @@ export default function App() {
           <div
             className="status-live"
             style={{
-              padding: "8px 12px",
-              background: "rgba(16, 185, 129, 0.1)",
-              borderRadius: "6px",
+              padding: "10px 16px",
+              background: "linear-gradient(135deg, rgba(16, 185, 129, 0.2), rgba(34, 211, 238, 0.1))",
+              borderRadius: "8px",
               fontSize: "12px",
               color: "var(--primary)",
-              fontWeight: 600,
+              fontWeight: 700,
             }}
           >
-            OPERATIONAL
+            EMPIRE ONLINE
           </div>
         </div>
       </header>
 
       {/* Main Content */}
-      <main style={{ padding: "24px", maxWidth: "1600px", margin: "0 auto" }}>
+      <main style={{ padding: "24px", maxWidth: "1800px", margin: "0 auto" }}>
+        {/* 6-Layer Architecture Overview */}
+        <section style={{ marginBottom: "32px" }}>
+          <SystemLayersOverview />
+        </section>
+
         {/* System Status Grid */}
         <section style={{ marginBottom: "32px" }}>
           <h2 style={{ fontSize: "12px", color: "var(--muted-foreground)", fontWeight: 600, marginBottom: "16px", letterSpacing: "0.05em" }}>
-            SYSTEM NODES
+            EMPIRE STATUS NODES
           </h2>
           <div
             style={{
               display: "grid",
-              gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))",
+              gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))",
               gap: "16px",
             }}
           >
-            <StatusCard title="THE BRAIN" icon={BrainIcon} status="LIVE" statusClass="">
+            <StatusCard title="COMMAND CORE" icon={BrainIcon} status="LIVE" statusClass="" layer={1}>
               <div style={{ fontSize: "13px", color: "var(--muted-foreground)" }}>
-                <p>Job Registry (Express.js)</p>
+                <p>ATG OS Dashboard</p>
                 <p className="font-mono" style={{ color: "var(--foreground)", marginTop: "4px" }}>
-                  $250.00 <span style={{ color: "var(--muted-foreground)" }}>anchor rate</span>
+                  {ATG_ENTITIES.length} <span style={{ color: "var(--muted-foreground)" }}>entities</span>
                 </p>
               </div>
             </StatusCard>
 
-            <StatusCard title="THE EYES" icon={EyeIcon} status="LIVE" statusClass="">
+            <StatusCard title="FINANCIAL ENGINE" icon={BankIcon} status="ACTIVE" statusClass="status-locked" layer={2}>
               <div style={{ fontSize: "13px", color: "var(--muted-foreground)" }}>
-                <p>12-Carrier Echo Aggregator</p>
-                <p className="font-mono" style={{ color: "var(--foreground)", marginTop: "4px" }}>
-                  {CARRIERS.filter((c) => c.available).length}/12 <span style={{ color: "var(--muted-foreground)" }}>carriers online</span>
-                </p>
-              </div>
-            </StatusCard>
-
-            <StatusCard title="ATG FINANCE" icon={BankIcon} status="CONNECTED" statusClass="status-locked">
-              <div style={{ fontSize: "13px", color: "var(--muted-foreground)" }}>
-                <p>UBA + CATC Wallet</p>
+                <p>Banks + Crypto</p>
                 <p className="font-mono" style={{ color: "var(--accent)", marginTop: "4px" }}>
-                  ₦14,000,000.00
-                </p>
-                <p className="font-mono" style={{ fontSize: "11px", color: "var(--warning)" }}>
-                  + 125,000 CATC
+                  ${totalLiquidity.toLocaleString(undefined, { maximumFractionDigits: 0 })}
                 </p>
               </div>
             </StatusCard>
 
-            <StatusCard title="THE ASSETS" icon={ContainerIcon} status="MOVING" statusClass="status-moving">
+            <StatusCard title="LOGISTICS ENGINE" icon={ShipIcon} status="LIVE" statusClass="" layer={3}>
               <div style={{ fontSize: "13px", color: "var(--muted-foreground)" }}>
-                <p>Active Containers</p>
+                <p>SEA + AIR + LAND</p>
+                <p className="font-mono" style={{ color: "var(--foreground)", marginTop: "4px" }}>
+                  {CARRIERS.filter((c) => c.available).length + AIR_CARRIERS.length + LAND_CARRIERS.length} <span style={{ color: "var(--muted-foreground)" }}>carriers</span>
+                </p>
+              </div>
+            </StatusCard>
+
+            <StatusCard title="TRADE NETWORK" icon={UsersIcon} status="CONNECTED" statusClass="status-moving" layer={4}>
+              <div style={{ fontSize: "13px", color: "var(--muted-foreground)" }}>
+                <p>Global CRM</p>
                 <p className="font-mono" style={{ color: "var(--warning)", marginTop: "4px" }}>
-                  {jobs.length} <span style={{ color: "var(--muted-foreground)" }}>in transit</span>
+                  {TRADE_NETWORK.buyers.length + TRADE_NETWORK.suppliers.length} <span style={{ color: "var(--muted-foreground)" }}>partners</span>
                 </p>
               </div>
             </StatusCard>
 
-            <StatusCard title="THE REVENUE" icon={ChartIcon} status="TRIGGERED" statusClass="status-triggered">
+            <StatusCard title="DOCUMENT VAULT" icon={FileIcon} status="SECURED" statusClass="status-triggered" layer={5}>
               <div style={{ fontSize: "13px", color: "var(--muted-foreground)" }}>
-                <p>Proforma Generated</p>
+                <p>Trade Intelligence</p>
                 <p className="font-mono" style={{ color: "var(--primary)", marginTop: "4px" }}>
-                  ${totalRevenue.toLocaleString()}.00 <span style={{ color: "var(--muted-foreground)" }}>total</span>
-                </p>
-                <p className="font-mono" style={{ fontSize: "11px", color: "var(--primary)" }}>
-                  +${totalMargin.toLocaleString()}.00 margin
+                  {DOCUMENT_VAULT.length} <span style={{ color: "var(--muted-foreground)" }}>docs verified</span>
                 </p>
               </div>
             </StatusCard>
 
-            <StatusCard title="SATELLITE NET" icon={SatelliteIcon} status="ONLINE" statusClass="">
+            <StatusCard title="API HUB" icon={PlugIcon} status="SYNCED" statusClass="" layer={6}>
               <div style={{ fontSize: "13px", color: "var(--muted-foreground)" }}>
-                <p>Global Tracking Network</p>
+                <p>Multi-Integration</p>
                 <p className="font-mono" style={{ color: "var(--accent)", marginTop: "4px" }}>
-                  {SATELLITE_NODES.filter((n) => n.status === "online").length}/6 <span style={{ color: "var(--muted-foreground)" }}>nodes active</span>
+                  {API_INTEGRATIONS.filter((a) => a.status === "connected").length}/{API_INTEGRATIONS.length} <span style={{ color: "var(--muted-foreground)" }}>APIs</span>
                 </p>
               </div>
             </StatusCard>
@@ -1391,7 +2069,7 @@ export default function App() {
           <div
             style={{
               display: "grid",
-              gridTemplateColumns: "repeat(auto-fit, minmax(400px, 1fr))",
+              gridTemplateColumns: "repeat(auto-fit, minmax(450px, 1fr))",
               gap: "24px",
             }}
           >
@@ -1408,23 +2086,39 @@ export default function App() {
                   padding: "20px",
                 }}
               >
-                <div style={{ display: "flex", gap: "12px", flexWrap: "wrap", marginBottom: "16px" }}>
+                {/* Primary Commands */}
+                <div style={{ display: "flex", gap: "10px", flexWrap: "wrap", marginBottom: "16px" }}>
                   <CommandButton variant="primary" onClick={() => setActiveModal("track")}>
                     <MapPinIcon /> TRACK ALL
                   </CommandButton>
-                  <CommandButton variant="accent" onClick={() => setActiveModal("load")}>
-                    <PlusIcon /> LOAD NEW JOB
+                  <CommandButton variant="sea" onClick={() => setActiveModal("logistics")}>
+                    <ShipIcon /> LOAD JOB
                   </CommandButton>
                   <CommandButton variant="warning" onClick={() => setActiveModal("withdraw")}>
-                    <DollarIcon /> WITHDRAW MARGIN
+                    <DollarIcon /> WITHDRAW
                   </CommandButton>
                 </div>
-                <div style={{ display: "flex", gap: "12px", flexWrap: "wrap" }}>
+                
+                {/* Secondary Commands */}
+                <div style={{ display: "flex", gap: "10px", flexWrap: "wrap", marginBottom: "16px" }}>
                   <CommandButton variant="bank" onClick={() => setActiveModal("finance")}>
                     <BankIcon /> ATG FINANCE
                   </CommandButton>
                   <CommandButton variant="crypto" onClick={() => setActiveModal("finance")}>
-                    <BitcoinIcon /> CATC WALLET
+                    <BitcoinIcon /> CRYPTO
+                  </CommandButton>
+                  <CommandButton variant="accent" onClick={() => setActiveModal("trade")}>
+                    <UsersIcon /> TRADE CRM
+                  </CommandButton>
+                </div>
+
+                {/* Tertiary Commands */}
+                <div style={{ display: "flex", gap: "10px", flexWrap: "wrap", marginBottom: "16px" }}>
+                  <CommandButton variant="default" onClick={() => setActiveModal("documents")}>
+                    <FileIcon /> VAULT
+                  </CommandButton>
+                  <CommandButton variant="default" onClick={() => setActiveModal("api")}>
+                    <PlugIcon /> API HUB
                   </CommandButton>
                 </div>
 
@@ -1432,16 +2126,15 @@ export default function App() {
                 <div
                   style={{
                     background: "var(--background)",
-                    borderRadius: "6px",
+                    borderRadius: "8px",
                     padding: "16px",
                     fontFamily: "'JetBrains Mono', monospace",
-                    fontSize: "11px",
-                    maxHeight: "150px",
+                    fontSize: "10px",
+                    maxHeight: "180px",
                     overflow: "auto",
-                    marginTop: "16px",
                   }}
                 >
-                  {commandHistory.slice(-6).map((entry, i) => (
+                  {commandHistory.slice(-8).map((entry, i) => (
                     <div key={i} style={{ display: "flex", gap: "12px", marginBottom: "4px" }}>
                       <span style={{ color: "var(--muted-foreground)" }}>[{entry.time}]</span>
                       <span style={{ color: entry.status === "success" ? "var(--primary)" : "var(--destructive)" }}>
@@ -1454,7 +2147,7 @@ export default function App() {
                       [{currentTime.toLocaleTimeString("en-US", { hour12: false })}]
                     </span>
                     <span className="animate-pulse" style={{ color: "var(--primary)" }}>
-                      AWAITING COMMAND_
+                      AWAITING CEO COMMAND_
                     </span>
                   </div>
                 </div>
@@ -1464,7 +2157,7 @@ export default function App() {
             {/* AI CEO Assistant */}
             <div>
               <h2 style={{ fontSize: "12px", color: "var(--muted-foreground)", fontWeight: 600, marginBottom: "16px", letterSpacing: "0.05em" }}>
-                AI CEO ASSISTANT (24/7)
+                ATG AI CEO (24/7 INTELLIGENCE)
               </h2>
               <AICEOPanel messages={aiMessages} onSendMessage={handleAiMessage} isTyping={isAiTyping} />
             </div>
@@ -1479,18 +2172,18 @@ export default function App() {
           <SatelliteNetwork nodes={SATELLITE_NODES} />
         </section>
 
-        {/* Three Column Layout: Carrier Grid, Active Jobs, Quick Stats */}
+        {/* Three Column Layout */}
         <div
           style={{
             display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(350px, 1fr))",
+            gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))",
             gap: "24px",
           }}
         >
           {/* Carrier Grid */}
           <section>
             <h2 style={{ fontSize: "12px", color: "var(--muted-foreground)", fontWeight: 600, marginBottom: "16px", letterSpacing: "0.05em" }}>
-              12-CARRIER RATE GRID
+              LOGISTICS CARRIERS ({CARRIERS.filter(c => c.available).length} SEA + {AIR_CARRIERS.length} AIR + {LAND_CARRIERS.length} LAND)
             </h2>
             <div
               style={{
@@ -1503,38 +2196,37 @@ export default function App() {
               <div
                 style={{
                   display: "grid",
-                  gridTemplateColumns: "1fr auto auto",
+                  gridTemplateColumns: "1fr auto auto auto",
                   padding: "12px 16px",
                   borderBottom: "1px solid var(--border)",
-                  fontSize: "11px",
+                  fontSize: "10px",
                   color: "var(--muted-foreground)",
                   fontWeight: 600,
                 }}
               >
                 <span>CARRIER</span>
-                <span>40FT RATE</span>
-                <span>STATUS</span>
+                <span>MODE</span>
+                <span>RATE</span>
+                <span>API</span>
               </div>
               <div style={{ maxHeight: "300px", overflow: "auto" }}>
-                {CARRIERS.map((carrier) => (
+                {CARRIERS.slice(0, 6).map((carrier) => (
                   <div
                     key={carrier.code}
                     style={{
                       display: "grid",
-                      gridTemplateColumns: "1fr auto auto",
-                      padding: "12px 16px",
+                      gridTemplateColumns: "1fr auto auto auto",
+                      padding: "10px 16px",
                       borderBottom: "1px solid var(--border)",
-                      fontSize: "13px",
+                      fontSize: "12px",
                       alignItems: "center",
                     }}
                   >
                     <div>
                       <span style={{ fontWeight: 500 }}>{carrier.name}</span>
-                      <span className="font-mono" style={{ color: "var(--muted-foreground)", marginLeft: "8px", fontSize: "11px" }}>
-                        {carrier.code}
-                      </span>
                     </div>
-                    <span className="font-mono" style={{ color: carrier.rate <= 250 ? "var(--primary)" : "var(--foreground)" }}>
+                    <span style={{ padding: "2px 6px", background: "rgba(14, 165, 233, 0.2)", color: "#0ea5e9", borderRadius: "4px", fontSize: "9px" }}>SEA</span>
+                    <span className="font-mono" style={{ color: carrier.rate <= 245 ? "var(--primary)" : "var(--foreground)" }}>
                       ${carrier.rate}
                     </span>
                     <span
@@ -1542,9 +2234,31 @@ export default function App() {
                         width: "8px",
                         height: "8px",
                         borderRadius: "50%",
-                        background: carrier.available ? "var(--primary)" : "var(--destructive)",
+                        background: carrier.apiStatus === "connected" ? "var(--primary)" : "var(--destructive)",
                       }}
                     />
+                  </div>
+                ))}
+                {AIR_CARRIERS.slice(0, 2).map((carrier) => (
+                  <div
+                    key={carrier.code}
+                    style={{
+                      display: "grid",
+                      gridTemplateColumns: "1fr auto auto auto",
+                      padding: "10px 16px",
+                      borderBottom: "1px solid var(--border)",
+                      fontSize: "12px",
+                      alignItems: "center",
+                    }}
+                  >
+                    <div>
+                      <span style={{ fontWeight: 500 }}>{carrier.name}</span>
+                    </div>
+                    <span style={{ padding: "2px 6px", background: "rgba(139, 92, 246, 0.2)", color: "#8b5cf6", borderRadius: "4px", fontSize: "9px" }}>AIR</span>
+                    <span className="font-mono" style={{ color: "var(--foreground)" }}>
+                      ${carrier.rate}/kg
+                    </span>
+                    <span style={{ width: "8px", height: "8px", borderRadius: "50%", background: "var(--primary)" }} />
                   </div>
                 ))}
               </div>
@@ -1576,39 +2290,31 @@ export default function App() {
                     background: "var(--muted)",
                     borderRadius: "8px",
                     padding: "16px",
+                    borderLeft: `4px solid ${job.mode === "SEA" ? "#0ea5e9" : job.mode === "AIR" ? "#8b5cf6" : "#84cc16"}`,
                   }}
                 >
                   <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: "12px" }}>
                     <div>
-                      <p className="font-mono" style={{ fontSize: "11px", color: "var(--muted-foreground)" }}>{job.id}</p>
-                      <p className="font-mono" style={{ fontSize: "15px", fontWeight: 600, color: "var(--primary)" }}>{job.container}</p>
+                      <p className="font-mono" style={{ fontSize: "10px", color: "var(--muted-foreground)" }}>{job.id}</p>
+                      <p className="font-mono" style={{ fontSize: "14px", fontWeight: 600, color: "var(--primary)" }}>{job.container}</p>
                     </div>
-                    <span
-                      style={{
-                        background: job.status === "Vessel Ready" ? "var(--warning)" : "var(--muted)",
-                        color: job.status === "Vessel Ready" ? "#000" : "var(--foreground)",
-                        padding: "4px 10px",
+                    <div style={{ display: "flex", gap: "6px" }}>
+                      <span style={{
+                        background: job.mode === "SEA" ? "rgba(14, 165, 233, 0.2)" : job.mode === "AIR" ? "rgba(139, 92, 246, 0.2)" : "rgba(132, 204, 22, 0.2)",
+                        color: job.mode === "SEA" ? "#0ea5e9" : job.mode === "AIR" ? "#8b5cf6" : "#84cc16",
+                        padding: "3px 6px",
                         borderRadius: "4px",
-                        fontSize: "11px",
+                        fontSize: "9px",
                         fontWeight: 600,
-                        border: job.status !== "Vessel Ready" ? "1px solid var(--border)" : "none",
-                      }}
-                    >
-                      {job.status}
-                    </span>
+                      }}>
+                        {job.mode}
+                      </span>
+                    </div>
                   </div>
-                  <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "8px", fontSize: "12px" }}>
+                  <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "8px", fontSize: "11px" }}>
                     <div>
                       <p style={{ color: "var(--muted-foreground)" }}>Route</p>
                       <p>{job.origin.split(",")[0]} → {job.destination.split(",")[0]}</p>
-                    </div>
-                    <div>
-                      <p style={{ color: "var(--muted-foreground)" }}>Carrier</p>
-                      <p>{job.carrier}</p>
-                    </div>
-                    <div>
-                      <p style={{ color: "var(--muted-foreground)" }}>Client Rate</p>
-                      <p className="font-mono">${job.clientRate.toLocaleString()}</p>
                     </div>
                     <div>
                       <p style={{ color: "var(--muted-foreground)" }}>Margin</p>
@@ -1621,13 +2327,12 @@ export default function App() {
                 <div style={{ textAlign: "center", padding: "40px", color: "var(--muted-foreground)" }}>
                   <ContainerIcon />
                   <p style={{ marginTop: "12px" }}>No active shipments</p>
-                  <p style={{ fontSize: "12px" }}>Load your first job to begin</p>
                 </div>
               )}
             </div>
           </section>
 
-          {/* Quick Financial Stats */}
+          {/* Financial Overview */}
           <section>
             <h2 style={{ fontSize: "12px", color: "var(--muted-foreground)", fontWeight: 600, marginBottom: "16px", letterSpacing: "0.05em" }}>
               ATG FINANCE OVERVIEW
@@ -1640,59 +2345,62 @@ export default function App() {
                 padding: "20px",
                 display: "flex",
                 flexDirection: "column",
-                gap: "16px",
+                gap: "12px",
               }}
             >
               <div
                 style={{
-                  background: "linear-gradient(135deg, #1e1b4b, #312e81)",
-                  borderRadius: "8px",
-                  padding: "16px",
-                }}
-              >
-                <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "8px" }}>
-                  <BankIcon />
-                  <span style={{ fontSize: "11px", color: "rgba(255,255,255,0.7)" }}>UBA CORPORATE</span>
-                </div>
-                <p className="font-mono" style={{ fontSize: "20px", fontWeight: 700, color: "#a5b4fc" }}>
-                  ₦{ATG_FINANCE_ACCOUNTS.ubaMain.balance.toLocaleString()}
-                </p>
-                <p style={{ fontSize: "11px", color: "rgba(255,255,255,0.5)", marginTop: "4px" }}>
-                  AAT BRIAN AND BROTHER WORLDWIDE LIMITED
-                </p>
-              </div>
-
-              <div
-                style={{
-                  background: "linear-gradient(135deg, #451a03, #78350f)",
-                  borderRadius: "8px",
-                  padding: "16px",
-                }}
-              >
-                <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "8px" }}>
-                  <BitcoinIcon />
-                  <span style={{ fontSize: "11px", color: "rgba(255,255,255,0.7)" }}>CATC WALLET</span>
-                </div>
-                <p className="font-mono" style={{ fontSize: "20px", fontWeight: 700, color: "#fbbf24" }}>
-                  {ATG_FINANCE_ACCOUNTS.cryptoWallet.catcBalance.toLocaleString()} CATC
-                </p>
-                <p style={{ fontSize: "11px", color: "rgba(255,255,255,0.5)", marginTop: "4px" }}>
-                  ${ATG_FINANCE_ACCOUNTS.cryptoWallet.usdValue.toLocaleString()} USD Value
-                </p>
-              </div>
-
-              <div
-                style={{
-                  background: "var(--muted)",
+                  background: "linear-gradient(135deg, var(--primary), var(--accent))",
                   borderRadius: "8px",
                   padding: "16px",
                   textAlign: "center",
                 }}
               >
-                <p style={{ fontSize: "11px", color: "var(--muted-foreground)", marginBottom: "4px" }}>TOTAL LIQUIDITY</p>
-                <p className="font-mono" style={{ fontSize: "18px", fontWeight: 700, color: "var(--primary)" }}>
-                  $685,085.92
+                <p style={{ fontSize: "10px", color: "rgba(0,0,0,0.7)" }}>TOTAL LIQUIDITY</p>
+                <p className="font-mono" style={{ fontSize: "22px", fontWeight: 700, color: "#000" }}>
+                  ${totalLiquidity.toLocaleString(undefined, { maximumFractionDigits: 0 })}
                 </p>
+              </div>
+
+              <div style={{
+                background: "linear-gradient(135deg, #1e1b4b, #312e81)",
+                borderRadius: "8px",
+                padding: "12px",
+              }}>
+                <div style={{ display: "flex", alignItems: "center", gap: "6px", marginBottom: "6px" }}>
+                  <BankIcon />
+                  <span style={{ fontSize: "10px", color: "rgba(255,255,255,0.7)" }}>UBA CORPORATE</span>
+                </div>
+                <p className="font-mono" style={{ fontSize: "16px", fontWeight: 700, color: "#a5b4fc" }}>
+                  ₦{ATG_FINANCE_ACCOUNTS.ubaMain.balance.toLocaleString()}
+                </p>
+              </div>
+
+              <div style={{
+                background: "linear-gradient(135deg, #451a03, #78350f)",
+                borderRadius: "8px",
+                padding: "12px",
+              }}>
+                <div style={{ display: "flex", alignItems: "center", gap: "6px", marginBottom: "6px" }}>
+                  <BitcoinIcon />
+                  <span style={{ fontSize: "10px", color: "rgba(255,255,255,0.7)" }}>CRYPTO PORTFOLIO</span>
+                </div>
+                <p className="font-mono" style={{ fontSize: "16px", fontWeight: 700, color: "#fbbf24" }}>
+                  ${ATG_FINANCE_ACCOUNTS.cryptoWallet.usdValue.toLocaleString()}
+                </p>
+              </div>
+
+              <div style={{
+                background: "var(--muted)",
+                borderRadius: "8px",
+                padding: "12px",
+                display: "flex",
+                justifyContent: "space-between",
+              }}>
+                <span style={{ fontSize: "11px", color: "var(--muted-foreground)" }}>Active Margin</span>
+                <span className="font-mono" style={{ fontSize: "14px", fontWeight: 600, color: "var(--primary)" }}>
+                  +${totalMargin.toLocaleString()}
+                </span>
               </div>
 
               <button
@@ -1704,7 +2412,7 @@ export default function App() {
                   border: "none",
                   borderRadius: "6px",
                   fontWeight: 600,
-                  fontSize: "13px",
+                  fontSize: "12px",
                   cursor: "pointer",
                   display: "flex",
                   alignItems: "center",
@@ -1712,7 +2420,7 @@ export default function App() {
                   gap: "8px",
                 }}
               >
-                <RefreshIcon /> MANAGE ACCOUNTS
+                <RefreshIcon /> MANAGE FINANCE
               </button>
             </div>
           </section>
@@ -1730,32 +2438,35 @@ export default function App() {
           alignItems: "center",
           flexWrap: "wrap",
           gap: "12px",
-          fontSize: "12px",
+          fontSize: "11px",
           color: "var(--muted-foreground)",
+          background: "linear-gradient(135deg, rgba(16, 185, 129, 0.02), rgba(34, 211, 238, 0.02))",
         }}
       >
         <div style={{ display: "flex", alignItems: "center", gap: "16px" }}>
-          <span>ATG GLOBAL OS v3.0</span>
+          <span className="font-mono" style={{ color: "var(--primary)" }}>ATG EMPIRE v4.0</span>
           <span style={{ color: "var(--border)" }}>|</span>
-          <span>AI CEO: ACTIVE 24/7</span>
+          <span>6-LAYER ARCHITECTURE</span>
           <span style={{ color: "var(--border)" }}>|</span>
-          <span>Satellite Network: 6 NODES</span>
+          <span>AI CEO: 24/7</span>
+          <span style={{ color: "var(--border)" }}>|</span>
+          <span>SATELLITES: 6 NODES</span>
         </div>
         <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-          <span>Identifiers:</span>
-          <span className="font-mono" style={{ color: "var(--foreground)" }}>Quodri</span>
-          <span style={{ color: "var(--border)" }}>|</span>
+          <span>CEO:</span>
           <span className="font-mono" style={{ color: "var(--foreground)" }}>Aremo Temmy</span>
+          <span style={{ color: "var(--border)" }}>|</span>
+          <span className="font-mono" style={{ color: "var(--foreground)" }}>Quodri</span>
         </div>
       </footer>
 
       {/* Modals */}
-      <Modal isOpen={activeModal === "track"} onClose={() => setActiveModal(null)} title="TRACK ALL SHIPMENTS - SATELLITE VIEW">
+      <Modal isOpen={activeModal === "track"} onClose={() => setActiveModal(null)} title="TRACK ALL SHIPMENTS - SATELLITE VIEW" wide>
         <TrackAllContent jobs={jobs} satelliteNodes={SATELLITE_NODES} />
       </Modal>
 
-      <Modal isOpen={activeModal === "load"} onClose={() => setActiveModal(null)} title="LOAD NEW JOB">
-        <LoadNewJobContent onSubmit={handleLoadJob} carriers={CARRIERS} />
+      <Modal isOpen={activeModal === "logistics"} onClose={() => setActiveModal(null)} title="LOGISTICS ENGINE - LOAD JOB" wide>
+        <LogisticsEngineContent jobs={jobs} onLoadJob={handleLoadJob} />
       </Modal>
 
       <Modal isOpen={activeModal === "withdraw"} onClose={() => setActiveModal(null)} title="WITHDRAW MARGIN">
@@ -1764,6 +2475,18 @@ export default function App() {
 
       <Modal isOpen={activeModal === "finance"} onClose={() => setActiveModal(null)} title="ATG FINANCE - BANK & CRYPTO" wide>
         <ATGFinanceContent accounts={ATG_FINANCE_ACCOUNTS} onTransfer={handleFinanceTransfer} />
+      </Modal>
+
+      <Modal isOpen={activeModal === "trade"} onClose={() => setActiveModal(null)} title="GLOBAL TRADE NETWORK - CRM" wide>
+        <TradeNetworkContent />
+      </Modal>
+
+      <Modal isOpen={activeModal === "documents"} onClose={() => setActiveModal(null)} title="DOCUMENT VAULT - TRADE INTELLIGENCE">
+        <DocumentVaultContent />
+      </Modal>
+
+      <Modal isOpen={activeModal === "api"} onClose={() => setActiveModal(null)} title="API INTEGRATION HUB" wide>
+        <APIHubContent />
       </Modal>
     </div>
   );
