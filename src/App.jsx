@@ -218,6 +218,46 @@ const BuildingIcon = () => (
   </svg>
 );
 
+const GavelIcon = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <path d="m14.5 12.5-8 8a2.119 2.119 0 1 1-3-3l8-8"/>
+    <path d="m16 16 6-6"/>
+    <path d="m8 8 6-6"/>
+    <path d="m9 7 8 8"/>
+    <path d="m21 11-8-8"/>
+  </svg>
+);
+
+const PenIcon = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z"/>
+  </svg>
+);
+
+const ScanIcon = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M3 7V5a2 2 0 0 1 2-2h2"/>
+    <path d="M17 3h2a2 2 0 0 1 2 2v2"/>
+    <path d="M21 17v2a2 2 0 0 1-2 2h-2"/>
+    <path d="M7 21H5a2 2 0 0 1-2-2v-2"/>
+    <path d="M7 12h10"/>
+  </svg>
+);
+
+const ZapIcon = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"/>
+  </svg>
+);
+
+const TrashIcon = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M3 6h18"/>
+    <path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/>
+    <path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/>
+  </svg>
+);
+
 // ================== DATA STRUCTURES ==================
 
 // ATG EMPIRE - Registered Companies
@@ -404,6 +444,86 @@ const AI_CEO_RESPONSES = {
 • Pending Verification: ${DOCUMENT_VAULT.filter(d => !d.verified).length}
 • Critical: Bill of Lading BL001 awaiting verification`,
   deal: "DEAL ANALYSIS: Malaysia Proforma shows $1,400 client rate vs $250 carrier cost = $1,150 margin (82% profit margin). EXECUTE IMMEDIATELY. For US deals, recommend minimum $2,000 client rate for 40FT containers.",
+  legalizer: "SOVEREIGN LEGALIZER: Ready to transform raw field notes into formal booking requests. Use Option 1 for external bookings, Option 2 for internal records. Missing data (Shipper, Consignee, POL, POD) will be flagged in RED.",
+  alphaZero: "ALPHA ZERO PROTOCOL: Container SUDU6960970 is locked and tracked. Voice authorization active. Strobe confirmation ready for immediate deployment.",
+};
+
+// Legalizer Templates
+const LEGALIZER_TEMPLATES = {
+  option1: {
+    name: "FORMAL BOOKING REQUEST",
+    template: (data) => `
+═══════════════════════════════════════════════════════════════
+                   ATG GLOBAL LOGISTICS
+              FORMAL BOOKING REQUEST #${Date.now().toString(36).toUpperCase()}
+═══════════════════════════════════════════════════════════════
+
+DATE: ${new Date().toLocaleDateString("en-GB")}
+STATUS: PENDING CONFIRMATION
+
+SHIPMENT DETAILS:
+─────────────────────────────────────────────────────────────
+Container Size:     ${data.containerSize || "⚠️ REQUIRED"}
+Commodity:          ${data.commodity || "⚠️ REQUIRED"}
+Weight (Est.):      ${data.weight || "TBD"}
+
+ROUTING:
+─────────────────────────────────────────────────────────────
+Port of Loading:    ${data.pol || "⚠️ REQUIRED - APAPA/TIN CAN"}
+Port of Discharge:  ${data.pod || "⚠️ REQUIRED"}
+Preferred Carrier:  ${data.carrier || "BEST AVAILABLE"}
+
+PARTIES:
+─────────────────────────────────────────────────────────────
+Shipper:            ${data.shipper || "⚠️ REQUIRED"}
+Consignee:          ${data.consignee || "⚠️ REQUIRED"}
+Notify Party:       ${data.notify || "SAME AS CONSIGNEE"}
+
+SPECIAL INSTRUCTIONS:
+${data.instructions || "NIL"}
+
+═══════════════════════════════════════════════════════════════
+Authorized by: ATG GLOBAL LOGISTICS
+AAT BRIAN AND BROTHER WORLDWIDE LIMITED
+Contact: +234 XXX XXX XXXX
+═══════════════════════════════════════════════════════════════
+    `,
+  },
+  option2: {
+    name: "INTERNAL RECORD",
+    template: (data) => `
+┌──────────────────────────────────────────────────────────────┐
+│                    ATG INTERNAL RECORD                       │
+│              REF: INT-${Date.now().toString(36).toUpperCase()}                      │
+└──────────────────────────────────────────────────────────────┘
+
+TIMESTAMP: ${new Date().toLocaleString("en-GB")}
+CATEGORY:  ${data.category || "GENERAL"}
+
+NOTES:
+────────────────────────────────────────────────────────
+${data.rawNotes || "No notes provided"}
+
+PARSED DATA:
+────────────────────────────────────────────────────────
+${data.containerSize ? `✓ Container: ${data.containerSize}` : ""}
+${data.commodity ? `✓ Commodity: ${data.commodity}` : ""}
+${data.pol ? `✓ POL: ${data.pol}` : ""}
+${data.pod ? `✓ POD: ${data.pod}` : ""}
+${data.carrier ? `✓ Carrier: ${data.carrier}` : ""}
+
+ACTION ITEMS:
+────────────────────────────────────────────────────────
+${!data.shipper ? "⚠️ OBTAIN SHIPPER DETAILS" : ""}
+${!data.consignee ? "⚠️ OBTAIN CONSIGNEE DETAILS" : ""}
+${!data.pol ? "⚠️ CONFIRM PORT OF LOADING" : ""}
+${!data.pod ? "⚠️ CONFIRM PORT OF DISCHARGE" : ""}
+
+┌──────────────────────────────────────────────────────────────┐
+│  Filed by: ATG COMMAND CONSOLE  │  Classification: INTERNAL │
+└──────────────────────────────────────────────────────────────┘
+    `,
+  },
 };
 
 // ================== COMPONENTS ==================
@@ -792,6 +912,273 @@ function AICEOPanel({ messages, onSendMessage, isTyping }) {
           </button>
         </form>
       </div>
+    </div>
+  );
+}
+
+// Sovereign Legalizer Component (Field Intel Pad)
+function SovereignLegalizer({ onLegalize, hammerArchive }) {
+  const [rawNotes, setRawNotes] = useState("");
+  const [selectedTemplate, setSelectedTemplate] = useState("option1");
+  const [isProcessing, setIsProcessing] = useState(false);
+
+  const parseRawNotes = (notes) => {
+    const data = { rawNotes: notes };
+    const lowerNotes = notes.toLowerCase();
+    
+    // Parse container size
+    if (lowerNotes.includes("1x40") || lowerNotes.includes("40ft") || lowerNotes.includes("40'")) {
+      data.containerSize = "1 x 40FT HC";
+    } else if (lowerNotes.includes("1x20") || lowerNotes.includes("20ft") || lowerNotes.includes("20'")) {
+      data.containerSize = "1 x 20FT";
+    } else if (lowerNotes.includes("2x40")) {
+      data.containerSize = "2 x 40FT HC";
+    }
+    
+    // Parse commodity
+    const commodities = ["sesame", "cashew", "cocoa", "ginger", "hibiscus", "shea", "rubber", "cotton"];
+    for (const comm of commodities) {
+      if (lowerNotes.includes(comm)) {
+        data.commodity = comm.charAt(0).toUpperCase() + comm.slice(1) + " Seeds";
+        break;
+      }
+    }
+    
+    // Parse ports
+    if (lowerNotes.includes("apapa")) data.pol = "Apapa, Lagos";
+    if (lowerNotes.includes("tin can")) data.pol = "Tin Can Island, Lagos";
+    if (lowerNotes.includes("beirut")) data.pod = "Beirut, Lebanon";
+    if (lowerNotes.includes("shanghai")) data.pod = "Shanghai, China";
+    if (lowerNotes.includes("rotterdam")) data.pod = "Rotterdam, Netherlands";
+    if (lowerNotes.includes("dubai")) data.pod = "Jebel Ali, UAE";
+    if (lowerNotes.includes("malaysia")) data.pod = "Port Klang, Malaysia";
+    
+    // Parse carrier mentions
+    const carriers = ["maersk", "msc", "cma", "cosco", "hapag", "evergreen"];
+    for (const carrier of carriers) {
+      if (lowerNotes.includes(carrier)) {
+        data.carrier = carrier.toUpperCase();
+        break;
+      }
+    }
+    
+    return data;
+  };
+
+  const handleLegalize = () => {
+    if (!rawNotes.trim()) return;
+    setIsProcessing(true);
+    
+    setTimeout(() => {
+      const parsedData = parseRawNotes(rawNotes);
+      const template = LEGALIZER_TEMPLATES[selectedTemplate];
+      const formalDocument = template.template(parsedData);
+      
+      onLegalize({
+        id: `HAM-${Date.now()}`,
+        type: selectedTemplate === "option1" ? "BOOKING" : "INTERNAL",
+        rawInput: rawNotes,
+        output: formalDocument,
+        timestamp: new Date().toISOString(),
+        parsedData,
+      });
+      
+      setRawNotes("");
+      setIsProcessing(false);
+    }, 1500);
+  };
+
+  return (
+    <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
+      {/* Alpha Zero Protocol Header */}
+      <div style={{
+        background: "linear-gradient(135deg, #065f46, #047857)",
+        borderRadius: "8px",
+        padding: "16px",
+        display: "flex",
+        alignItems: "center",
+        gap: "12px",
+      }}>
+        <div style={{
+          width: "40px",
+          height: "40px",
+          background: "rgba(0,0,0,0.3)",
+          borderRadius: "50%",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+        }}>
+          <ZapIcon />
+        </div>
+        <div style={{ flex: 1 }}>
+          <h4 style={{ fontSize: "12px", fontWeight: 700 }}>ALPHA ZERO PROTOCOL ACTIVE</h4>
+          <p className="font-mono" style={{ fontSize: "10px", color: "rgba(255,255,255,0.7)" }}>
+            Container SUDU6960970 | Voice Auth: ENABLED
+          </p>
+        </div>
+        <div className="satellite-active" style={{
+          width: "12px",
+          height: "12px",
+          background: "#10b981",
+          borderRadius: "50%",
+        }} />
+      </div>
+      
+      {/* Template Selection */}
+      <div style={{ display: "flex", gap: "12px" }}>
+        <button
+          onClick={() => setSelectedTemplate("option1")}
+          style={{
+            flex: 1,
+            padding: "14px",
+            background: selectedTemplate === "option1" ? "var(--primary)" : "var(--muted)",
+            color: selectedTemplate === "option1" ? "var(--primary-foreground)" : "var(--foreground)",
+            border: "none",
+            borderRadius: "8px",
+            cursor: "pointer",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            gap: "6px",
+          }}
+        >
+          <GavelIcon />
+          <span style={{ fontSize: "11px", fontWeight: 600 }}>OPTION 1</span>
+          <span style={{ fontSize: "9px", opacity: 0.7 }}>Formal Booking</span>
+        </button>
+        <button
+          onClick={() => setSelectedTemplate("option2")}
+          style={{
+            flex: 1,
+            padding: "14px",
+            background: selectedTemplate === "option2" ? "var(--accent)" : "var(--muted)",
+            color: selectedTemplate === "option2" ? "#000" : "var(--foreground)",
+            border: "none",
+            borderRadius: "8px",
+            cursor: "pointer",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            gap: "6px",
+          }}
+        >
+          <FileIcon />
+          <span style={{ fontSize: "11px", fontWeight: 600 }}>OPTION 2</span>
+          <span style={{ fontSize: "9px", opacity: 0.7 }}>Internal Record</span>
+        </button>
+      </div>
+      
+      {/* Field Intel Pad */}
+      <div>
+        <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "8px" }}>
+          <PenIcon />
+          <span style={{ fontSize: "12px", fontWeight: 600 }}>FIELD INTEL PAD</span>
+        </div>
+        <textarea
+          value={rawNotes}
+          onChange={(e) => setRawNotes(e.target.value)}
+          placeholder="Enter raw field notes...&#10;Example: 1x40ft Sesame Seeds POL Apapa to Malaysia Maersk"
+          style={{
+            width: "100%",
+            minHeight: "120px",
+            padding: "14px",
+            background: "var(--muted)",
+            border: "1px solid var(--border)",
+            borderRadius: "8px",
+            color: "var(--foreground)",
+            fontSize: "13px",
+            fontFamily: "'JetBrains Mono', monospace",
+            resize: "vertical",
+          }}
+        />
+        <p style={{ fontSize: "10px", color: "var(--muted-foreground)", marginTop: "6px" }}>
+          AI will parse: Container size, Commodity, POL, POD, Carrier mentions
+        </p>
+      </div>
+      
+      {/* Legalize Button */}
+      <button
+        onClick={handleLegalize}
+        disabled={!rawNotes.trim() || isProcessing}
+        style={{
+          padding: "16px",
+          background: isProcessing 
+            ? "var(--muted)" 
+            : "linear-gradient(135deg, #10b981, #22d3ee)",
+          color: isProcessing ? "var(--muted-foreground)" : "#000",
+          border: "none",
+          borderRadius: "8px",
+          fontWeight: 700,
+          fontSize: "14px",
+          cursor: rawNotes.trim() && !isProcessing ? "pointer" : "not-allowed",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          gap: "10px",
+        }}
+      >
+        {isProcessing ? (
+          <>
+            <span className="animate-pulse">PROCESSING...</span>
+          </>
+        ) : (
+          <>
+            <GavelIcon /> LEGALIZE DOCUMENT
+          </>
+        )}
+      </button>
+      
+      {/* Hammer Archive */}
+      {hammerArchive.length > 0 && (
+        <div>
+          <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "12px" }}>
+            <GavelIcon />
+            <span style={{ fontSize: "12px", fontWeight: 600 }}>THE HAMMER ARCHIVE ({hammerArchive.length})</span>
+          </div>
+          <div style={{ maxHeight: "300px", overflow: "auto", display: "flex", flexDirection: "column", gap: "8px" }}>
+            {hammerArchive.map((doc) => (
+              <div
+                key={doc.id}
+                style={{
+                  background: "var(--muted)",
+                  borderRadius: "8px",
+                  padding: "12px",
+                  borderLeft: `3px solid ${doc.type === "BOOKING" ? "#10b981" : "#22d3ee"}`,
+                }}
+              >
+                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "8px" }}>
+                  <span style={{
+                    padding: "2px 6px",
+                    background: doc.type === "BOOKING" ? "rgba(16, 185, 129, 0.2)" : "rgba(34, 211, 238, 0.2)",
+                    color: doc.type === "BOOKING" ? "#10b981" : "#22d3ee",
+                    borderRadius: "4px",
+                    fontSize: "9px",
+                    fontWeight: 600,
+                  }}>
+                    {doc.type}
+                  </span>
+                  <span style={{ fontSize: "9px", color: "var(--muted-foreground)" }}>
+                    {new Date(doc.timestamp).toLocaleString("en-GB")}
+                  </span>
+                </div>
+                <pre style={{
+                  fontSize: "10px",
+                  fontFamily: "'JetBrains Mono', monospace",
+                  whiteSpace: "pre-wrap",
+                  color: "var(--foreground)",
+                  background: "rgba(0,0,0,0.3)",
+                  padding: "12px",
+                  borderRadius: "6px",
+                  maxHeight: "200px",
+                  overflow: "auto",
+                }}>
+                  {doc.output}
+                </pre>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
     </div>
   );
 }
