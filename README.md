@@ -1,111 +1,13 @@
-ATG GLOBAL OPERATING SYSTEM (ATG-OS)
+AREMO TEMMY LOGISTICS CONCEPTS is a global logistics and export execution company headquartered in Lagos, Nigeria, with an integrated international operational network.
 
-🌍 Overview
+The company operates across the full supply chain spectrum, including freight forwarding, customs clearance, warehousing, and door-to-door delivery.
 
-ATG-OS is the internal logistics control system for Aremo Temmy Group (ATG).
+With multi-region operational access (Nigeria, USA, Europe, Asia), ATG provides end-to-end cargo execution across air, sea, and land.
 
-This system transforms the company from a standard logistics operator into a centralized, CEO-controlled global execution platform.
+All shipment execution, approvals, and financial control are governed under the ATG Operating System (ATG-OS), ensuring centralized CEO-level authority, full audit traceability, and secure logistics processing.
 
----
-
-⚙️ System Architecture
-
-1. Frontend (Public Website)
-
-- Landing page
-- Request Quote interface
-- Brand visibility
-- Hosted on Vercel
-
----
-
-2. Request Engine
-
-- Captures shipment requests from clients/staff
-- Converts actions into structured shipment data
-
-Endpoint:
-
-POST /api/shipments/create
-
----
-
-3. CEO Control Layer (Authority System)
-
-- Only the CEO can approve bookings
-- All shipment decisions pass through this layer
-
-Access:
-
-/ceo
-
----
-
-4. Data Flow (Core Logic)
-
-User → Request Quote → API → Shipment Created → CEO Review → Approval
-
----
-
-5. Security Model (RBAC)
-
-Role| Email| Access
-CEO| ceo.atg@mail.com| FULL CONTROL
-Staff| staff.atghub@gmail.com| LIMITED (Create only)
-
----
-
-🔄 Synchronization Logic
-
-Every action in the system follows this structure:
-
-CREATE → STORE → REVIEW → APPROVE → EXECUTE
-
-- All requests are stored centrally
-- No booking happens without CEO approval
-- System maintains control integrity
-
----
-
-🚢 Future Expansion (Already Designed)
-
-- Carrier Intelligence Engine
-  
-  - Auto-detect vessel availability
-  - Switch between Maersk, MSC, CMA CGM
-
-- Telex Release Tracking System
-
-- Financial & Payment Integration
-
-- 24/7 Autonomous Operations
-
----
-
-🔐 System Philosophy
-
-«"Trust Nobody — Control Everything"»
-
-- CEO is the single authority
-- Staff actions are isolated and tracked
-- Full audit capability will be implemented
-
----
-
-🚀 Deployment
-
-- Hosted via Vercel
-- Auto-deploy on GitHub push
-- API routes handled via Next.js backend
-
----
-
-📌 Current System State
-
-Module| Status
-Website| ✅ Live
-Request Engine| 🔧 Active
-CEO Control| ⏭ Pending
+Chief Executive Officer:
+Anifowose Abdulqudri TemidireCEO Control| ⏭ Pending
 Staff System| ⏭ Pending
 Carrier Engine| 🚀 Planned
 
