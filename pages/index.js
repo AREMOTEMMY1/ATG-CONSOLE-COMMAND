@@ -25,85 +25,60 @@
   <h1>ATG GLOBAL CONTROL</h1>
   <div id="health">Loading health...</div>
   <div id="config">Loading config...</div>
-  <div id="shipments">Loading shipments...</div>
-  <div id="finance">Loading finance risk...</div>
 
   <script>
-    async function loadSection(endpoint, elementId, renderFn) {
+    async function loadHealth() {
       try {
-        const res = await fetch(`http://localhost:3000${endpoint}`);
-        if (!res.ok) throw new Error(`Failed to load ${endpoint}`);
+        const res = await fetch("http://localhost:3000/health");
+        if (!res.ok) throw new Error("Failed to load health");
         const data = await res.json();
-        document.getElementById(elementId).innerHTML = renderFn(data);
+        document.getElementById("health").innerHTML = `
+          <div class="card">
+            <h2>Health Status: ${data.status}</h2>
+            <p>Source: ${data.source}</p>
+            <p>Time: ${data.timestamp}</p>
+            <h3>Services</h3>
+            <ul>
+              ${Object.entries(data.services)
+                .map(([k,v]) => `<li>${k}: ${v}</li>`)
+                .join("")}
+            </ul>
+          </div>
+        `;
       } catch (err) {
-        document.getElementById(elementId).innerHTML =
-          `<p class="error">Error: ${err.message}</p>`;
+        document.getElementById("health").innerHTML =
+          "<p class='error'>Error: " + err.message + "</p>";
       }
     }
 
-    // Render functions
-    const renderHealth = (data) => `
-      <div class="card">
-        <h2>Status: ${data.status}</h2>
-        <p>Source: ${data.source}</p>
-        <p>Time: ${data.timestamp}</p>
-        <h3>Services</h3>
-        <ul>
-          ${Object.entries(data.services).map(([k,v]) => `<li>${k}: ${v}</li>`).join("")}
-        </ul>
-      </div>
-    `;
+    async function loadConfig() {
+      try {
+        const res = await fetch("http://localhost:3000/config");
+        if (!res.ok) throw new Error("Failed to load config");
+        const data = await res.json();
+        document.getElementById("config").innerHTML = `
+          <div class="card">
+            <h2>Config Version: ${data.version}</h2>
+            <p>Source: ${data.source}</p>
+            <p>Time: ${data.timestamp}</p>
+            <h3>Rules</h3>
+            <ul>${data.rules.map(r => `<li>${r}</li>`).join("")}</ul>
+            <h3>Adapters</h3>
+            <ul>${data.adapters.map(a => `<li>${a}</li>`).join("")}</ul>
+            <h3>Modes</h3>
+            <ul>${data.modes.map(m => `<li>${m}</li>`).join("")}</ul>
+          </div>
+        `;
+      } catch (err) {
+        document.getElementById("config").innerHTML =
+          "<p class='error'>Error: " + err.message + "</p>";
+      }
+    }
 
-    const renderConfig = (data) => `
-      <div class="card">
-        <h2>Config Version: ${data.version}</h2>
-        <p>Source: ${data.source}</p>
-        <p>Time: ${data.timestamp}</p>
-        <h3>Rules</h3>
-        <ul>${data.rules.map(r => `<li>${r}</li>`).join("")}</ul>
-        <h3>Adapters</h3>
-        <ul>${data.adapters.map(a => `<li>${a}</li>`).join("")}</ul>
-        <h3>Modes</h3>
-        <ul>${data.modes.map(m => `<li>${m}</li>`).join("")}</ul>
-      </div>
-    `;
-
-    const renderShipments = (list) => `
-      <div class="card">
-        <h2>Shipments</h2>
-        <ul>
-          ${list.map(s => `
-            <li>
-              Ref: ${s.atgRef}, Carrier: ${s.carrier}, Status: ${s.status}
-            </li>`).join("")}
-        </ul>
-      </div>
-    `;
-
-    const renderFinance = (data) => `
-      <div class="card">
-        <h2>Finance Risk</h2>
-        <p>Status: ${data.status}</p>
-        <p>Source: ${data.source}</p>
-        <p>Time: ${data.timestamp}</p>
-        <h3>Ledger</h3>
-        <ul>
-          <li>Pending: ${data.ledger.pending}</li>
-          <li>Verified: ${data.ledger.verified}</li>
-          <li>Committed: ${data.ledger.committed}</li>
-          <li>Settled: ${data.ledger.settled}</li>
-          <li>At Risk: ${data.ledger.atRisk}</li>
-          <li>Blocked: ${data.ledger.blocked}</li>
-        </ul>
-      </div>
-    `;
-
-    // Load all sections once
-    loadSection("/health", "health", renderHealth);
-    loadSection("/config", "config", renderConfig);
-    loadSection("/shipments", "shipments", renderShipments);
-    loadSection("/finance-risk", "finance", renderFinance);
+    // Run both once
+    loadHealth();
+    loadConfig();
   </script>
 </body>
 </html>
-            
+    
