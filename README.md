@@ -1,17 +1,17 @@
+# ATG-CONSOLE-COMMAND
+
+ATG Console Command is a Next.js-based control dashboard with API endpoints for system status and system configuration.
+
+## Project Structure
+
+```text
 ATG-CONSOLE-COMMAND/
-├── backend/
-│   ├── openapi/
-│   │   └── atg-spec.yaml        # Full OpenAPI 3.1 spec
-│   ├── fastify/
-│   │   └── atg-server.js        # Fastify route stubs
-│   └── package.json
-├── frontend/
-│   ├── src/                     # Your existing React/Next.js code
-│   └── package.json
-├── docs/
-│   └── integration-guide.md     # Live Stack Integration Guide
-├── README.md                    # Updated with Aremo Temmy Group identity
-└── .github/
-    └── workflows/
-        └── ci.yml               # CI/CD pipeline
-        
+├── pages/
+│   ├── index.js
+│   └── api/
+│       ├── config.js
+│       └── status.js
+├── next.config.js
+├── package.json
+├── tsconfig.json
+└── README.md
