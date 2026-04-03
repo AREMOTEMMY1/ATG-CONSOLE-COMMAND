@@ -27,58 +27,43 @@
   <div id="config">Loading config...</div>
 
   <script>
-    async function loadHealth() {
+    // Generic loader
+    async function loadSection(endpoint, elementId, renderFn) {
       try {
-        const res = await fetch("http://localhost:3000/health");
-        if (!res.ok) throw new Error("Failed to load health");
+        const res = await fetch(`http://localhost:3000${endpoint}`);
+        if (!res.ok) throw new Error(`Failed to load ${endpoint}`);
         const data = await res.json();
-        document.getElementById("health").innerHTML = `
-          <div class="card">
-            <h2>Health Status: ${data.status}</h2>
-            <p>Source: ${data.source}</p>
-            <p>Time: ${data.timestamp}</p>
-            <h3>Services</h3>
-            <ul>
-              ${Object.entries(data.services)
-                .map(([k,v]) => `<li>${k}: ${v}</li>`)
-                .join("")}
-            </ul>
-          </div>
-        `;
+        document.getElementById(elementId).innerHTML = renderFn(data);
       } catch (err) {
-        document.getElementById("health").innerHTML =
-          "<p class='error'>Error: " + err.message + "</p>";
+        document.getElementById(elementId).innerHTML =
+          `<p class="error">Error: ${err.message}</p>`;
       }
     }
 
-    async function loadConfig() {
-      try {
-        const res = await fetch("http://localhost:3000/config");
-        if (!res.ok) throw new Error("Failed to load config");
-        const data = await res.json();
-        document.getElementById("config").innerHTML = `
-          <div class="card">
-            <h2>Config Version: ${data.version}</h2>
-            <p>Source: ${data.source}</p>
-            <p>Time: ${data.timestamp}</p>
-            <h3>Rules</h3>
-            <ul>${data.rules.map(r => `<li>${r}</li>`).join("")}</ul>
-            <h3>Adapters</h3>
-            <ul>${data.adapters.map(a => `<li>${a}</li>`).join("")}</ul>
-            <h3>Modes</h3>
-            <ul>${data.modes.map(m => `<li>${m}</li>`).join("")}</ul>
-          </div>
-        `;
-      } catch (err) {
-        document.getElementById("config").innerHTML =
-          "<p class='error'>Error: " + err.message + "</p>";
-      }
-    }
+    // Renderers
+    const renderHealth = (d) => `
+      <div class="card">
+        <h2>Health Status: ${d.status}</h2>
+        <p>Source: ${d.source}</p>
+        <p>Time: ${d.timestamp}</p>
+        <h3>Services</h3>
+        <ul>${Object.entries(d.services).map(([k,v]) => `<li>${k}: ${v}</li>`).join("")}</ul>
+      </div>
+    `;
 
-    // Run both once
-    loadHealth();
-    loadConfig();
+    const renderConfig = (d) => `
+      <div class="card">
+        <h2>Config Version: ${d.version}</h2>
+        <h3>Rules</h3><ul>${d.rules.map(r => `<li>${r}</li>`).join("")}</ul>
+        <h3>Adapters</h3><ul>${d.adapters.map(a => `<li>${a}</li>`).join("")}</ul>
+        <h3>Modes</h3><ul>${d.modes.map(m => `<li>${m}</li>`).join("")}</ul>
+      </div>
+    `;
+
+    // Load both sections once
+    loadSection("/health", "health", renderHealth);
+    loadSection("/config", "config", renderConfig);
   </script>
 </body>
 </html>
-    
+                                
