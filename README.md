@@ -1,6 +1,80 @@
+
+AREMOTEMMY1
+ATG-CONSOLE-COMMAND
+Repository navigation
+Code
+Issues
+4
+ (4)
+Pull requests
+Actions
+Projects
+Wiki
+Security and quality
+Insights
+Settings
+Commit 8f9c6c6
+AREMOTEMMY1
+AREMOTEMMY1
+authored
+1 minute ago
+·
+·
+Verified
+Update README.md
+main
+1 parent 
+f0e2669
+ commit 
+8f9c6c6
+File tree
+Filter files…
+README.md
+1 file changed
++123
+-48
+lines changed
+Search within code
+ 
+‎README.md‎
++123
+-48
+Lines changed: 123 additions & 48 deletions
+
+
+Original file line number	Diff line number	Diff line change
+@@ -1,48 +1,123 @@
+AREMO TEMMY LOGISTICS CONCEPTS is a global logistics and export execution company headquartered in Lagos, Nigeria, with an integrated international operational network.
+The company operates across the full supply chain spectrum, including freight forwarding, customs clearance, warehousing, and door-to-door delivery.
+With multi-region operational access (Nigeria, USA, Europe, Asia), ATG provides end-to-end cargo execution across air, sea, and land.
+All shipment execution, approvals, and financial control are governed under the ATG Operating System (ATG-OS), ensuring centralized CEO-level authority, full audit traceability, and secure logistics processing.
+Chief Executive Officer:
+Anifowose Abdulqudri TemidireCEO Control| ⏭ Pending
+Staff System| ⏭ Pending
+Carrier Engine| 🚀 Planned
+---
+🧠 Final Note
+ATG-OS is not just a website.
+It is a logistics command system designed to:
+- eliminate dependency
+- increase control
+- scale globally
+---
+---
+👑 CEO Authority Layer
+All shipment operations are controlled under a single-authority model.
+- No shipment can be executed without CEO approval
+- All requests remain in "PENDING" state until approved
+- CEO has full visibility over all system activity
+Approval Flow:
+REQUEST CREATED → PENDING → CEO APPROVES → EXECUTION READY
+Access Control:
+- CEO: Full system access
+- Staff: Request creation only
+- No shared visibility between staff accounts
+---
 import React, { useState, useEffect } from 'react';
 import Head from 'next/head';
-
 const ATGEmpireOS = () => {
   const [time, setTime] = useState('');
   
@@ -12,7 +86,6 @@ const ATGEmpireOS = () => {
     }, 1000);
     return () => clearInterval(timer);
   }, []);
-
   const layers = [
     { id: 'L1', name: 'COMMAND CORE', desc: 'ATG OS Dashboard & Entity Management', status: 'ONLINE', color: 'border-green-500', text: 'text-green-500' },
     { id: 'L2', name: 'FINANCIAL ENGINE', desc: 'Banks + Crypto + Payment Rails', status: 'ACTIVE', color: 'border-purple-500', text: 'text-purple-500' },
@@ -21,14 +94,12 @@ const ATGEmpireOS = () => {
     { id: 'L5', name: 'DOCUMENT VAULT', desc: 'Digital Trade Intelligence', status: 'SECURED', color: 'border-red-500', text: 'text-red-500' },
     { id: 'L6', name: 'API HUB', desc: 'Multi-Integration System', status: 'SYNCED', color: 'border-cyan-400', text: 'text-cyan-400' },
   ];
-
   return (
     <div className="min-h-screen bg-[#05070a] text-gray-300 p-4 md:p-8 font-sans selection:bg-emerald-500/30">
       <Head>
         <title>ATG EMPIRE | GLOBAL OS v2.0</title>
         <meta name="robots" content="noindex, nofollow" /> {/* Protocol Zero Zero Security */}
       </Head>
-
       {/* TOP NAVIGATION BAR */}
       <nav className="flex flex-wrap items-center justify-between mb-12 gap-6 border-b border-gray-800/50 pb-6">
         <div className="flex items-center gap-5">
@@ -38,7 +109,6 @@ const ATGEmpireOS = () => {
             <p className="text-[10px] text-gray-500 uppercase tracking-[0.3em] font-bold">Global Trade + Finance + Logistics OS</p>
           </div>
         </div>
-
         <div className="flex items-center gap-3">
           <StatBox val="6" label="LAYERS" color="text-cyan-400" />
           <StatBox val="6" label="SATELLITES" color="text-purple-400" />
@@ -47,14 +117,12 @@ const ATGEmpireOS = () => {
             <span className="text-emerald-400 font-mono font-bold text-lg">{time || '00:00:00'}</span>
             <span className="text-[9px] text-gray-500 font-bold uppercase">Apr 3, 2026</span>
           </div>
-
           <div className="hidden md:flex items-center gap-3 bg-emerald-500/10 border border-emerald-500/20 px-4 py-2 rounded-xl">
             <div className="w-2 h-2 bg-emerald-500 rounded-full animate-pulse shadow-[0_0_10px_#10b981]"></div>
             <span className="text-emerald-500 text-[10px] font-black uppercase tracking-widest">Empire Online</span>
           </div>
         </div>
       </nav>
-
       {/* ARCHITECTURE GRID */}
       <main className="max-w-6xl mx-auto bg-[#0d1117] rounded-3xl border border-gray-800 shadow-2xl p-8">
         <div className="flex justify-between items-center mb-10 border-b border-gray-800 pb-6">
@@ -69,7 +137,6 @@ const ATGEmpireOS = () => {
             <span className="text-[9px] font-black text-emerald-500 uppercase">All Systems Operational</span>
           </div>
         </div>
-
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
           {layers.map((l) => (
             <div key={l.id} className={`group bg-[#161b22] p-6 rounded-2xl border-l-4 ${l.color} hover:bg-[#1c2128] transition-all cursor-pointer border border-transparent hover:border-gray-700`}>
@@ -89,7 +156,6 @@ const ATGEmpireOS = () => {
           ))}
         </div>
       </main>
-
       {/* FOOTER NODES */}
       <div className="max-w-6xl mx-auto mt-10">
         <h3 className="text-[10px] font-black text-gray-600 mb-4 tracking-[0.4em] uppercase">Empire Status Nodes</h3>
@@ -112,12 +178,10 @@ const ATGEmpireOS = () => {
     </div>
   );
 };
-
 const StatBox = ({ val, label, color }) => (
   <div className="bg-[#12161d] px-4 py-2 rounded-xl border border-gray-800 flex flex-col items-center min-w-[90px]">
     <span className={`${color} font-black text-lg leading-tight`}>{val}</span>
     <span className="text-[8px] text-gray-500 font-black tracking-tighter uppercase">{label}</span>
   </div>
 );
-
 export default ATGEmpireOS;
