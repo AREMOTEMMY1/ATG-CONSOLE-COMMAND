@@ -57,12 +57,7 @@ export default function Home() {
           Live system dashboard
         </p>
 
-        <div
-          style={{
-            display: "grid",
-            gap: "20px",
-          }}
-        >
+        <div style={{ display: "grid", gap: "20px" }}>
           <section
             style={{
               background: "#141b34",
@@ -84,6 +79,10 @@ export default function Home() {
                 </p>
                 <p>
                   <strong>Timestamp:</strong> {statusData.timestamp || "N/A"}
+                </p>
+                <p>
+                  <strong>Uptime:</strong>{" "}
+                  {statusData.uptime != null ? statusData.uptime : "N/A"}
                 </p>
 
                 {statusData.services && (
@@ -117,20 +116,19 @@ export default function Home() {
             ) : !configData ? (
               <p>Loading config...</p>
             ) : (
-              <ul>
-                {Object.entries(configData).map(([key, value]) => (
-                  <li key={key}>
-                    <strong>{key}:</strong>{" "}
-                    {typeof value === "object"
-                      ? JSON.stringify(value)
-                      : String(value)}
-                  </li>
-                ))}
-              </ul>
+              <pre
+                style={{
+                  whiteSpace: "pre-wrap",
+                  wordBreak: "break-word",
+                  margin: 0,
+                }}
+              >
+                {JSON.stringify(configData, null, 2)}
+              </pre>
             )}
           </section>
         </div>
       </div>
     </div>
   );
-      }
+                              }
