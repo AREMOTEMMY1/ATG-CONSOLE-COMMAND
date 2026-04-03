@@ -7,7 +7,9 @@ export default function Home() {
   useEffect(() => {
     fetch("/api/health")
       .then((res) => {
-        if (!res.ok) throw new Error("Failed to load system");
+        if (!res.ok) {
+          throw new Error("Failed to load system");
+        }
         return res.json();
       })
       .then((data) => setHealth(data))
@@ -35,13 +37,4 @@ export default function Home() {
 
           <h3>Modules</h3>
           <ul>
-            <li>API: {health.modules.api}</li>
-            <li>Tracking: {health.modules.tracking}</li>
-            <li>Finance: {health.modules.finance}</li>
-            <li>Database: {health.modules.database}</li>
-          </ul>
-        </div>
-      )}
-    </main>
-  );
-      }
+            <li>API: {health
