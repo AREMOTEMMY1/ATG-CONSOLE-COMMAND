@@ -1,15 +1,8 @@
-{
-  "name": "atg-console-command",
-  "version": "2.0.0",
-  "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start"
-  },
-  "dependencies": {
-    "next": "14.1.0",
-    "react": "^18",
-    "react-dom": "^18"
-  }
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  reactStrictMode: true,
+  swcMinify: true,
+  poweredByHeader: false,
 }
+
+module.exports = nextConfig
