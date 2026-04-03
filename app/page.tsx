@@ -1,37 +1,34 @@
 export default function Home() {
   return (
-    <div style={{ padding: 40, color: "white", background: "#0b0f1a", minHeight: "100vh" }}>
-      <h1>ATG EMPIRE OS</h1>
-      <p>System Fully Live</p>
+    <main style={{
+      background: "#020617",
+      color: "white",
+      minHeight: "100vh",
+      padding: "40px",
+      fontFamily: "Arial"
+    }}>
+      <h1 style={{ fontSize: "32px", fontWeight: "bold" }}>
+        ATG GLOBAL CONTROL
+      </h1>
 
-      <button
-        onClick={async () => {
-          const res = await fetch("/api/track", {
-            method: "POST",
-            body: JSON.stringify({
-              bl: [
-                "265396574",
-                "266448268",
-                "265396660",
-                "265589588",
-                "265401591"
-              ]
-            })
-          });
+      <p style={{ marginTop: "20px" }}>
+        Contract 300074142 ACTIVE
+      </p>
 
-          const data = await res.json();
-          alert(JSON.stringify(data, null, 2));
-        }}
-        style={{
-          padding: "12px 20px",
-          background: "green",
-          border: "none",
-          color: "white",
-          cursor: "pointer"
-        }}
-      >
-        TRACK SHIPMENT
+      <p>
+        Financial Risk: ₦88,477.25
+      </p>
+
+      <button style={{
+        marginTop: "20px",
+        padding: "12px 20px",
+        background: "red",
+        border: "none",
+        color: "white",
+        borderRadius: "6px"
+      }}>
+        CLEAR INVOICES
       </button>
-    </div>
+    </main>
   );
 }
