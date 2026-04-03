@@ -1,40 +1,62 @@
-import { useEffect, useState } from "react";
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>ATG GLOBAL CONTROL</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #002617;
+      color: #fff;
+      margin: 0;
+      padding: 24px;
+    }
+    h1 {
+      color: #00ff99;
+    }
+    .error {
+      color: red;
+    }
+    .card {
+      background: #013322;
+      padding: 16px;
+      border-radius: 8px;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>ATG GLOBAL CONTROL</h1>
+  <div id="output">Loading system...</div>
 
-export default function Home() {
-  const [health, setHealth] = useState(null);
-  const [error, setError] = useState("");
+  <script>
+    async function loadHealth() {
+      try {
+        const res = await fetch("http://localhost:3000/health");
+        if (!res.ok) throw new Error("Failed to load system");
+        const data = await res.json();
 
-  useEffect(() => {
-    fetch("/api/health")
-      .then((res) => {
-        if (!res.ok) {
-          throw new Error("Failed to load system");
-        }
-        return res.json();
-      })
-      .then((data) => setHealth(data))
-      .catch((err) => setError(err.message));
-  }, []);
+        document.getElementById("output").innerHTML = `
+          <div class="card">
+            <h2>Status: ${data.status}</h2>
+            <p>Source: ${data.source}</p>
+            <p>Time: ${data.timestamp}</p>
+            <h3>Services</h3>
+            <ul>
+              ${Object.entries(data.services)
+                .map(([k,v]) => `<li>${k}: ${v}</li>`)
+                .join("")}
+            </ul>
+          </div>
+        `;
+      } catch (err) {
+        document.getElementById("output").innerHTML =
+          "<p class='error'>Error: " + err.message + "</p>";
+      }
+    }
 
-  return (
-    <main style={{
-      minHeight: "100vh",
-      background: "#020617",
-      color: "#fff",
-      padding: "24px"
-    }}>
-      <h1>ATG GLOBAL CONTROL</h1>
-
-      {error && <p style={{ color: "red" }}>Error: {error}</p>}
-
-      {!health && !error && <p>Loading system...</p>}
-
-      {health && (
-        <div>
-          <h2>Status: {health.status}</h2>
-          <p>Service: {health.service}</p>
-          <p>Time: {health.timestamp}</p>
-
-          <h3>Modules</h3>
-          <ul>
-            <li>API: {health
+    loadHealth();
+  </script>
+</body>
+</html>
+    
