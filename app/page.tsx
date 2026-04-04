@@ -1,5 +1,4 @@
 export default function Home() {
-  // Static data so we bypass the 404 API error for now
   const data = {
     treasury: { bybit: 12500, binance: 8400, reserve: 5000 },
     risk: { outstandingNGN: 88477.25 },
@@ -7,8 +6,16 @@ export default function Home() {
   };
 
   return (
-    <main style={{ background: "#020617", color: "white", minHeight: "100vh", padding: "20px", fontFamily: "monospace" }}>
-      <h1 style={{ color: "#38bdf8", borderBottom: "1px solid #1e293b", paddingBottom: "10px" }}>ATG GLOBAL CONTROL v1.0</h1>
+    <main style={{ 
+      background: "#020617", 
+      color: "white", 
+      minHeight: "100vh", 
+      padding: "20px", 
+      fontFamily: "monospace" 
+    }}>
+      <h1 style={{ color: "#38bdf8", borderBottom: "1px solid #1e293b", paddingBottom: "10px" }}>
+        ATG GLOBAL CONTROL v1.0
+      </h1>
       
       <div style={{ marginTop: "20px", padding: "15px", background: "#0f172a", borderRadius: "10px", border: "1px solid #334155" }}>
         <h3 style={{ color: "#4ade80", margin: "0 0 10px 0" }}>💰 TREASURY (ENGINE B)</h3>
@@ -26,7 +33,16 @@ export default function Home() {
       <div style={{ marginTop: "20px", padding: "15px", background: "#450a0a", borderRadius: "10px", border: "1px solid #f87171" }}>
         <h3 style={{ color: "#f87171", margin: "0 0 10px 0" }}>⚠️ RISK MANAGEMENT</h3>
         <p>OUTSTANDING: ₦{data.risk.outstandingNGN.toLocaleString()}</p>
-        <button style={{ background: "#ef4444", color: "white", border: "none", padding: "12px", width: "100%", borderRadius: "5px", fontWeight: "bold", marginTop: "10px" }}>
+        <button style={{ 
+          background: "#ef4444", 
+          color: "white", 
+          border: "none", 
+          padding: "12px", 
+          width: "100%", 
+          borderRadius: "5px", 
+          fontWeight: "bold", 
+          marginTop: "10px" 
+        }}>
           CLEAR INVOICES
         </button>
       </div>
@@ -36,4 +52,4 @@ export default function Home() {
       </footer>
     </main>
   );
-      }
+}
