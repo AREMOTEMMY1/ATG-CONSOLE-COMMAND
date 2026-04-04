@@ -1,91 +1,66 @@
-import React, { useState } from 'react';
-import { Shield, Brain, Wallet, Ship, AlertTriangle, CheckCircle, Search, Cpu, Globe } from 'lucide-react';
+"use client";
+import React, { useState, useEffect } from 'react';
 
-export default function ATGHub() {
-  const [financialRisk, setFinancialRisk] = useState(88477.25);
-  const [searchQuery, setSearchQuery] = useState("");
-  const [deepInsight, setDeepInsight] = useState("");
-  const [isSearching, setIsSearching] = useState(false);
+const StatBox = ({ val, label, color }) => (
+  <div className="bg-[#12161d] px-4 py-2 rounded-xl border border-gray-800 flex flex-col items-center min-w-[90px]">
+    <span className={`${color} font-black text-lg leading-tight`}>{val}</span>
+    <span className="text-[8px] text-gray-500 font-black tracking-tighter uppercase">{label}</span>
+  </div>
+);
 
-  // --- SOVEREIGN INTEL DATA BRIDGE (From CEO Email) ---
-  const sovereignDatabase = {
-    "maersk": "INTEL: Contract 300074142 (Maersk) is under review. Deep Search suggests switching to MSC for Lagos-Antwerp to save 12% on freight.",
-    "risk": "FINANCIAL SCAN: ₦88,477.25 identified as pending Clearing Agent fees from the March 28 vessel arrival. Suggest clearing to restore credit line.",
-    "antwerp": "ROUTE ANALYSIS: Antwerp port congestion is at 14%. Suggesting 3-day delay on next vessel to save ₦215,000 in demurrage costs.",
-    "lagos": "LOGISTICS: Lagos Port (Apapa) showing 48-hour gate-in delay. All current drafts updated to reflect 'Priority' status."
-  };
+export default function ATGEmpireOS() {
+  const [time, setTime] = useState('');
 
-  const handleDeepSearch = (query) => {
-    setSearchQuery(query);
-    const lowerQuery = query.toLowerCase();
-    
-    if (query.length > 2) {
-      setIsSearching(true);
-      setTimeout(() => {
-        // Triggering the specific info from CEO instructions
-        const match = Object.keys(sovereignDatabase).find(key => lowerQuery.includes(key));
-        setDeepInsight(match ? sovereignDatabase[match] : `SEARCHING SOVEREIGN LOGS... No external anomalies for '${query}'. System stable.`);
-        setIsSearching(false);
-      }, 600);
-    } else {
-      setDeepInsight("");
-    }
-  };
+  useEffect(() => {
+    const timer = setInterval(() => {
+      const now = new Date();
+      setTime(now.toLocaleTimeString('en-GB', { hour12: false }));
+    }, 1000);
+    return () => clearInterval(timer);
+  }, []);
+
+  const layers = [
+    { id: 'L1', name: 'COMMAND CORE', desc: 'ATG OS Dashboard & Entity Management', status: 'ONLINE', color: 'border-emerald-500', text: 'text-emerald-500' },
+    { id: 'L2', name: 'FINANCIAL ENGINE', desc: 'Banks + Crypto + Payment Rails', status: 'ACTIVE', color: 'border-purple-500', text: 'text-purple-500' },
+    { id: 'L3', name: 'LOGISTICS ENGINE', desc: 'SEA + AIR + LAND Networks', status: 'LIVE', color: 'border-blue-400', text: 'text-blue-400' },
+    { id: 'L4', name: 'TRADE NETWORK', desc: 'Global Buyers & Suppliers CRM', status: 'CONNECTED', color: 'border-orange-400', text: 'text-orange-400' },
+    { id: 'L5', name: 'DOCUMENT VAULT', desc: 'Digital Trade Intelligence', status: 'SECURED', color: 'border-red-500', text: 'text-red-500' },
+    { id: 'L6', name: 'API HUB', desc: 'Multi-Integration System', status: 'SYNCED', color: 'border-cyan-400', text: 'text-cyan-400' },
+  ];
 
   return (
-    <div className="min-h-screen bg-[#020408] text-slate-200 p-4 md:p-8 font-sans selection:bg-blue-500/30">
-      {/* CEO COMMAND HEADER */}
-      <header className="flex flex-col md:flex-row justify-between items-start md:items-center mb-12 border-b border-slate-800/50 pb-8 gap-6">
-        <div className="space-y-1">
-          <div className="flex items-center gap-2">
-            <div className="w-2 h-2 bg-blue-500 rounded-full animate-pulse" />
-            <h1 className="text-4xl font-black tracking-tighter text-white italic">ATG HUB</h1>
+    <div className="min-h-screen bg-[#0a0c10] text-gray-300 font-sans p-4">
+      <nav className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center mb-10 gap-6">
+        <div className="flex items-center gap-5">
+          <div className="bg-emerald-500 text-black font-black p-3 rounded-2xl text-xl">ATG</div>
+          <div>
+            <h1 className="text-2xl font-black text-white uppercase">ATG EMPIRE</h1>
+            <p className="text-[10px] text-gray-500 font-black tracking-widest uppercase">Global Logistics OS v2.0</p>
           </div>
-          <p className="text-slate-500 text-[10px] font-mono uppercase tracking-[0.3em]">Oscar Kilo Force Lima Yankee // Active</p>
         </div>
-        
-        {/* DEEP SEARCH ENGINE */}
-        <div className="relative w-full md:w-[450px]">
-          <div className="absolute inset-y-0 left-4 flex items-center">
-            {isSearching ? <Cpu className="w-4 h-4 text-blue-500 animate-spin" /> : <Search className="w-4 h-4 text-slate-500" />}
+        <div className="flex items-center gap-3">
+          <StatBox val="6" label="SATELLITES" color="text-purple-400" />
+          <div className="bg-[#12161d] px-5 py-2 rounded-xl border border-gray-800 flex flex-col items-center">
+            <span className="text-emerald-400 font-mono font-bold text-lg">{time || '00:00:00'}</span>
+            <span className="text-[9px] text-gray-500 font-bold uppercase">APR 4, 2026</span>
           </div>
-          <input 
-            type="text"
-            placeholder="DEEP SEARCH: Lagos, Maersk, Risk..."
-            className="w-full bg-slate-900/50 border border-slate-800 rounded-xl py-3 pl-12 pr-4 text-sm focus:border-blue-500/50 focus:bg-slate-900 outline-none transition-all placeholder:text-slate-700 shadow-2xl"
-            value={searchQuery}
-            onChange={(e) => handleDeepSearch(e.target.value)}
-          />
-          {deepInsight && (
-            <div className="absolute top-14 left-0 w-full bg-blue-600 border border-blue-400 p-4 rounded-xl text-xs text-white font-bold animate-in zoom-in-95 duration-200 z-50 shadow-[0_0_30px_rgba(37,99,235,0.3)]">
-              <div className="flex items-start gap-3">
-                <Brain className="w-5 h-5 shrink-0" />
-                <p className="leading-relaxed italic">"{deepInsight}"</p>
+        </div>
+      </nav>
+
+      <main className="max-w-6xl mx-auto bg-[#0d1117] rounded-3xl border border-gray-800 p-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {layers.map((l) => (
+            <div key={l.id} className={`bg-[#161b22] p-6 rounded-2xl border-l-4 ${l.color} border border-transparent hover:border-gray-700 transition-all`}>
+              <div className="flex items-center justify-between mb-4">
+                <span className={`text-[11px] font-black px-2 py-0.5 rounded-md ${l.text} bg-white/5`}>{l.id}</span>
+                <h3 className="font-bold text-white text-base">{l.name}</h3>
               </div>
+              <p className="text-xs text-gray-500 mb-4">{l.desc}</p>
+              <div className={`text-[10px] font-black uppercase ${l.text}`}>{l.status}</div>
             </div>
-          )}
+          ))}
         </div>
-      </header>
-
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-        {/* OPERATIONS SECTION */}
-        <div className="group bg-slate-900/30 border border-slate-800/50 rounded-2xl p-6 hover:bg-slate-900/50 transition-all cursor-pointer">
-          <div className="flex items-center justify-between mb-8">
-            <div className="p-3 bg-blue-500/10 rounded-lg text-blue-500"><Ship size={24}/></div>
-            <div className="text-[10px] font-bold text-slate-500 uppercase tracking-widest">Sovereign Ops</div>
-          </div>
-          <h2 className="text-xl font-bold mb-4">Operations Engine</h2>
-          <div className="p-4 bg-black/40 rounded-xl border border-slate-800 mb-4">
-            <p className="text-[10px] text-slate-500 uppercase mb-2">Primary Carrier</p>
-            <div className="flex justify-between items-end">
-              <span className="text-2xl font-mono text-white tracking-tighter">MAERSK</span>
-              <span className="text-[10px] text-green-500 font-bold mb-1">CONTRACT VALID</span>
-            </div>
-          </div>
-        </div>
-
-        {/* INTELLIGENCE SECTION */}
-        <div className="group bg-slate-900/30 border border-slate-800/50 rounded-2xl p-6 hover:bg-slate-900/50 transition-all border-l-purple-500/50 border-l-2">
-          <div className="flex items-center justify-between mb-8">
-            <div className="p-3 bg-purple-500/10 rounded-lg text-purple-500"><Brain size={24}/></div>
-            <div className="text-[10px
+      </main>
+    </div>
+  );
+}
