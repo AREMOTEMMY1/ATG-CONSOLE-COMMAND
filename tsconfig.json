@@ -1,13 +1,18 @@
-export default function handler(req, res) {
-  return res.status(200).json({
-    status: "HEALTHY",
-    timestamp: new Date().toISOString(),
-    uptime: process.uptime(),
-    services: {
-      financeEngine: "VERIFIED",
-      carrierEngine: "CONNECTED",
-      queueWorker: "ACTIVE",
-      dashboard: "RESPONSIVE",
-    },
-  });
+{
+  "compilerOptions": {
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": false,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "incremental": true,
+    "plugins": [{ "name": "next" }]
+  },
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "exclude": ["node_modules"]
 }
